@@ -1,5 +1,5 @@
 {
-  "name": "Beauty Scrapper",
+  "name": "node-js-getting-started",
   "version": "0.2.6",
   "description": "Scrapping the beauty",
   "engines": {
@@ -29,5 +29,5 @@
     "node",
     "scrapping"
   ],
-  "license": "Jonathan Meguira"
+  "license": "MIT"
 }

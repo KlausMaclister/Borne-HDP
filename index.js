@@ -21,12 +21,10 @@ app.get('/visage', function (request, response) {
         if (err) {
             throw err;
         }
-        const json = JSON.parse(data);
-        for (var u = 0; u < json.length; u++) {
-            scrpr.getProducts(json[u], 'soinsVisage.json').then(function (d) {
-                bigArray.push(d);
-            })
-            if (u === 37){
+        const jsonV = JSON.parse(data);
+        for (var u = 1; u < jsonV.length; u++) {
+            scrpr.getVisage(jsonV[u], 'soinsVisage.json')
+            if (u === 39){
                 response.send(bigArray);
             }
         }
@@ -37,13 +35,11 @@ app.get('/parfums', function (request, response) {
         if (err) {
             throw err;
         }
-        const json = JSON.parse(data);
-        for (var u = 0; u < json.length; u++) {
-            scrpr.getProducts(json[u], 'parfums.json').then(function (d) {
-                // in process
-            })
-            if (u === 37){
-                response.send('finito')
+        const jsonP = JSON.parse(data);
+        for (var u = 1; u < jsonP.length; u++) {
+            scrpr.getParfums(jsonP[u], 'parfums.json')
+            if (u === 41){
+                response.send('finished')
             }
         }
     });
