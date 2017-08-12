@@ -4,7 +4,15 @@ var scrpr = require('./lib/scrpr');
 var urlScrapr = require('./lib/product_scraper');
 var request = require('request');
 var fs = require('fs');
-var cheerio = require('cheerio');
+
+app.all('*', function (req, res, next) {
+    var origin = req.get('origin');
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header("Access-Control-Allow-Methods", "GET, PUT, POST, OPTIONS");
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
+    return next();
+});
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
