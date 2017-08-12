@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
 var scrpr = require('./lib/scrpr');
+var urlScrapr = require('./lib/product_scraper');
+var request = require('request');
 var fs = require('fs');
+var cheerio = require('cheerio');
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
@@ -24,7 +27,7 @@ app.get('/visage', function (request, response) {
         const jsonV = JSON.parse(data);
         for (var u = 1; u < jsonV.length; u++) {
             scrpr.getVisage(jsonV[u], 'soinsVisage.json')
-            if (u === 39){
+            if (u === 39) {
                 response.send(bigArray);
             }
         }
@@ -38,12 +41,20 @@ app.get('/parfums', function (request, response) {
         const jsonP = JSON.parse(data);
         for (var u = 1; u < jsonP.length; u++) {
             scrpr.getParfums(jsonP[u], 'parfums.json')
-            if (u === 41){
+            if (u === 41) {
                 response.send('finished')
             }
         }
     });
 });
+app.get('/price', (request, response) => {
+
+    const url = request.query.url;
+    urlScrapr.scrapUrl(url).then((product) => {
+        response.send(product);
+    })
+
+})
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
 });
