@@ -4,6 +4,7 @@ var scrpr = require('./lib/scrpr');
 var urlScrapr = require('./lib/product_scraper');
 var request = require('request');
 var fs = require('fs');
+var brandScraper = require('./lib/brandScraper');
 
 app.all('*', function (req, res, next) {
     var origin = req.get('origin');
@@ -63,6 +64,12 @@ app.get('/price', (request, response) => {
     })
 
 })
+app.get('/brands', (request, response) => {
+    brandScraper.scrapeBrands().then((brands) => {
+        response.send(brands);
+    })
+});
+
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
 });
