@@ -71,11 +71,14 @@ app.get('/allbrandsParfum', function (request, response) {
         if (err) {
             throw err;
         }
-        const jsonP = JSON.parse(data);
-        console.log(jsonP)
-        for (var u = 1; u < jsonP.length; u++) {
-            var destination = 'brands/parfums/'+jsonP[u].name+'.json';
-            scrpr.getParfums(jsonP[u].url, destination);
+        const jsonPB = JSON.parse(data);
+        console.log(jsonPB)
+        for (var u = 1; u < jsonPB.length; u++) {
+            scrpr.getParfums(jsonPB[u].url, 'brands/parfums/'+jsonPB[u].name+'.json');
+            if (u === jsonPB.length - 1){
+                response.send('stoped');
+                return;
+            }
         }
     });
 });
@@ -85,11 +88,10 @@ app.get('/allBrandsVisage', function (request, response) {
         if (err) {
             throw err;
         }
-        const jsonP = JSON.parse(data);
-        console.log(jsonP)
-        for (var u = 1; u < jsonP.length; u++) {
-            var destination = 'brands/visage/'+jsonP[u].name+'.json';
-            scrpr.getVisage(jsonP[u].url, destination);
+        const jsonVB = JSON.parse(data);
+        console.log(jsonVB)
+        for (var u = 1; u < jsonVB.length; u++) {
+            scrpr.getVisage(jsonVB[u].url, 'brands/visage/'+jsonVB[u].name+'.json');
         }
     });
 });
