@@ -56,18 +56,42 @@ app.get('/parfums', function (request, response) {
         }
     });
 });
-app.get('/price', (request, response) => {
-
-    const url = request.query.url;
-    urlScrapr.scrapUrl(url).then((product) => {
-        response.send(product);
-    })
-
-})
-app.get('/brands', (request, response) => {
-    brandScraper.scrapeBrands().then((brands) => {
+app.get('/parfumBrands', (request, response) => {
+    brandScraper.scrapeBrandObjects('parfum').then((brands) => {
         response.send(brands);
     })
+});
+app.get('/visageBrands', (request, response) => {
+    brandScraper.scrapeBrandObjects('visage').then((brands) => {
+        response.send(brands);
+    })
+});
+app.get('/allbrandsParfum', function (request, response) {
+    fs.readFile('brands/parfums.brands.json', function read(err, data) {
+        if (err) {
+            throw err;
+        }
+        const jsonP = JSON.parse(data);
+        console.log(jsonP)
+        for (var u = 1; u < jsonP.length; u++) {
+            var destination = 'brands/parfums/'+jsonP[u].name+'.json';
+            scrpr.getParfums(jsonP[u].url, destination);
+        }
+    });
+});
+
+app.get('/allBrandsVisage', function (request, response) {
+    fs.readFile('brands/visage.brands.json', function read(err, data) {
+        if (err) {
+            throw err;
+        }
+        const jsonP = JSON.parse(data);
+        console.log(jsonP)
+        for (var u = 1; u < jsonP.length; u++) {
+            var destination = 'brands/visage/'+jsonP[u].name+'.json';
+            scrpr.getVisage(jsonP[u].url, destination);
+        }
+    });
 });
 
 app.listen(app.get('port'), function () {
