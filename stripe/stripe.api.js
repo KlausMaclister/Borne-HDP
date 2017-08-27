@@ -1,4 +1,5 @@
-const key = "sk_test_KwkYzRRVCn2z8Snhenr5cvCe";
+const key = "sk_test_KwkYzRRVCn2z8Snhenr5cvCc";
+// this is not real key check dashboard 
 
 var stripe = require('stripe')(key);
 
