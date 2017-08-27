@@ -5,6 +5,7 @@ var urlScrapr = require('./lib/product_scraper');
 var request = require('request');
 var fs = require('fs');
 var brandScraper = require('./lib/brandScraper');
+var stripe = require('./stripe/stripe.api');
 
 app.all('*', function (req, res, next) {
     var origin = req.get('origin');
@@ -74,8 +75,8 @@ app.get('/allbrandsParfum', function (request, response) {
         const jsonPB = JSON.parse(data);
         console.log(jsonPB)
         for (var u = 1; u < jsonPB.length; u++) {
-            scrpr.getParfums(jsonPB[u].url, 'brands/parfums/'+jsonPB[u].name+'.json');
-            if (u === jsonPB.length - 1){
+            scrpr.getParfums(jsonPB[u].url, 'brands/parfums/' + jsonPB[u].name + '.json');
+            if (u === jsonPB.length - 1) {
                 response.send('stoped');
                 return;
             }
@@ -91,10 +92,18 @@ app.get('/allBrandsVisage', function (request, response) {
         const jsonVB = JSON.parse(data);
         console.log(jsonVB)
         for (var u = 1; u < jsonVB.length; u++) {
-            scrpr.getVisage(jsonVB[u].url, 'brands/visage/'+jsonVB[u].name+'.json');
+            scrpr.getVisage(jsonVB[u].url, 'brands/visage/' + jsonVB[u].name + '.json');
         }
     });
 });
+
+app.get('/charge', function (request, response) {
+    const amount = request.query.amount;
+    console.log(amount);
+    stripe.createCharge(amount).then((answer)=>{
+        response.send(answer);
+    })
+})
 
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));

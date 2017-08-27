@@ -19,6 +19,7 @@
     "google": "^2.1.0",
     "jQuery": "^1.7.4",
     "request": "^2.81.0",
+    "stripe": "^4.24.1",
     "translate": "^0.7.0"
   },
   "devDependencies": {
