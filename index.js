@@ -95,7 +95,14 @@ app.get('/allBrandsVisage', function (request, response) {
         }
     });
 });
+app.get('/price', (request, response) => {
 
+    const url = request.query.url;
+    urlScrapr.scrapUrl(url).then((product) => {
+        response.send(product);
+    })
+
+})
 app.get('/charge', function (request, response) {
     const amount = request.body.transaction.amount;
     const source = request.body.transaction.source;
