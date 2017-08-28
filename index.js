@@ -90,7 +90,6 @@ app.get('/allBrandsVisage', function (request, response) {
             throw err;
         }
         const jsonVB = JSON.parse(data);
-        console.log(jsonVB)
         for (var u = 1; u < jsonVB.length; u++) {
             scrpr.getVisage(jsonVB[u].url, 'brands/visage/' + jsonVB[u].name + '.json');
         }
@@ -98,9 +97,10 @@ app.get('/allBrandsVisage', function (request, response) {
 });
 
 app.get('/charge', function (request, response) {
-    const amount = request.query.amount;
-    console.log(amount);
-    stripe.createCharge(amount).then((answer)=>{
+    const amount = request.body.transaction.amount;
+    const source = request.body.transaction.source;
+    const description = request.body.transaction.description;
+    stripe.createCharge(amount, source, description).then((answer)=>{
         response.send(answer);
     })
 })
