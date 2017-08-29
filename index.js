@@ -107,7 +107,7 @@ app.get('/price', (request, response) => {
 })
 app.post('/charge', function (request, response) {
     var bod = JSON.stringify(request.body);
-    var amount = request.body.transaction.amount;
+    //var amount = request.body.transaction.amount;
     /*const amount = request.body.transaction.amount;
     const source = request.body.transaction.source;
     const description = request.body.transaction.description;
