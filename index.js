@@ -21,7 +21,6 @@ app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
-app.use(myParser.urlencoded({extended : true}));
 
 
 // views is directory for all template files
