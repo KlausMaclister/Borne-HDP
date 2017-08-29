@@ -13,6 +13,7 @@
   "dependencies": {
     "api": "^0.13.5",
     "async": "^2.5.0",
+    "body-parser": "^1.17.2",
     "cheerio": "^1.0.0-rc.2",
     "ejs": "2.5.6",
     "express": "4.15.2",

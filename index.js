@@ -6,6 +6,8 @@ var request = require('request');
 var fs = require('fs');
 var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
+var bodyParser = require('body-parser');
+
 
 app.all('*', function (req, res, next) {
     var origin = req.get('origin');
@@ -14,10 +16,13 @@ app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     return next();
 });
-
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
+app.use(myParser.urlencoded({extended : true}));
+
 
 // views is directory for all template files
 app.set('views', __dirname + '/views');
@@ -107,6 +112,7 @@ app.post('/charge', function (request, response) {
     const amount = request.body.transaction.amount;
     const source = request.body.transaction.source;
     const description = request.body.transaction.description;
+    console.log(request.body)
     response.send(request.body);
     stripe.createCharge(amount, source, description).then((answer)=>{
         response.send(answer);
