@@ -8,6 +8,8 @@ var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
 var bodyParser = require('body-parser');
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.all('*', function (req, res, next) {
     var origin = req.get('origin');
@@ -16,14 +18,11 @@ app.all('*', function (req, res, next) {
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     return next();
 });
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(bodyParser.json());
+
 app.set('port', (process.env.PORT || 5000));
 
 app.use(express.static(__dirname + '/public'));
 
-
-// views is directory for all template files
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
@@ -87,7 +86,6 @@ app.get('/allbrandsParfum', function (request, response) {
         }
     });
 });
-
 app.get('/allBrandsVisage', function (request, response) {
     fs.readFile('brands/visage.brands.json', function read(err, data) {
         if (err) {
@@ -112,7 +110,7 @@ app.post('/charge', function (request, response) {
     const source = request.body.transaction.source;
     const description = request.body.transaction.description;
     console.log(request.body)*/
-    response.send(request);
+    response.end(request);
     /*response.send(request.body);
     stripe.createCharge(amount, source, description).then((answer)=>{
         response.send(answer);
