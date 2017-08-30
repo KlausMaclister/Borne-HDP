@@ -108,6 +108,8 @@ app.post('/charge', function (req, res) {
     stripe.createCharge(req.body.amount, req.body.source, req.body.description)
         .then((charge) => {
             res.send(JSON.stringify(charge));
+        }, (error) => {
+            res.send(error);
         });
 })
 
