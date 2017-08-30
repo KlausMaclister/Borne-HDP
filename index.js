@@ -105,14 +105,13 @@ app.get('/price', (request, response) => {
     })
 
 })
-app.post('/charge', function (request, response) {
-    var bod = JSON.stringify(request.body);
+app.post('/charge', function (req, res) {
     //var amount = request.body.transaction.amount;
     /*const amount = request.body.transaction.amount;
     const source = request.body.transaction.source;
     const description = request.body.transaction.description;
     console.log(request.body)*/
-    response.send(bod);
+    res.send(req);
     /*response.send(request.body);
     stripe.createCharge(amount, source, description).then((answer)=>{
         response.send(answer);
