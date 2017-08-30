@@ -7,7 +7,6 @@ var fs = require('fs');
 var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
 var bodyParser = require('body-parser');
-
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
@@ -111,11 +110,7 @@ app.post('/charge', function (req, res) {
      const source = request.body.transaction.source;
      const description = request.body.transaction.description;
      console.log(request.body)*/
-    if (req) {
-        res.send(req);
-    } else {
-        res.send('there is no request');
-    }
+    res.send('super ')
     /*response.send(request.body);
      stripe.createCharge(amount, source, description).then((answer)=>{
      response.send(answer);
