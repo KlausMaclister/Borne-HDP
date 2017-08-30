@@ -7,6 +7,8 @@ var fs = require('fs');
 var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
 var bodyParser = require('body-parser');
+var leadCreator = require('./mlab/mlab');
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -111,6 +113,12 @@ app.post('/charge', function (req, res) {
         }, (error) => {
             res.send(error);
         });
+})
+
+app.post('/newLead', function(req, res){
+    res.setHeader('Content-Type', 'application/json');
+    var toAdd = {'name': 'Jonathan', 'age': 27};
+    leadCreator.createLead(toAdd);
 })
 
 app.listen(app.get('port'), function () {
