@@ -8,7 +8,7 @@ var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
 var bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(bodyParser);
 
 app.all('*', function (req, res, next) {
     var origin = req.get('origin');
@@ -28,8 +28,6 @@ app.set('view engine', 'ejs');
 app.get('/', function (request, response) {
     response.render('pages/index');
 });
-
-
 app.get('/visage', function (request, response) {
     var bigArray = [];
     fs.readFile('./lib/soins.url.json', function read(err, data) {
@@ -110,8 +108,7 @@ app.post('/charge', function (req, res) {
      const source = request.body.transaction.source;
      const description = request.body.transaction.description;
      console.log(request.body)*/
-    var obj = {name: 'Jonathan'};
-    res.send(obj);
+    res.send(req);
     /*response.send(request.body);
      stripe.createCharge(amount, source, description).then((answer)=>{
      response.send(answer);
