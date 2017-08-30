@@ -110,7 +110,8 @@ app.post('/charge', function (req, res) {
      const source = request.body.transaction.source;
      const description = request.body.transaction.description;
      console.log(request.body)*/
-    res.send('super ')
+    var obj = {name: 'Jonathan'};
+    res.send(obj);
     /*response.send(request.body);
      stripe.createCharge(amount, source, description).then((answer)=>{
      response.send(answer);
