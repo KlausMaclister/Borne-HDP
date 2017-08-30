@@ -105,12 +105,10 @@ app.get('/price', (request, response) => {
 })
 app.post('/charge', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
-    res.send(JSON.stringify({
-        amount: req.body.amount || null,
-        source: req.body.source || null,
-        description: req.body.description || null
-    }));
-    stripe.createCharge(req.body.amount, req.body.source, req.body.description);
+    stripe.createCharge(req.body.amount, req.body.source, req.body.description)
+        .then((charge) => {
+            res.send(charge);
+        });
 })
 
 app.listen(app.get('port'), function () {
