@@ -8,7 +8,7 @@ var insertDocuments = function (db, lead, callback) {
     collection.insertMany([
         lead
     ], function (err, result) {
-        console.log('succesfully added data')
+        console.log('npm start added data')
         callback(result);
     });
 }

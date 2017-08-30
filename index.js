@@ -117,8 +117,8 @@ app.post('/charge', function (req, res) {
 
 app.post('/newLead', function(req, res){
     res.setHeader('Content-Type', 'application/json');
-    var toAdd = {'name': 'Jonathan', 'age': 27};
-    leadCreator.createLead(toAdd);
+    var lead = req.body || {};
+    leadCreator.createLead(lead);
 })
 
 app.listen(app.get('port'), function () {
