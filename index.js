@@ -8,7 +8,7 @@ var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
 var bodyParser = require('body-parser');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 app.all('*', function (req, res, next) {
@@ -108,14 +108,18 @@ app.get('/price', (request, response) => {
 app.post('/charge', function (req, res) {
     //var amount = request.body.transaction.amount;
     /*const amount = request.body.transaction.amount;
-    const source = request.body.transaction.source;
-    const description = request.body.transaction.description;
-    console.log(request.body)*/
-    res.send(req);
+     const source = request.body.transaction.source;
+     const description = request.body.transaction.description;
+     console.log(request.body)*/
+    if (req) {
+        res.send(req);
+    } else {
+        res.send('there is no request');
+    }
     /*response.send(request.body);
-    stripe.createCharge(amount, source, description).then((answer)=>{
-        response.send(answer);
-    })*/
+     stripe.createCharge(amount, source, description).then((answer)=>{
+     response.send(answer);
+     })*/
 })
 
 app.listen(app.get('port'), function () {
