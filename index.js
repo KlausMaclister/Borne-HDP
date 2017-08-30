@@ -107,7 +107,7 @@ app.post('/charge', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     stripe.createCharge(req.body.amount, req.body.source, req.body.description)
         .then((charge) => {
-            res.send(charge);
+            res.send(JSON.stringify(charge));
         });
 })
 
