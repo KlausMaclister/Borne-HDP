@@ -7,8 +7,7 @@ var fs = require('fs');
 var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
 var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser);
+app.use(bodyParser.json());
 
 app.all('*', function (req, res, next) {
     var origin = req.get('origin');
