@@ -1,0 +1,27 @@
+.topBar{
+  background-color: #333;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.bs-link{
+  color: white;
+  text-underline: none !important;
+}
+.bs-link:focus{
+  text-underline: none !important;
+}
+.page-active{
+  color: #E6007E;
+  text-underline: none !important;
+}
+.page-active:focus{
+  text-underline: none !important;
+}
+.cart-items{
+  color: #E6007E;
+  font-weight: 700;
+  margin-bottom: 0 !important;
+}
+.cart-icon{
+  max-height: 25px !important;
+}

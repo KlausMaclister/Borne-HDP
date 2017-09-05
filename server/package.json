@@ -1,0 +1,40 @@
+{
+  "name": "node-js-getting-started",
+  "version": "0.2.6",
+  "description": "Scrapping the beauty",
+  "engines": {
+    "node": "6.11.1"
+  },
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
+  },
+  "dependencies": {
+    "api": "^0.13.5",
+    "async": "^2.5.0",
+    "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.2",
+    "ejs": "2.5.6",
+    "express": "4.15.2",
+    "google": "^2.1.0",
+    "jQuery": "^1.7.4",
+    "mongodb": "^2.2.31",
+    "request": "^2.81.0",
+    "stripe": "^4.24.1",
+    "translate": "^0.7.0"
+  },
+  "devDependencies": {
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonathanmeguira/BtyScrpr.git"
+  },
+  "keywords": [
+    "node",
+    "scrapping"
+  ],
+  "license": "MIT"
+}

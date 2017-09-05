@@ -1,0 +1,29 @@
+#form{
+  background-color: white;
+  border-radius: 4px;
+  padding: 2em;
+  box-shadow: 5px 5px 5px lightgray;
+  width: 40%;
+  border: solid 2px lightpink;
+}
+#submit-btn{
+  background-color: #E6007E;
+  color: white;
+  margin-top: 2em;
+}
+label{
+  color: #E6007E;
+}
+input{
+  color: lightslategray;
+}
+.disabled{
+  background-color: #999999 !important;
+}
+#card-element{
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
+#card-errors{
+  color: red;
+}

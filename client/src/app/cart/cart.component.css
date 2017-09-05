@@ -1,0 +1,22 @@
+.delete-btn:focus{
+  outline: none !important;
+}
+.delete-btn{
+  background-color: #E6007E !important;
+  color: white !important;
+  margin-left: 1em;
+}
+#cart-summary{
+  color: #999999;
+  text-align: center;
+  margin-top: 0.7em;
+  margin-bottom: 1.3em;
+}
+.add-btn{
+  color: white !important;
+  margin-left: 1em;
+  background-color: #333;
+}
+.add-btn:focus{
+  outline: none;
+}

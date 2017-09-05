@@ -1,0 +1,22 @@
+<md-progress-bar mode="indeterminate" color="accent" *ngIf="dataIsLoading"></md-progress-bar>
+
+<div layout="row" class="topBar mb-5" layout-align="space-between center">
+  <div>
+    <a class="ml-5 mr-3 bs-link" routerLink="parfums" routerLinkActive="page-active">Parfums
+    </a>
+    <a class="mr-5 bs-link" routerLink="visage" routerLinkActive="page-active">Soins Du visage
+    </a>
+  </div>
+  <div class="mr-4" layout="row" (click)="showCart()">
+    <img class="cart-icon" src="assets/images/cart.svg">
+    <p class="cart-items ml-2">{{cartItems}} items</p>
+  </div>
+</div>
+
+<div layout="row" layout-align="center center" class="mb-5">
+  <img src="assets/images/logo.png">
+</div>
+<router-outlet></router-outlet>
+
+
+

@@ -1,0 +1,33 @@
+<div layout="row" layout-align="center center">
+  <div layout="row" *ngIf="contentHasLoaded" class="mt-5 main-holder">
+    <div flex="45">
+      <img src="{{product.productBigImage}}" id="product-big-img">
+    </div>
+    <div layout="column" layout-align="center" flex="50">
+      <img src="{{product.featuredImage}}" id="brand-img">
+      <h4 id="label">{{product.label}}</h4>
+      <p id="description">{{product.fullDescription}}</p>
+      <div layout="column" class="mt-5">
+        <div layout="row" layout-align="center center">
+          <p class="mb-0 mr-5 price" flex="15">{{product.dynamicPrice |  number:'2.1-5'}} €</p>
+          <md-select placeholder="Quantité" [(ngModel)]="selectedVolume" color="accent" class="ml-2"
+                     *ngIf="multipleVolumes" (change)="updateVolumePrice(selectedVolume)" flex>
+            <md-option *ngFor="let volume of prices" [value]="volume.price">
+              {{volume.label}}
+            </md-option>
+          </md-select>
+          <md-select placeholder="Quantité" [(ngModel)]="selectedQty" color="accent" class="ml-5"
+                     (change)="updateValue(selectedQty)" flex="20">
+            <md-option *ngFor="let qty of quantities" [value]="qty">
+              {{qty}}
+            </md-option>
+          </md-select>
+        </div>
+        <div layout="row" layout-align="center center" class="mt-5">
+          <button md-raised-button class="store-btn mr-2" (click)="goToSignUp()">Buy</button>
+          <button md-raised-button class="cart-btn ml-2" (click)="addProductToCart()">Add To Cart</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
