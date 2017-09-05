@@ -6,6 +6,7 @@ var request = require('request');
 var fs = require('fs');
 var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
+var mailer = require('./lib/mailer');
 var bodyParser = require('body-parser');
 
 app.use(bodyParser.json());
@@ -113,7 +114,11 @@ app.post('/charge', function (req, res) {
             res.send(error);
         });
 })
-
+app.post('/mail', (request, response) => {
+    var title = request.body.title || '';
+    var body = request.body.emailBody || '';
+    mailer.sendEmail(title, body).then((status) => response.send(status))
+});
 
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
