@@ -6,8 +6,8 @@ var request = require('request');
 var fs = require('fs');
 var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
+var mailer = require('./lib/mailer');
 var bodyParser = require('body-parser');
-var leadCreator = require('./mlab/mlab');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -114,12 +114,11 @@ app.post('/charge', function (req, res) {
             res.send(error);
         });
 })
-
-app.post('/newLead', function(req, res){
-    res.setHeader('Content-Type', 'application/json');
-    var lead = req.body || {};
-    leadCreator.createLead(lead);
-})
+app.post('/mail', (request, response) => {
+    var title = request.body.title || '';
+    var body = request.body.emailBody || '';
+    mailer.sendEmail(title, body).then((status) => response.send(status))
+});
 
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
