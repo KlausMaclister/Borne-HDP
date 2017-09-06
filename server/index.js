@@ -8,7 +8,7 @@ var brandScraper = require('./lib/brandScraper');
 var stripe = require('./stripe/stripe.api');
 var mailer = require('./lib/mailer');
 var bodyParser = require('body-parser');
-
+var imageDownloadr = require('./lib/image.downloader');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -105,6 +105,11 @@ app.get('/price', (request, response) => {
     })
 
 })
+app.get('/downloadImages', (request, response) => {
+    imageDownloadr.downloadImages();
+    response.send('download images ...')
+})
+
 app.post('/charge', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
     stripe.createCharge(req.body.amount, req.body.source, req.body.description)
@@ -114,11 +119,14 @@ app.post('/charge', function (req, res) {
             res.send(error);
         });
 })
+
 app.post('/mail', (request, response) => {
     var title = request.body.title || '';
     var body = request.body.emailBody || '';
     mailer.sendEmail(title, body).then((status) => response.send(status))
 });
+
+
 
 app.listen(app.get('port'), function () {
     console.log('Node app is running on port', app.get('port'));
