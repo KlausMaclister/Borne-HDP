@@ -9,6 +9,9 @@ var stripe = require('./stripe/stripe.api');
 var mailer = require('./lib/mailer');
 var bodyParser = require('body-parser');
 var imageDownloadr = require('./lib/image.downloader');
+var deep_scraping = require('./lib/deep_scraping');
+
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -109,6 +112,10 @@ app.get('/downloadImages', (request, response) => {
     imageDownloadr.downloadImages();
     response.send('download images ...')
 })
+app.get('/deep_scraping', (request, response) => {
+    deep_scraping.perform_deep_scraping();
+    response.send('deep scraping')
+})
 
 app.post('/charge', function (req, res) {
     res.setHeader('Content-Type', 'application/json');
@@ -119,6 +126,8 @@ app.post('/charge', function (req, res) {
             res.send(error);
         });
 })
+
+
 
 app.post('/mail', (request, response) => {
     var title = request.body.title || '';
