@@ -17,7 +17,7 @@ import {MdSelectModule} from '@angular/material';
 import {MdInputModule} from '@angular/material';
 import {MdDialogModule} from '@angular/material';
 import {MdListModule} from '@angular/material';
-
+import {MdProgressSpinnerModule} from '@angular/material';
 
 
 /*views*/
@@ -56,6 +56,7 @@ import { CartComponent } from './cart/cart.component';
     MdCardModule,
     MdDialogModule,
     MdProgressBarModule,
+    MdProgressSpinnerModule,
     MdListModule
   ],
   bootstrap: [AppComponent],

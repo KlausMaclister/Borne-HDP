@@ -1,7 +1,31 @@
 
+<div layout="row" layout-align="start">
+  <ul id="parfumBrands">
+    <li *ngFor="let brand of brands" (click)="filterSoins(brand)">{{brand}}</li>
+  </ul>
+  <div layout="row" layout-wrap layout-align="start start">
+    <div *ngFor="let soin of allSoins">
+      <md-card class="product-card" *ngIf="!hasNoUpdatedUrl(soin.image)">
+        <md-card-header>
+          <md-card-title class="title">{{soin.brand}}</md-card-title>
+          <md-card-subtitle class="desc">{{soin.name}}</md-card-subtitle>
+        </md-card-header>
+        <div class="img-holder">
+          <img md-card-image src="assets/{{soin.image}}">
+        </div>
+        <md-card-content>
+          <p class="price">
+            {{soin.price}}
+          </p>
+        </md-card-content>
+        <div layout="column" layout-align="center center" class="action-center">
+          <button md-button class="cart-btn" (click)="getDetails(soin)">Add To Cart</button>
+          <button md-button class="store-btn" (click)="getDetails(soin)">Book in Store</button>
+        </div>
+      </md-card>
+    </div>
+  </div>
 
-<div *ngFor="let x of test">
-  <p>{{x.label}}</p>
-  <p>{{x.fullDescription}}</p>
-  <p style="background-color: yellow">{{x.price}}</p>
 </div>
+
+

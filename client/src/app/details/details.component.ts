@@ -12,7 +12,8 @@ import {Router} from '@angular/router';
 })
 
 export class DetailsComponent implements OnInit {
-
+  mode = 'indeterminate';
+  spinnerColor = 'accent';
   public product: ProductModel;
   public prices: Array<any>;
   public contentHasLoaded: boolean;
@@ -81,8 +82,9 @@ export class DetailsComponent implements OnInit {
     };
     let numberOfItemsInCart = 0;
     for (let i = 0; i < product.quantity; i++) {
-      numberOfItemsInCart ++;
-    };
+      numberOfItemsInCart++;
+    }
+    ;
     this.cartProducts.push(product);
     this.dataBus.setNewCartProduct(this.cartProducts);
     this.dataBus.setNumberOfItemsInCart(numberOfItemsInCart);

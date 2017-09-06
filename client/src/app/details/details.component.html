@@ -1,5 +1,12 @@
 <div layout="row" layout-align="center center">
-  <div layout="row" *ngIf="contentHasLoaded" class="mt-5 main-holder">
+  <div *ngIf="!contentHasLoaded; else productDetail">
+    <md-progress-spinner
+      class="example-margin"
+      [color]="spinnerColor"
+      [mode]="mode">
+    </md-progress-spinner>
+  </div>
+  <ng-template #productDetail layout="row" class="mt-5 main-holder">
     <div flex="45">
       <img src="{{product.productBigImage}}" id="product-big-img">
     </div>
@@ -29,5 +36,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </ng-template>
 </div>

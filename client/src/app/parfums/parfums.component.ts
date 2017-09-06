@@ -3,7 +3,6 @@ import {FetcherService} from '../services/fetcher.service';
 import {DataBusService} from '../services/data-bus.service';
 import {ProductModel} from '../Models/product';
 import {Router} from '@angular/router';
-import {FormControl} from '@angular/forms';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
 
@@ -15,16 +14,16 @@ import 'rxjs/add/operator/map';
 })
 export class ParfumsComponent implements OnInit, AfterViewChecked {
   allParfums: any[];
-  brands: string[];
+  brands: any[];
+  bigArr: any[];
 
   constructor(private api: FetcherService, private dataBus: DataBusService, private router: Router) {
   }
 
   ngOnInit() {
     this.fetchParfums();
-    this.fetchBrands();
-
   }
+
 
   ngAfterViewChecked() {
     this.dataBus.setDataLoadingStatus(false);
@@ -35,27 +34,23 @@ export class ParfumsComponent implements OnInit, AfterViewChecked {
     this.router.navigate(['/details']);
   }
 
+  hasNoUpdatedUrl = (url: string) => {
+    return url.includes('https');
+  }
+
   fetchParfums() {
     this.api.getParfums().subscribe((res) => {
-      const sub = res.slice(0, 150);
+      this.brands = [...Array.from(new Set(res.map(parfum => parfum.brand)))];
+      this.bigArr = res;
+      const sub = res.slice(0, 200);
       this.allParfums = sub;
     });
   }
 
-  displayAssociateProduct(reference: string) {
-    const url = 'assets/jsons/brands/parfums/' + reference + '.json';
-    const unesc = decodeURIComponent(url);
-    console.log(unesc);
-    this.api.getParfumsFromBrand(url).subscribe((res) => {
-      this.allParfums = [];
-      setTimeout(() => {
-        this.allParfums = res;
-      }, 0);
+  filterParfums = (brand: string) => {
+    this.allParfums = this.bigArr.filter((parfum) => {
+      return parfum.brand === brand;
     });
-  }
-
-  fetchBrands() {
-    this.api.getParfumsBrands().subscribe(res => this.brands = res);
   }
 
 }
