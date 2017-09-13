@@ -30,6 +30,8 @@ import {DataBusService} from './services/data-bus.service';
 import {FetcherService} from './services/fetcher.service';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { CartComponent } from './cart/cart.component';
+import {LanguageComponent} from './language/language.component';
+import { SuccessPaymentComponent } from './success-payment/success-payment.component';
 
 
 @NgModule({
@@ -39,7 +41,9 @@ import { CartComponent } from './cart/cart.component';
     VisageComponent,
     DetailsComponent,
     InscriptionComponent,
-    CartComponent
+    CartComponent,
+    LanguageComponent,
+    SuccessPaymentComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +65,6 @@ import { CartComponent } from './cart/cart.component';
   ],
   bootstrap: [AppComponent],
   providers: [DataBusService, FetcherService, CustomHttpService, PaymentService],
-  entryComponents: [CartComponent]
+  entryComponents: [CartComponent, InscriptionComponent]
 })
 export class AppModule { }

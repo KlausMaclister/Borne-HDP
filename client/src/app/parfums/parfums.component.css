@@ -28,7 +28,7 @@
 }
 .product-card{
   width: 320px;
-  height: 400px !important;
+  height: 360px !important;
 }
 
 .title{
@@ -41,7 +41,6 @@
 .action-center{
   position: absolute;
   bottom: 10px;
-  left: 30%;
 }
 #parfumBrands{
   list-style-type: none;

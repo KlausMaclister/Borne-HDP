@@ -1,7 +1,9 @@
-import {Component, AfterContentInit} from '@angular/core';
+import {Component, AfterContentInit, Inject} from '@angular/core';
 import {Countries} from './countries';
 import {PaymentService} from '../services/payment.service';
 import {environment} from '../../environments/environment';
+import {MD_DIALOG_DATA, MdDialogRef} from '@angular/material';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -10,8 +12,7 @@ import {environment} from '../../environments/environment';
   providers: [PaymentService]
 })
 export class InscriptionComponent implements AfterContentInit {
-
-  amount = 500;
+// todo: save leads on firebase;
   stripe: any;
   firstName: string;
   lastName: string;
@@ -20,9 +21,15 @@ export class InscriptionComponent implements AfterContentInit {
   country: string;
   card: any;
   submitted = false;
+  isNotEuropeanCountry: boolean;
+  notPaying = true;
   allCountries = Countries.countryList;
+  euCountries = Countries.euCountries;
 
-  constructor(private paymentSrv: PaymentService) {
+  constructor(private paymentSrv: PaymentService,
+              public dialogRef: MdDialogRef<InscriptionComponent>,
+              @Inject(MD_DIALOG_DATA) public data: any,
+              private router: Router) {
   }
 
   ngAfterContentInit() {
@@ -30,23 +37,37 @@ export class InscriptionComponent implements AfterContentInit {
   }
 
   postPayment = (token) => {
-    console.log('posting');
-    this.paymentSrv.postPayment(this.amount, token, 'payment for test').subscribe((d) => console.log(d));
+    const label = `payment from ${this.lastName} ${this.firstName}`;
+    const price = Math.floor(this.data.product.dynamicPrice * 100);
+    this.paymentSrv.postPayment(price, token, label)
+      .subscribe((payment) => {
+        this.notPaying = !this.notPaying;
+        if (payment.status === 200) {
+          this.dialogRef.close();
+          this.router.navigate(['/valid_payment']);
+        } else {
+          alert('your payment could not be made, please try again');
+        }
+      }, (error) => {
+        alert(error);
+        this.notPaying = !this.notPaying;
+      });
   }
 
   handlePayment() {
     this.submitted = true;
-    this.submitPayment();
+    this.submitPayment().then((status) => console.log(status));
     this.newLead();
   }
 
   submitPayment = async () => {
+    this.notPaying = !this.notPaying;
     const {token, error} = await this.stripe.createToken(this.card);
     const errorField = document.getElementById('card-errors');
     if (error) {
+      this.notPaying = !this.notPaying;
       errorField.textContent = error.message;
     } else {
-      console.log(token);
       this.postPayment(token.id);
     }
   }
@@ -78,12 +99,21 @@ export class InscriptionComponent implements AfterContentInit {
       'firstName': this.firstName,
       'lastName': this.lastName,
       'passeport': this.passportNumber,
-      'country': this.country
+      'country': this.country,
+      'email': this.email,
+      'amount_spent': this.data.product.dynamicPrice
     };
-    console.log(lead);
     this.paymentSrv.createLead(lead).subscribe((res) => {
       console.log(res);
     });
   }
-
+  checkContinent = (country: string) => {
+    console.log(this.data.product);
+    this.isNotEuropeanCountry = this.euCountries.indexOf(country) > 1;
+    if (!this.isNotEuropeanCountry) {
+      this.data.product.dynamicPrice = this.data.product.regularPrice * 0.8;
+    } else {
+      this.data.product.dynamicPrice = this.data.product.regularPrice;
+    }
+  }
 }

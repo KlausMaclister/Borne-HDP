@@ -1,4 +1,6 @@
-<div layout="row" layout-align="center center">
+<h1 md-dialog-title>{{data.product.product}}</h1>
+<div md-dialog-content>
+  <p>Price: {{data.product.dynamicPrice | number:'1.0-2'}} €</p>
   <form #form="ngForm" id="form">
     <div class="form-group">
       <label for="firstName">First Name</label>
@@ -22,16 +24,26 @@
     </div>
     <div class="form-group">
       <label for="sel1">Select list:</label>
-      <select class="form-control" id="sel1" name = "sel1" [(ngModel)]="country">
+      <select class="form-control" id="sel1" name="sel1" [(ngModel)]="country" (change)="checkContinent(country)">
         <option *ngFor="let country of allCountries">{{country}}</option>
       </select>
     </div>
     <div id="card-element"></div>
     <div id="card-errors"></div>
 
+
+  </form>
+</div>
+<div md-dialog-actions layout="row" layout-align="center center">
+  <div layout="row" *ngIf="notPaying; else payingLoader">
     <button md-raised-button type="submit" id="submit-btn" [disabled]="!form.valid" [class.disabled]="!form.valid"
             (click)="handlePayment()">
       PAY
     </button>
-  </form>
+    <button md-button [md-dialog-close] class="ml-3">Cancel</button>
+  </div>
+  <ng-template #payingLoader layout="row" layout-align="center center">
+    <div class="spinner"></div>
+  </ng-template>
+
 </div>
