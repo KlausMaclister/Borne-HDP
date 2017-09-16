@@ -10,6 +10,7 @@ import {ProductModel} from '../Models/product';
 export class CartComponent implements OnInit {
   cartProducts: ProductModel[];
   numberOfProducts: number;
+  totalPrice: number;
 
   constructor(public dialogRef: MdDialogRef<CartComponent>) {
   }
@@ -17,10 +18,30 @@ export class CartComponent implements OnInit {
   ngOnInit() {
     const cartStr = window.localStorage.getItem('cart');
     this.cartProducts = JSON.parse(cartStr);
-    this.numberOfProducts = this.cartProducts.length;
+    console.log(this.cartProducts);
+    const AllProducts = this.cartProducts.map((product: ProductModel) => {
+      const price = product.quantity * product.price;
+      this.totalPrice += price;
+      return product.quantity;
+    });
+    AllProducts.forEach((quantity: number) => {
+      this.numberOfProducts += quantity;
+    });
   }
 
+  decreaseQty = (product: ProductModel) => {
+    product.quantity--;
+    this.numberOfProducts--;
+    this.totalPrice -= product.price;
+  }
+  increaseQty = (product: ProductModel) => {
+    product.quantity++;
+    this.numberOfProducts++;
+    this.totalPrice += product.price;
+  }
 
-
+  productIsDeleted = (product: ProductModel) => {
+    return product.quantity < 1;
+  }
 
 }

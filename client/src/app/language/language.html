@@ -1,9 +1,5 @@
-<div id="language-wrapper" layout="column">
-  <div layout="row" flex="50">
-    <div id="es" flex="50"></div>
-    <div id="us" flex="50"></div>
-  </div>
-  <div layout="row" flex="50">
-    <div id="fr"></div>
-  </div>
+<div layout="row" layout-align="center center">
+  <button md-raised-button color="primary" class="mr-2" (click)="setLanguage('US')">US</button>
+  <button md-raised-button color="primary" class="mr-2" (click)="setLanguage('FR')">FR</button>
+  <button md-raised-button color="primary" (click)="setLanguage('ES')">ES</button>
 </div>

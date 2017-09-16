@@ -32,6 +32,9 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { CartComponent } from './cart/cart.component';
 import {LanguageComponent} from './language/language.component';
 import { SuccessPaymentComponent } from './success-payment/success-payment.component';
+import { PresentationComponent } from './presentation/presentation.component';
+import { TuktukComponent } from './tuktuk/tuktuk.component';
+import { ItineraryComponent } from './itinerary/itinerary.component';
 
 
 @NgModule({
@@ -43,7 +46,10 @@ import { SuccessPaymentComponent } from './success-payment/success-payment.compo
     InscriptionComponent,
     CartComponent,
     LanguageComponent,
-    SuccessPaymentComponent
+    SuccessPaymentComponent,
+    PresentationComponent,
+    TuktukComponent,
+    ItineraryComponent
   ],
   imports: [
     BrowserModule,

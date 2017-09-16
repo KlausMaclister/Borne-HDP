@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {DataBusService} from './services/data-bus.service';
 import {MdDialog} from '@angular/material';
 import {CartComponent} from './cart/cart.component';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,8 @@ import {CartComponent} from './cart/cart.component';
 export class AppComponent {
   dataIsLoading = false;
   cartItems: number;
-  constructor(private dataBus: DataBusService, public dialog: MdDialog) {
+
+  constructor(private dataBus: DataBusService, public dialog: MdDialog, private router: Router) {
     this.dataBus.dataLoadingStatus.subscribe((res) => {
       this.dataIsLoading = res;
     });
@@ -21,10 +23,22 @@ export class AppComponent {
       this.cartItems = (numberOfItemsFromLS === 0) ? number : numberOfItemsFromLS;
     });
   }
+
   showCart() {
     const dialogRef = this.dialog.open(CartComponent);
     dialogRef.afterClosed().subscribe(result => {
       console.log(result);
     });
+  }
+
+  isNotStoreView = () => {
+    console.log(this.router.url);
+    const bannedUrl = ['/language', '/presentation', '/tuktuk'];
+    console.log(bannedUrl.indexOf(this.router.url));
+    if (bannedUrl.indexOf(this.router.url) === -1) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
