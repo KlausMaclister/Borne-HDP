@@ -35,6 +35,7 @@ import { SuccessPaymentComponent } from './success-payment/success-payment.compo
 import { PresentationComponent } from './presentation/presentation.component';
 import { TuktukComponent } from './tuktuk/tuktuk.component';
 import { ItineraryComponent } from './itinerary/itinerary.component';
+import { BookInShopComponent } from './book-in-shop/book-in-shop.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ItineraryComponent } from './itinerary/itinerary.component';
     SuccessPaymentComponent,
     PresentationComponent,
     TuktukComponent,
-    ItineraryComponent
+    ItineraryComponent,
+    BookInShopComponent
   ],
   imports: [
     BrowserModule,

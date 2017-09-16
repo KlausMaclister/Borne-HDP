@@ -1,20 +1,41 @@
 <div style="height: 100%" layout="column" layout-align="center center">
-  <md-card class="example-card">
+  <md-card style="width: 626px">
     <md-card-header>
+      <div md-card-avatar class="example-header-image"></div>
       <md-card-title>Beauty Success Shop</md-card-title>
       <md-card-subtitle>Directions</md-card-subtitle>
     </md-card-header>
     <img md-card-image src="assets/images/map.png" alt="Photo of map">
     <md-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
+      <div layout="row">
+        <img src="assets/img/navigation/up.svg" class="icon-direction">
+        <p>Prendre la direction nord sur Rue Cambronne</p>
+      </div>
+      <div layout="row">
+        <img src="assets/img/navigation/left.svg" class="icon-direction">
+        <p>Tourner à gauche pour rester sur Rue Cambronne</p>
+      </div>
+      <div layout="row">
+        <img src="assets/img/navigation/round.svg" class="icon-direction">
+        <p>Au rond-point, prendre la 3e sortie sur Boulevard Garibaldi</p>
+      </div>
+      <div layout="row">
+        <img src="assets/img/navigation/left.svg" class="icon-direction">
+        <p>Prendre légèrement à gauche sur Place Henri Queuille</p>
+      </div>
+      <div layout="row">
+        <img src="assets/img/navigation/up.svg" class="icon-direction">
+        <p>Continuer sur Rue de Sèvres</p>
+      </div>
+      <div layout="row">
+        <img src="assets/img/navigation/left.svg" class="icon-direction">
+        <p>Prendre à gauche sur Boulevard des Invalides<br>
+          Votre destination se trouvera sur la droite.</p>
+      </div>
     </md-card-content>
     <md-card-actions>
-      <button md-button>LIKE</button>
-      <button md-button>SHARE</button>
+      <button md-raised-button color="accent">PRINT</button>
+      <button md-raised-button (click)="goToMenu()" color="primary">GO BACK TO MENU</button>
     </md-card-actions>
   </md-card>
 </div>

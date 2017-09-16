@@ -9,6 +9,8 @@ import {SuccessPaymentComponent} from './success-payment/success-payment.compone
 import {PresentationComponent} from './presentation/presentation.component';
 import {TuktukComponent} from './tuktuk/tuktuk.component';
 import {ItineraryComponent} from './itinerary/itinerary.component';
+import {BookInShopComponent} from './book-in-shop/book-in-shop.component';
+
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'language', pathMatch: 'full'},
@@ -20,7 +22,8 @@ const appRoutes: Routes = [
   {path: 'inscription', component: InscriptionComponent},
   {path: 'language', component: LanguageComponent},
   {path: 'valid_payment', component: SuccessPaymentComponent},
-  {path: 'itinerary', component: ItineraryComponent}
+  {path: 'itinerary', component: ItineraryComponent},
+  {path: 'bookInShop', component: BookInShopComponent}
 ];
 
 @NgModule({

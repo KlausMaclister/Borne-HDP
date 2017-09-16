@@ -28,8 +28,10 @@
         <option *ngFor="let country of allCountries">{{country}}</option>
       </select>
     </div>
-    <div id="card-element"></div>
-    <div id="card-errors"></div>
+    <div *ngIf="buyNow">
+      <div id="card-element"></div>
+      <div id="card-errors"></div>
+    </div>
 
 
   </form>

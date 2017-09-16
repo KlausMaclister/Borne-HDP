@@ -4,7 +4,7 @@ import {DataBusService} from '../services/data-bus.service';
 import {FetcherService} from '../services/fetcher.service';
 import {Router} from '@angular/router';
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
-import {InscriptionComponent} from "../inscription/inscription.component";
+import {InscriptionComponent} from '../inscription/inscription.component';
 
 
 @Component({
@@ -79,7 +79,6 @@ export class DetailsComponent implements OnInit {
     };
     const jsonified = JSON.stringify(selectedProduct);
     window.localStorage.setItem('selectedProduct', jsonified);
-    console.log(selectedProduct);
     const dialogRef = this.dialog.open(InscriptionComponent, {
       data: {product: selectedProduct},
       disableClose: true,
@@ -106,6 +105,10 @@ export class DetailsComponent implements OnInit {
     const strCart = JSON.stringify(this.cartProducts);
     window.localStorage.setItem('cart', strCart);
     window.localStorage.setItem('numberOfItemsInCart', JSON.stringify(numberOfItemsInCart));
+  }
+
+  bookInShop() {
+
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-itinerary',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ItineraryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {
+  }
 
   ngOnInit() {
+  }
+
+  goToMenu() {
+    this.router.navigate(['/']);
   }
 
 }
