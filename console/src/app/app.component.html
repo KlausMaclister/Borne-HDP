@@ -1,8 +1,11 @@
 <h1 *ngIf="isVisage">Soins Visage</h1>
 <h1 *ngIf="isParfums">Parfums</h1>
+<h1 *ngIf="isBrand">Brands</h1>
+<pre>{{brands | json}}</pre>
 <div>
   <button (click)="switchToSoins()">Soins Visages</button>
   <button (click)="switchToParfums()">Parfums</button>
+  <button (click)="switchToBrands()">brands</button>
 </div>
 <table>
   <thead>

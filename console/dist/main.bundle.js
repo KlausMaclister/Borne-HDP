@@ -59,15 +59,24 @@ var AppComponent = (function () {
         this.db = db;
         this.isParfums = true;
         this.isVisage = false;
+        this.isBrand = false;
         this.switchToParfums = function () {
             _this.items = _this.db.list('/parfums');
             _this.isParfums = true;
             _this.isVisage = false;
+            _this.isBrand = false;
         };
         this.switchToSoins = function () {
             _this.items = _this.db.list('/visage');
             _this.isParfums = false;
             _this.isVisage = true;
+            _this.isBrand = false;
+        };
+        this.switchToBrands = function () {
+            _this.items = _this.db.list('/brands');
+            _this.isParfums = false;
+            _this.isVisage = false;
+            _this.isBrand = true;
         };
         this.update = function (event, key) {
             var checked = event.target.checked;
@@ -165,7 +174,7 @@ module.exports = module.exports.toString();
 /***/ 261:
 /***/ (function(module, exports) {
 
-module.exports = "<h1 *ngIf=\"isVisage\">Soins Visage</h1>\n<h1 *ngIf=\"isParfums\">Parfums</h1>\n<div>\n  <button (click)=\"switchToSoins()\">Soins Visages</button>\n  <button (click)=\"switchToParfums()\">Parfums</button>\n</div>\n<table>\n  <thead>\n  <th>Element</th>\n  <th>Disponible</th>\n  </thead>\n  <tr *ngFor=\"let item of items | async\">\n    <td>{{item.name}}</td>\n    <td><input type=\"checkbox\" [(ngModel)]=\"item.available\" (change) = \"update($event, item.$key)\"></td>\n  </tr>\n</table>\n"
+module.exports = "<h1 *ngIf=\"isVisage\">Soins Visage</h1>\n<h1 *ngIf=\"isParfums\">Parfums</h1>\n<h1 *ngIf=\"isBrand\">Brands</h1>\n<pre>{{brands | json}}</pre>\n<div>\n  <button (click)=\"switchToSoins()\">Soins Visages</button>\n  <button (click)=\"switchToParfums()\">Parfums</button>\n  <button (click)=\"switchToBrands()\">brands</button>\n</div>\n<table>\n  <thead>\n  <th>Element</th>\n  <th>Disponible</th>\n  </thead>\n  <tr *ngFor=\"let item of items | async\">\n    <td>{{item.name}}</td>\n    <td><input type=\"checkbox\" [(ngModel)]=\"item.available\" (change) = \"update($event, item.$key)\"></td>\n  </tr>\n</table>\n"
 
 /***/ }),
 
