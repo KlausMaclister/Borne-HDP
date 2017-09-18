@@ -10,7 +10,8 @@
   <th>Indisponible (sauf si brands=> si brands alors cochez les elements disponibles)</th>
   </thead>
   <tr *ngFor="let item of items | async">
-    <td>{{item.name}}</td>
+    <td *ngIf="isParfums">{{item.brand}} | {{item.name}} | {{item.price}}</td>
+    <td *ngIf="isBrand">{{item.name}}</td>
     <td><input type="checkbox" [(ngModel)]="item.available" (change) = "update($event, item.$key)"></td>
   </tr>
 </table>
