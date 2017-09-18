@@ -12,7 +12,7 @@ sendEmail = (title, body) => {
 
         var mailOptions = {
             from: 'johnmeguira@gmail.com',
-            to: 'jonathan@herolo.co.il',
+            to: 'johnmeguira@gmail.com, benadhoute@gmail.com',
             subject: title,
             text: body
         };

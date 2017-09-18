@@ -63,6 +63,9 @@ app.get('/parfums', function (request, response) {
         }
     });
 });
+app.get('/channel', function(request, response){
+    scrpr.getParfums('https://www.beautysuccess.fr/chanel/soin?limit=all', 'channelSoins.json')
+})
 app.get('/parfumBrands', (request, response) => {
     brandScraper.scrapeBrandObjects('parfum').then((brands) => {
         response.send(brands);

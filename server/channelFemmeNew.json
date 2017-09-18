@@ -1,0 +1,426 @@
+[
+  {
+    "brand": "CHANEL",
+    "name": "ÉGOÏSTE",
+    "description": "                            GEL DE DOUCHE                        ",
+    "image": "img/channelSoins/c031303-zoom.jpg",
+    "price": "                    30,90 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-egoiste-gel-de-douche"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ - ANTI-RIDES MASQUE DE NUIT RÉCUPÉRATEUR                        ",
+    "image": "img/channelSoins/c036001-zoom.jpg",
+    "price": "                    102,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-masque-de-nuit-recuperateur-tube-75ml"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY MICRO CRÈME",
+    "description": "                            HYDRATANT REPULPANT FORTIFIANT                        ",
+    "image": "img/channelSoins/c034001-zoom.jpg",
+    "price": "                    88,95 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-micro-creme-hydratant-repulpant-fortifiant"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE LA CRÈME YEUX",
+    "description": "                            ULTIME RÉGÉNÉRATION CONTOUR YEUX                        ",
+    "image": "img/channelSoins/c033482-zoom.jpg",
+    "price": "                    172,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-la-creme-yeux-ultime-regeneration-contour-yeux-24365"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY MICRO SÉRUM",
+    "description": "                            HYDRATANT REPULPANT INTENSE                        ",
+    "image": "img/channelSoins/c032841-zoom.jpg",
+    "price": "                    94,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-micro-serum-hydratant-repulpant-intense"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "BLUE SERUM",
+    "description": "                            INGRÉDIENTS DE LONGÉVITÉ ISSUS DES ZONES BLEUES                        ",
+    "image": "img/channelSoins/c032521-zoom.jpg",
+    "price": "                    93,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-blue-serum-flacon-pompe-30ml"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE LA LOTION SUPRÊME",
+    "description": "                            ULTIME RÉGÉNÉRATION DE LA PEAU                        ",
+    "image": "img/channelSoins/c030295-zoom.jpg",
+    "price": "                    139,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-la-lotion-supreme-ultime-regeneration-de-la-peau"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE LA CRÈME",
+    "description": "                            ULTIME RÉGÉNÉRATION DE LA PEAU                        ",
+    "image": "img/channelSoins/c030288-zoom.jpg",
+    "price": "                    337,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-la-creme-ultime-regeneration-de-la-peau"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE LA CRÈME TEXTURE SUPRêME",
+    "description": "                            ULTIME RÉGÉNÉRATION DE LA PEAU                        ",
+    "image": "img/channelSoins/c030289-zoom.jpg",
+    "price": "                    337,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-la-creme-texture-supreme-ultime-regeneration-de-la-peau"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE L'ESSENCE",
+    "description": "                            ESSENCE DÉTOXIFIANTE ULTIME ACTIVATRICE DE LUMIÈRE                        ",
+    "image": "img/channelSoins/c030297-zoom.jpg",
+    "price": "                    379,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-l-essence-essence-detoxifiante-ultime-activatrice-de-lumiere"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE L'EXTRAIT",
+    "description": "                            TRAITEMENT RECONSTITUANT INTENSE                        ",
+    "image": "img/channelSoins/c030298-zoom.jpg",
+    "price": "                    470,60 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-l-extrait-traitement-reconstituant-intense"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE LE FLUIDE",
+    "description": "                            ULTIME RÉGÉNÉRATION DE LA PEAU                        ",
+    "image": "img/channelSoins/c030299-zoom.jpg",
+    "price": "                    248,95 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-le-fluide-ultime-regeneration-de-la-peau"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE LA PROTECTION UV",
+    "description": "                            ULTIME RÉGÉNÉRATION ET PROTECTION GLOBALEHAUTE PROTECTION SPF50                        ",
+    "image": "img/channelSoins/c030300-zoom.jpg",
+    "price": "                    102,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-la-protection-uv-ultime-regeneration-et-protection-globale"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE MASQUE",
+    "description": "                            MASQUE RÉGÉNÉRANT FONDAMENTAL                        ",
+    "image": "img/channelSoins/c030301-zoom.jpg",
+    "price": "                    194,95 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-masque-masque-regenerant-fondamental"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SUBLIMAGE",
+    "description": "                            DÉMAQUILLANT CONFORT SUPRÊME                        ",
+    "image": "img/channelSoins/c030302-zoom.jpg",
+    "price": "                    93,95 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-sublimage-demaquillant-confort-supreme"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ - ANTI-RIDES CRÈME FINE                        ",
+    "image": "img/channelSoins/c031101-zoom.jpg",
+    "price": "                    118,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-creme-fine-pot-50g"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ - ANTI-RIDES CRÈME                        ",
+    "image": "img/channelSoins/c031103-zoom.jpg",
+    "price": "                    118,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-creme-pot-50g"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ - ANTI-RIDES CRÈME RICHE                        ",
+    "image": "img/channelSoins/c031121-zoom.jpg",
+    "price": "                    118,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-creme-riche-pot-50g"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ - ANTI-RIDES CRÈME-HUILE RÉPARATRICE                        ",
+    "image": "img/channelSoins/c030290-zoom.jpg",
+    "price": "                    122,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-creme-huile-reparatrice"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ - ANTI-RIDES CRÈME YEUX                        ",
+    "image": "img/channelSoins/c031122-zoom.jpg",
+    "price": "                    80,95 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-creme-yeux-pot-15g"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ - ANTI-RIDES CONCENTRÉ YEUX LISSANT INSTANTANÉ                        ",
+    "image": "img/channelSoins/c031123-zoom.jpg",
+    "price": "                    84,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-concentre-yeux-lissant-instantane"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ-ANTI-RIDES SÉRUM                        ",
+    "image": "img/channelSoins/c031124-zoom.jpg",
+    "price": "                    124,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-serum"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ - ANTI-RIDES SOIN LÈVRES ET CONTOURS                        ",
+    "image": "img/channelSoins/c031125-zoom.jpg",
+    "price": "                    72,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-soin-levres-et-contours"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            FERMETÉ - ANTI-RIDES MASQUE DE MASSAGE TONIFIANT                        ",
+    "image": "img/channelSoins/c031126-zoom.jpg",
+    "price": "                    79,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-fermete-anti-rides-masque-de-massage-tonifiant"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY CRÈME",
+    "description": "                            HYDRATATION PROTECTION ÉCLAT                        ",
+    "image": "img/channelSoins/c031127-zoom.jpg",
+    "price": "                    68,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-creme-hydratation-protection-eclat"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY GEL CRÈME",
+    "description": "                            HYDRATATION PROTECTION ÉCLAT                        ",
+    "image": "img/channelSoins/c031128-zoom.jpg",
+    "price": "                    68,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-gel-creme-hydratation-protection-eclat"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY FLASH",
+    "description": "                            BAUME HYDRATANT PERFECTEUR INSTANTANÉ                        ",
+    "image": "img/channelSoins/c031129-zoom.jpg",
+    "price": "                    57,30 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-flash-baume-hydratant-perfecteur-instantane"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY NUTRITION",
+    "description": "                            CRÈME NOURRISSANTE ET PROTECTRICE                        ",
+    "image": "img/channelSoins/c031130-zoom.jpg",
+    "price": "                    68,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-nutrition-creme-nourrissante-et-protectrice"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY MICRO GEL YEUX",
+    "description": "                            HYDRATANT LISSANT INTENSE                        ",
+    "image": "img/channelSoins/c030286-zoom.jpg",
+    "price": "                    58,40 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-micro-gel-yeux-hydratant-lissant-intense"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY ESSENCE MIST",
+    "description": "                            BRUME ÉNERGISANTE HYDRATATION PROTECTION ÉCLAT                        ",
+    "image": "img/channelSoins/c030285-zoom.jpg",
+    "price": "                    60,95 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-essence-mist-brume-energisante"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY NUTRITION",
+    "description": "                            BAUME NOURRISSANT LÈVRES                        ",
+    "image": "img/channelSoins/c031131-zoom.jpg",
+    "price": "                    39,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-nutrition-baume-nourrissant-levres"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY SÉRUM",
+    "description": "                            HYDRATATION PROTECTION ÉCLAT                        ",
+    "image": "img/channelSoins/c031132-zoom.jpg",
+    "price": "                    80,95 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-serum-hydratation-protection-eclat"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "HYDRA BEAUTY",
+    "description": "                            MASQUE HYDRATATION PROTECTION ÉCLAT                        ",
+    "image": "img/channelSoins/c031133-zoom.jpg",
+    "price": "                    52,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-hydra-beauty-masque-hydratation-protection-eclat"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LA SOLUTION 10 DE CHANEL",
+    "description": "                            CRÈME PEAU SENSIBLE                        ",
+    "image": "img/channelSoins/c030284-zoom.jpg",
+    "price": "                    74,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-la-solution-10-de-chanel"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "CC CREAM",
+    "description": "                            CORRECTION COMPLÈTE SPF 50                        ",
+    "image": "img/channelSoins/c030261-zoom.jpg",
+    "price": "                    64,90 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-cc-cream-correction-complete-spf-50"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE BLANC",
+    "description": "                            SÉRUM ÉCLAIRCISSANT UNIFIANT                        ",
+    "image": "img/channelSoins/c031134-zoom.jpg",
+    "price": "                    127,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-blanc-serum-eclaircissant-unifiant"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "UV ESSENTIEL",
+    "description": "                            SOIN QUOTIDIEN MULTI-PROTECTION UV - POLLUTION SPF 50                        ",
+    "image": "img/channelSoins/c031135-zoom.jpg",
+    "price": "                    56,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-uv-essentiel-soin-quotidien-multi-protection-uv"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SOLEIL IDENTITÉ",
+    "description": "                            SOIN AUTO-BRONZANT SUBLIMATEUR VISAGE SPF 8 DORÉ                        ",
+    "image": "img/channelSoins/c030281-zoom.jpg",
+    "price": "                    42,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-soleil-identite-soin-auto-bronzant-sublimateur-visage-spf-8-dore"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "SOLEIL IDENTITÉ",
+    "description": "                            SOIN AUTO-BRONZANT SUBLIMATEUR VISAGE SPF 8 INTENSE                        ",
+    "image": "img/channelSoins/c030282-zoom.jpg",
+    "price": "                    42,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-soleil-identite-soin-auto-bronzant-sublimateur-visage-spf-8-intense"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "BODY EXCELLENCE",
+    "description": "                            CRÈME LISSANTE JEUNESSE ET FERMETÉ                        ",
+    "image": "img/channelSoins/c030283-zoom.jpg",
+    "price": "                    104,90 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-body-excellence-creme-lissante-jeunesse-et-fermete"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "BODY EXCELLENCE",
+    "description": "                            CRÈME JEUNESSE ET CONFORT DES MAINS                        ",
+    "image": "img/channelSoins/c031137-zoom.jpg",
+    "price": "                    58,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-body-excellence-creme-jeunesse-et-confort-des-mains"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "DÉMAQUILLANT YEUX INTENSE",
+    "description": "                            SOLUTION BIPHASE DOUCE                        ",
+    "image": "img/channelSoins/c031138-zoom.jpg",
+    "price": "                    30,95 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-demaquillant-yeux-intense-solution-biphase-douce"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LAIT CONFORT",
+    "description": "                            LAIT RICHE DÉMAQUILLANT CONFORT + ANTI-POLLUTION VISAGE ET YEUX                        ",
+    "image": "img/channelSoins/c031139-zoom.jpg",
+    "price": "                    40,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-lait-riche-demaquillant-confort-anti-pollution-visage-et-yeux"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LOTION CONFORT",
+    "description": "                            LOTION SOYEUSE APAISANTE CONFORT + ANTI-POLLUTION SANS ALCOOL                        ",
+    "image": "img/channelSoins/c031140-zoom.jpg",
+    "price": "                    40,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-lotion-soyeuse-apaisante-confort-anti-pollution"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LAIT DOUCEUR",
+    "description": "                            LAIT FLUIDE DÉMAQUILLANT DOUCEUR + ANTI-POLLUTION VISAGE ET YEUX                        ",
+    "image": "img/channelSoins/c031141-zoom.jpg",
+    "price": "                    40,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-lait-fluide-demaquillant-douceur-anti-pollution-visage-et-yeux"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "EAU DOUCEUR",
+    "description": "                            EAU DÉMAQUILLANTE DOUCEUR + ANTI-POLLUTION VISAGE ET YEUX                        ",
+    "image": "img/channelSoins/c031142-zoom.jpg",
+    "price": "                    41,95 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-eau-demaquillante-douceur-anti-pollution-visage-et-yeux"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "MOUSSE DOUCEUR",
+    "description": "                            CRÈME NETTOYANTE MOUSSANTE À L'EAU DOUCEUR + ANTI-POLLUTION                        ",
+    "image": "img/channelSoins/c031143-zoom.jpg",
+    "price": "                    40,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-creme-nettoyante-moussante-a-l-eau-douceur-anti-pollution"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LOTION DOUCEUR",
+    "description": "                            LOTION DOUCE HYDRATANTE DOUCEUR + ANTI-POLLUTION                        ",
+    "image": "img/channelSoins/c031144-zoom.jpg",
+    "price": "                    41,90 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-lotion-douce-hydratante-douceur-anti-pollution"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "GEL PURETÉ",
+    "description": "                            GEL NETTOYANT MOUSSANT À L'EAU PURETÉ + ANTI-POLLUTION                        ",
+    "image": "img/channelSoins/c031145-zoom.jpg",
+    "price": "                    41,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-gel-nettoyant-moussant-a-l-eau-purete-anti-pollution"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LOTION PURETÉ",
+    "description": "                            LOTION FRAÎCHE MATIFIANTE PURETÉ + ANTI-POLLUTION                        ",
+    "image": "img/channelSoins/c031146-zoom.jpg",
+    "price": "                    40,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-lotion-fraiche-matifiante-purete-anti-pollution"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "GOMMAGE MICROPERLÉ ÉCLAT",
+    "description": "                            GEL EXFOLIANT SUBLIMATEUR                        ",
+    "image": "img/channelSoins/c031147-zoom.jpg",
+    "price": "                    47,50 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-gommage-microperle-eclat-gel-exfoliant-sublimateur"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "MASQUE DÉSTRESSANT PURETÉ",
+    "description": "                            MASQUE CRÈME BIEN-ÊTRE PURIFIANT                        ",
+    "image": "https://media.beautysuccess.fr/media/catalog/product/cache/1/small_image/200x/040ec09b1e35df139433887a97daa66f/c/0/c031148-zoom.jpg",
+    "price": "                    52,90 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-masque-creme-bien-etre-purifiant"
+  },
+  {
+    "brand": "CHANEL",
+    "name": "LE LIFT",
+    "description": "                            COLLECTION FERMETÉ - ANTI-RIDES                        ",
+    "image": "img/channelSoins/c036041-zoom.jpg",
+    "price": "                    166,00 €                ",
+    "url": "https://www.beautysuccess.fr/chanel/soin/chanel-le-lift-collection-fermete-anti-rides"
+  }
+]
