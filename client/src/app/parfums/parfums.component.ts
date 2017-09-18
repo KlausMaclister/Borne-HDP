@@ -41,6 +41,7 @@ export class ParfumsComponent implements OnInit, AfterViewChecked {
   fetchParfums() {
     this.api.getParfums().subscribe((res) => {
       this.brands = [...Array.from(new Set(res.map(parfum => parfum.brand)))];
+      console.log(this.brands);
       this.bigArr = res;
       const sub = res.slice(0, 200);
       this.allParfums = sub;

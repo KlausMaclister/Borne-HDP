@@ -1,8 +1,8 @@
-<div layout="row" layout-align="start">
+<div layout="row" layout-align="space-between start">
   <ul id="parfumBrands">
     <li *ngFor="let brand of brands" (click)="filterParfums(brand)">{{brand}}</li>
   </ul>
-  <div layout="row" layout-wrap layout-align="start start">
+  <div layout="row" layout-wrap layout-align="start start" style="width: 80%">
     <div *ngFor="let parfum of allParfums">
       <md-card class="product-card" *ngIf="!hasNoUpdatedUrl(parfum.image)">
         <md-card-header>

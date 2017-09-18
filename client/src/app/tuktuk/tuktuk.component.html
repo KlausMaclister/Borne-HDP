@@ -1,6 +1,13 @@
 <div layout="column" layout-align="center center" style="height: 100%">
   <div class="wrapper-with-shadow">
     <div class="form-group mt-5">
+      <label for="hours">How many people will travel :</label>
+      <select class="form-control" id="travelers" [(ngModel)]="numberOfTravelers">
+        <option *ngFor="let traveler of travelers">{{traveler}}</option>
+      </select>
+      <p style="color: red" *ngIf="numberOfTravelers" class="mt-3">
+        Warning: only adults above 16 years old are
+        allowed</p>
       <label for="hours">Pick an hour:</label>
       <select class="form-control" id="hours" [(ngModel)]="selectedHour">
         <option *ngFor="let hour of openingHours">{{hour}}</option>

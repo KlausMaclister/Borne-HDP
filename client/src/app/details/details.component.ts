@@ -5,6 +5,7 @@ import {FetcherService} from '../services/fetcher.service';
 import {Router} from '@angular/router';
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import {InscriptionComponent} from '../inscription/inscription.component';
+import {CartInscriptionComponent} from '../cart-inscription/cart-inscription.component';
 
 
 @Component({
@@ -108,7 +109,17 @@ export class DetailsComponent implements OnInit {
   }
 
   bookInShop() {
-
+    const selectedProduct = {
+      'product': this.product.label,
+      'quantity': this.selectedQty,
+      'dynamicPrice': this.product.dynamicPrice,
+      'regularPrice': this.product.regularPrice
+    };
+    const dialogRef = this.dialog.open(CartInscriptionComponent, {
+      data: {product: selectedProduct},
+      disableClose: true,
+      width: '60%'
+    });
   }
 
 }

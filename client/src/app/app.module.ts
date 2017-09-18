@@ -22,7 +22,6 @@ import {MdProgressSpinnerModule} from '@angular/material';
 
 /*views*/
 import { ParfumsComponent } from './parfums/parfums.component';
-import { VisageComponent } from './visage/visage.component';
 
 import {MdCardModule} from '@angular/material';
 import { DetailsComponent } from './details/details.component';
@@ -36,13 +35,15 @@ import { PresentationComponent } from './presentation/presentation.component';
 import { TuktukComponent } from './tuktuk/tuktuk.component';
 import { ItineraryComponent } from './itinerary/itinerary.component';
 import { BookInShopComponent } from './book-in-shop/book-in-shop.component';
+import { EcranVeilleComponent } from './ecran-veille/ecran-veille.component';
+import { CartInscriptionComponent } from './cart-inscription/cart-inscription.component';
+import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ParfumsComponent,
-    VisageComponent,
     DetailsComponent,
     InscriptionComponent,
     CartComponent,
@@ -51,7 +52,10 @@ import { BookInShopComponent } from './book-in-shop/book-in-shop.component';
     PresentationComponent,
     TuktukComponent,
     ItineraryComponent,
-    BookInShopComponent
+    BookInShopComponent,
+    EcranVeilleComponent,
+    CartInscriptionComponent,
+    CartConfirmComponent
   ],
   imports: [
     BrowserModule,
@@ -73,6 +77,6 @@ import { BookInShopComponent } from './book-in-shop/book-in-shop.component';
   ],
   bootstrap: [AppComponent],
   providers: [DataBusService, FetcherService, CustomHttpService, PaymentService],
-  entryComponents: [CartComponent, InscriptionComponent]
+  entryComponents: [CartComponent, InscriptionComponent, CartInscriptionComponent]
 })
 export class AppModule { }

@@ -6,7 +6,6 @@ import {Observable} from 'rxjs/Rx';
 export class FetcherService {
 
   private parfums = 'assets/jsons/parfums.json';
-  private soins = 'assets/jsons/visage.json';
   private productDetails = 'https://beautyscrapr.herokuapp.com/price?url=';
 
   constructor(private http: CustomHttpService) {
@@ -16,12 +15,6 @@ export class FetcherService {
     return this.http.get(this.parfums)
       .map((res) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'Server error, could not fetch parfums'));
-  }
-
-  getSoins() {
-    return this.http.get(this.soins)
-      .map((res) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error, could not fetch soins'));
   }
 
   getProductDetails(url) {

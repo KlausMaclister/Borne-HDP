@@ -33,7 +33,7 @@ export class AppComponent {
 
   isNotStoreView = () => {
     console.log(this.router.url);
-    const bannedUrl = ['/language', '/presentation', '/tuktuk', '/itinerary'];
+    const bannedUrl = ['/language', '/presentation', '/tuktuk', '/itinerary', '/ecranVeille'];
     console.log(bannedUrl.indexOf(this.router.url));
     if (bannedUrl.indexOf(this.router.url) === -1) {
       return true;
