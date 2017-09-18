@@ -10,6 +10,7 @@ var mailer = require('./lib/mailer');
 var bodyParser = require('body-parser');
 var imageDownloadr = require('./lib/image.downloader');
 var deep_scraping = require('./lib/deep_scraping');
+const translate = require('google-translate-api');
 
 
 app.use(bodyParser.json());
@@ -63,7 +64,7 @@ app.get('/parfums', function (request, response) {
         }
     });
 });
-app.get('/channel', function(request, response){
+app.get('/channel', function (request, response) {
     scrpr.getParfums('https://www.beautysuccess.fr/chanel/soin?limit=all', 'channelSoins.json')
 })
 app.get('/parfumBrands', (request, response) => {
@@ -131,11 +132,21 @@ app.post('/charge', function (req, res) {
 })
 
 
-
 app.post('/mail', (request, response) => {
     var title = request.body.title || '';
     var body = request.body.emailBody || '';
     mailer.sendEmail(title, body).then((status) => response.send(status))
+});
+
+app.post('/translate', (request, response) => {
+    var text = request.body.text || '';
+    var language = request.language.toLowerCase() || 'en';
+    translate(text, {to: language}).then(res => {
+        console.log(res.text);
+        response.send(res.text);
+    }).catch(err => {
+        console.error(err);
+    });
 });
 
 
