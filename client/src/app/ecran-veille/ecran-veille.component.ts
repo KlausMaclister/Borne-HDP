@@ -11,6 +11,7 @@ export class EcranVeilleComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit() {
+    window.localStorage.clear();
   }
   goToLanguage() {
     this.router.navigate(['/language']);

@@ -27,14 +27,11 @@ export class AppComponent {
   showCart() {
     const dialogRef = this.dialog.open(CartComponent);
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result);
     });
   }
 
   isNotStoreView = () => {
-    console.log(this.router.url);
     const bannedUrl = ['/language', '/presentation', '/tuktuk', '/itinerary', '/ecranVeille'];
-    console.log(bannedUrl.indexOf(this.router.url));
     if (bannedUrl.indexOf(this.router.url) === -1) {
       return true;
     } else {

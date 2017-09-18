@@ -78,8 +78,12 @@ export class DetailsComponent implements OnInit {
       'dynamicPrice': this.product.dynamicPrice,
       'regularPrice': this.product.regularPrice
     };
-    const jsonified = JSON.stringify(selectedProduct);
-    window.localStorage.setItem('selectedProduct', jsonified);
+    const oldArticles = localStorage.getItem('cart');
+    const oldJsonified = JSON.parse(oldArticles) || [];
+    console.log(oldJsonified);
+    oldJsonified.push(selectedProduct);
+    const jsonified = JSON.stringify(oldJsonified);
+    window.localStorage.setItem('cart', jsonified);
     const dialogRef = this.dialog.open(InscriptionComponent, {
       data: {product: selectedProduct},
       disableClose: true,

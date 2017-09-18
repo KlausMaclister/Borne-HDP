@@ -9,7 +9,7 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  all: any;
   items: FirebaseListObservable<any[]>;
   isParfums = true;
   isVisage = false;

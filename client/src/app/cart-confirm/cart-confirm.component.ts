@@ -1,27 +1,32 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, OnInit, OnDestroy} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-cart-confirm',
   templateUrl: './cart-confirm.component.html',
   styleUrls: ['./cart-confirm.component.css']
 })
-export class CartConfirmComponent implements OnInit {
+export class CartConfirmComponent implements OnInit, OnDestroy {
 
-  ticketId: number;
-  constructor(private router: Router) {
+  ticketId: any;
+  sub: any;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
   }
   ngOnInit() {
-    this.generateTicketId();
+    this.sub = this.activatedRoute.queryParams.subscribe(params => {
+        this.ticketId = +params['ticketId'] || 0;
+      });
   }
-  generateTicketId = () => {
-    this.ticketId = Math.floor(1000 + Math.random() * 9000);
-  }
+
   goBackToMenu() {
     this.router.navigate(['/']);
   }
   seeItinerary() {
     this.router.navigate(['/itinerary']);
   }
+  ngOnDestroy() {
+    this.sub.unsubscribe();
+  }
+
 
 }

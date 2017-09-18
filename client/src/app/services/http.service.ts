@@ -12,11 +12,9 @@ export class CustomHttpService extends Http {
   constructor(backend: XHRBackend, options: RequestOptions, private dataBus: DataBusService) {
     super(backend, options);
   }
-
   private onGetCatch(error: any, caught: Observable<any>): Observable<any> {
     return Observable.throw(error);
   }
-
   get(url: string, options?: RequestOptionsArgs): Observable<any> {
     this.dataBus.setDataLoadingStatus(true);
     return super.get(url, options)
