@@ -174,7 +174,7 @@ module.exports = module.exports.toString();
 /***/ 261:
 /***/ (function(module, exports) {
 
-module.exports = "<h1 *ngIf=\"isVisage\">Soins Visage</h1>\n<h1 *ngIf=\"isParfums\">Parfums</h1>\n<h1 *ngIf=\"isBrand\">Brands</h1>\n<pre>{{brands | json}}</pre>\n<div>\n  <button (click)=\"switchToSoins()\">Soins Visages</button>\n  <button (click)=\"switchToParfums()\">Parfums</button>\n  <button (click)=\"switchToBrands()\">brands</button>\n</div>\n<table>\n  <thead>\n  <th>Element</th>\n  <th>Indisponible</th>\n  </thead>\n  <tr *ngFor=\"let item of items | async\">\n    <td>{{item.name}}</td>\n    <td><input type=\"checkbox\" [(ngModel)]=\"item.available\" (change) = \"update($event, item.$key)\"></td>\n  </tr>\n</table>\n"
+module.exports = "<h1 *ngIf=\"isVisage\">Soins Visage</h1>\n<h1 *ngIf=\"isParfums\">Parfums</h1>\n<h1 *ngIf=\"isBrand\">Brands</h1>\n<pre>{{brands | json}}</pre>\n<div>\n  <button (click)=\"switchToSoins()\">Soins Visages</button>\n  <button (click)=\"switchToParfums()\">Parfums</button>\n  <button (click)=\"switchToBrands()\">brands</button>\n</div>\n<table>\n  <thead>\n  <th>Element</th>\n  <th>Indisponible (sauf si brand=> si brand alors cochez les elements disponibles)</th>\n  </thead>\n  <tr *ngFor=\"let item of items | async\">\n    <td>{{item.name}}</td>\n    <td><input type=\"checkbox\" [(ngModel)]=\"item.available\" (change) = \"update($event, item.$key)\"></td>\n  </tr>\n</table>\n"
 
 /***/ }),
 
