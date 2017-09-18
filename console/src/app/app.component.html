@@ -1,16 +1,13 @@
-<h1 *ngIf="isVisage">Soins Visage</h1>
 <h1 *ngIf="isParfums">Parfums</h1>
 <h1 *ngIf="isBrand">Brands</h1>
-<pre>{{brands | json}}</pre>
 <div>
-  <button (click)="switchToSoins()">Soins Visages</button>
   <button (click)="switchToParfums()">Parfums</button>
   <button (click)="switchToBrands()">brands</button>
 </div>
 <table>
   <thead>
   <th>Element</th>
-  <th>Indisponible (sauf si brand=> si brand alors cochez les elements disponibles)</th>
+  <th>Indisponible (sauf si brands=> si brands alors cochez les elements disponibles)</th>
   </thead>
   <tr *ngFor="let item of items | async">
     <td>{{item.name}}</td>
