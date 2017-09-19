@@ -3,6 +3,7 @@ import {MD_DIALOG_DATA, MdDialogRef} from '@angular/material';
 import {Countries} from '../inscription/countries';
 import {Router} from '@angular/router';
 import {MailerService} from '../services/mailer.service';
+import {AreaCodes} from '../Models/phone.areCode';
 
 @Component({
   selector: 'app-cart-inscription',
@@ -16,9 +17,12 @@ export class CartInscriptionComponent implements OnInit {
   passportNumber: string;
   email: string;
   country: string;
-  isNotEuropeanCountry: boolean;
+  areaCode: string;
+  phone: string;
+  isNotEuropeanCountry = false;
   allCountries = Countries.countryList;
   euCountries = Countries.euCountries;
+  areCodes = AreaCodes.CODES;
   ticketId: number;
 
   constructor(public dialogRef: MdDialogRef<CartInscriptionComponent>,
@@ -37,7 +41,7 @@ export class CartInscriptionComponent implements OnInit {
   confirm() {
     this.generateTicketId();
     this.sendEmail();
-    //this.router.navigate(['confirmCart'], {queryParams: {ticketId: this.ticketId}});
+    this.router.navigate(['confirmCart'], {queryParams: {ticketId: this.ticketId}});
   }
 
   sendEmail() {
@@ -47,13 +51,15 @@ export class CartInscriptionComponent implements OnInit {
       'firstName': this.firstName,
       'lastName': this.lastName,
       'email': this.email,
+      'areaCode': this.areaCode,
+      'phone': this.phone,
       'passeport': this.passportNumber,
       'nationality': this.country,
       'cart': cart
     };
     const mail = {title, emailBody};
     console.log(mail);
-    this.mailer.sendEmail(title, emailBody);
+    this.mailer.sendEmail(title, emailBody).subscribe((res) => console.log(res));
   }
 
   generateTicketId = () => {

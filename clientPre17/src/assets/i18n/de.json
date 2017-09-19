@@ -1,0 +1,7 @@
+{
+  "TITLE": "Angular Translator Demo",
+  "HELLO_WORLD": "Hallo Welt!",
+  "GREETING": "Hallo {{ name }}!",
+  "STATUS_PENDING": "ausstehend",
+  "STATUS_DONE": "abgeschlossen"
+}

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import {MdProgressBarModule} from '@angular/material';
+import { environment } from '../environments/environment';
 
 import {CustomHttpService} from './services/http.service';
 import {PaymentService} from './services/payment.service';
@@ -18,8 +19,8 @@ import {MdInputModule} from '@angular/material';
 import {MdDialogModule} from '@angular/material';
 import {MdListModule} from '@angular/material';
 import {MdProgressSpinnerModule} from '@angular/material';
-
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 /*views*/
 import { ParfumsComponent } from './parfums/parfums.component';
 
@@ -73,7 +74,9 @@ import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
     MdDialogModule,
     MdProgressBarModule,
     MdProgressSpinnerModule,
-    MdListModule
+    MdListModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   bootstrap: [AppComponent],
   providers: [DataBusService, FetcherService, CustomHttpService, PaymentService],

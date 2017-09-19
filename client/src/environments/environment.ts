@@ -5,5 +5,13 @@
 
 export const environment = {
   production: true,
-  stripeKey: 'pk_test_gVadyNQMPuAqdaTeI3ZZzMGc',
+  stripeKey: 'pk_live_FN4bjURxeZhZFZP6cFIDeDNB',
+  firebase: {
+    apiKey: 'AIzaSyCr4L9zSPtfdi8IMNXNfV5AbB2MHp8Wi5M',
+    authDomain: 'beauty-success-3840f.firebaseapp.com',
+    databaseURL: 'https://beauty-success-3840f.firebaseio.com',
+    projectId: 'beauty-success-3840f',
+    storageBucket: 'beauty-success-3840f.appspot.com',
+    messagingSenderId: '22204423486'
+  }
 };

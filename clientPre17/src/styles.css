@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+
+.price {
+  text-align: center;
+  color: #DC6695;
+  font-weight: 700;
+}
+
+.wrapper-with-shadow {
+  padding: 3em;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

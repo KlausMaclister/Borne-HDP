@@ -5,6 +5,8 @@ import {ProductModel} from '../Models/product';
 import {Router} from '@angular/router';
 import 'rxjs/add/operator/startWith';
 import 'rxjs/add/operator/map';
+import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
+
 
 @Component({
   selector: 'app-parfums',
@@ -13,14 +15,20 @@ import 'rxjs/add/operator/map';
   providers: [FetcherService]
 })
 export class ParfumsComponent implements OnInit, AfterViewChecked {
-  allParfums: any[];
-  brands: any[];
+  allParfums: any[] = [];
+  brandsToDisplay: any[] = [];
   bigArr: any[];
+  parfumsFire: FirebaseListObservable<any[]>;
+  fireBrands: FirebaseListObservable<any[]>;
 
-  constructor(private api: FetcherService, private dataBus: DataBusService, private router: Router) {
+  constructor(private api: FetcherService,
+              private dataBus: DataBusService,
+              private router: Router,
+              private db: AngularFireDatabase) {
   }
 
   ngOnInit() {
+
     this.fetchParfums();
   }
 
@@ -34,18 +42,25 @@ export class ParfumsComponent implements OnInit, AfterViewChecked {
     this.router.navigate(['/details']);
   }
 
-  hasNoUpdatedUrl = (url: string) => {
-    return url.includes('https');
+  hasNoUpdatedUrl = (url: string, available: boolean) => {
+    return !url.includes('https');
   }
 
   fetchParfums() {
-    this.api.getParfums().subscribe((res) => {
-      this.brands = [...Array.from(new Set(res.map(parfum => parfum.brand)))];
-      console.log(this.brands);
-      this.bigArr = res;
-      const sub = res.slice(0, 200);
-      this.allParfums = sub;
+    this.fireBrands = this.db.list('/brands');
+    this.fireBrands.subscribe((brand: any) => {
+      brand.forEach((br: any) => {
+        if (br.available) {
+          this.brandsToDisplay.push(br.name);
+        }
+      });
+      this.parfumsFire = this.db.list('/parfums');
+      this.parfumsFire.subscribe((res) => {
+        this.bigArr = res;
+        this.allParfums = res.splice(0, 300);
+      });
     });
+
   }
 
   filterParfums = (brand: string) => {

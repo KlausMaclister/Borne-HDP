@@ -17,16 +17,20 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     const cartStr = window.localStorage.getItem('cart');
-    this.cartProducts = JSON.parse(cartStr);
-    console.log(this.cartProducts);
-    const AllProducts = this.cartProducts.map((product: ProductModel) => {
-      const price = product.quantity * product.price;
-      this.totalPrice += price;
-      return product.quantity;
-    });
-    AllProducts.forEach((quantity: number) => {
-      this.numberOfProducts += quantity;
-    });
+    if (cartStr) {
+      this.cartProducts = JSON.parse(cartStr);
+      console.log(this.cartProducts);
+      const AllProducts = this.cartProducts.map((product: ProductModel) => {
+        const price = product.quantity * parseInt(product.price, 0);
+        console.log(price);
+        this.totalPrice += price;
+        console.log(this.totalPrice);
+        return product.quantity;
+      });
+      AllProducts.forEach((quantity: number) => {
+        this.numberOfProducts += quantity;
+      });
+    }
   }
 
   decreaseQty = (product: ProductModel) => {

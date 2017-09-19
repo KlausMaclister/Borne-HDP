@@ -34,7 +34,7 @@ export class TuktukComponent implements OnInit {
   }
 
   goBack() {
-    this.router.navigate(['/presentation']);
+    this.router.navigate(['/']);
   }
 
   generateTicketId = () => {

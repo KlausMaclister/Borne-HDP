@@ -6,13 +6,14 @@ import {Router} from '@angular/router';
 import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
 import {InscriptionComponent} from '../inscription/inscription.component';
 import {CartInscriptionComponent} from '../cart-inscription/cart-inscription.component';
+import {TranslatorService} from '../services/translator.service';
 
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css'],
-  providers: [FetcherService]
+  providers: [FetcherService, TranslatorService]
 })
 
 export class DetailsComponent implements OnInit {
@@ -28,7 +29,11 @@ export class DetailsComponent implements OnInit {
   selectedVolume: number;
   cartProducts: ProductModel[];
 
-  constructor(private dataBus: DataBusService, private api: FetcherService, private router: Router, public dialog: MdDialog) {
+  constructor(private dataBus: DataBusService,
+              private api: FetcherService,
+              private router: Router,
+              public dialog: MdDialog,
+              private translator: TranslatorService) {
     this.contentHasLoaded = false;
     this.prices = [];
     this.quantities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -41,6 +46,12 @@ export class DetailsComponent implements OnInit {
       const UrlToCall = (localStorageUrl !== 'undefined' ) ? localStorageUrl : res.url;
       this.api.getProductDetails(UrlToCall).subscribe((product) => {
         this.product = product[0];
+        const description = product[0].fullDescription;
+        const language = localStorage.getItem('language');
+        this.translator.translateContent(description, language).subscribe((translated: string) => {
+          console.log(translated);
+          this.product.fullDescription = translated;
+        });
         this.product.price = parseInt(this.product.price.replace('€', ''), 0);
         this.product.dynamicPrice = this.product.price * this.selectedQty;
         this.product.regularPrice = this.product.price;
@@ -61,14 +72,15 @@ export class DetailsComponent implements OnInit {
   }
 
   updateValue(qty: number) {
-    this.product.dynamicPrice = this.product.price * qty;
+    this.product.dynamicPrice = this.product.dynamicPrice * qty;
     this.product.regularPrice = this.product.dynamicPrice;
   }
 
-  updateVolumePrice(price: number) {
-    this.product.dynamicPrice = price * this.selectedQty;
+  updateVolumePrice(price: string) {
+    const intPrice = parseInt(price, 0);
+    this.product.dynamicPrice = intPrice * this.selectedQty;
     this.product.price = price;
-    this.product.regularPrice = price;
+    this.product.regularPrice = intPrice;
   }
 
   goToSignUp = () => {

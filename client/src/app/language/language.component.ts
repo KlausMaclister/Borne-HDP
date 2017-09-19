@@ -15,13 +15,13 @@ export class LanguageComponent {
   setLanguage = (language: string) => {
     switch (language) {
       case 'US':
-        localStorage.setItem('language', 'US');
+        localStorage.setItem('language', 'en');
         break;
       case 'FR':
-        localStorage.setItem('language', 'FR');
+        localStorage.setItem('language', 'fr');
         break;
       case 'ES':
-        localStorage.setItem('language', 'ES');
+        localStorage.setItem('language', 'es');
         break;
     }
     this.router.navigate(['presentation']);

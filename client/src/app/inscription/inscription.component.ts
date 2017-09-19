@@ -4,6 +4,7 @@ import {PaymentService} from '../services/payment.service';
 import {environment} from '../../environments/environment';
 import {MD_DIALOG_DATA, MdDialogRef} from '@angular/material';
 import {Router} from '@angular/router';
+import {AreaCodes} from '../Models/phone.areCode';
 
 @Component({
   selector: 'app-inscription',
@@ -18,11 +19,14 @@ export class InscriptionComponent implements AfterContentInit {
   lastName: string;
   passportNumber: string;
   email: string;
+  phone: string;
   country: string;
   card: any;
   submitted = false;
+  areaCode: string;
   isNotEuropeanCountry: boolean;
   notPaying = true;
+  areCodes = AreaCodes.CODES;
   allCountries = Countries.countryList;
   euCountries = Countries.euCountries;
 
@@ -39,7 +43,7 @@ export class InscriptionComponent implements AfterContentInit {
   postPayment = (token) => {
     const label = `payment from ${this.lastName} ${this.firstName}`;
     const price = Math.floor(this.data.product.dynamicPrice * 100);
-    this.paymentSrv.postPayment(price, token, label)
+    this.paymentSrv.postPayment(156, token, label)
       .subscribe((payment) => {
         this.notPaying = !this.notPaying;
         if (payment.status === 200) {
@@ -101,6 +105,8 @@ export class InscriptionComponent implements AfterContentInit {
       'passeport': this.passportNumber,
       'country': this.country,
       'email': this.email,
+      'areaCode': this.areaCode,
+      'phone': this.phone,
       'amount_spent': this.data.product.dynamicPrice
     };
     this.paymentSrv.createLead(lead).subscribe((res) => {
@@ -110,10 +116,5 @@ export class InscriptionComponent implements AfterContentInit {
   checkContinent = (country: string) => {
     console.log(this.data.product);
     this.isNotEuropeanCountry = this.euCountries.indexOf(country) > 1;
-    if (!this.isNotEuropeanCountry) {
-      this.data.product.dynamicPrice = this.data.product.regularPrice * 0.8;
-    } else {
-      this.data.product.dynamicPrice = this.data.product.regularPrice;
-    }
   }
 }

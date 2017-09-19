@@ -1,16 +1,16 @@
 <div layout="column" layout-align="center center">
-  <div class="wrapper-with-shadow" style="width: 500px" layout="column" layout-align="center center">
+  <div class="wrapper-with-shadow" style="width: 550px" layout="column" layout-align="center center">
     <img src="assets/images/valid_payment.svg" style="height: 60px">
-    <p class="mt-3" style="text-align: center">Your Order has been successfully placed, here is your order id, keep it
-      to show it in the store</p>
-    <p>Order number: <strong>{{ticketId}}</strong></p>
+    <p class="mt-3">Your Order has been successfully placed, here is your order id : <strong>{{ticketId}}</strong></p>
+    <strong>Please Print your ticket you will need to show it to the cashier at the shop</strong>
     <div layout="row" layout-align="space-between center" class="mt-3">
       <button md-raised-button (click)="goBackToMenu()" color="warn" class="mr-2">
-        Cancel, Go back to main menu
+        Go back to Main Menu
       </button>
-      <button md-raised-button (click)="seeItinerary()" color="primary">
+      <button md-raised-button (click)="seeItinerary()" class="mr-2" color="primary">
         See Itinerary
       </button>
+      <button md-raised-button color="accent">Print Ticket ID</button>
     </div>
   </div>
 </div>
