@@ -19,6 +19,7 @@ export class InscriptionComponent implements AfterContentInit {
   lastName: string;
   passportNumber: string;
   email: string;
+  dob: string;
   phone: string;
   country: string;
   card: any;
@@ -60,8 +61,10 @@ export class InscriptionComponent implements AfterContentInit {
 
   handlePayment() {
     this.submitted = true;
-    this.submitPayment().then((status) => console.log(status));
-    this.newLead();
+    this.router.navigate(['/valid_payment']);
+
+    // this.submitPayment().then((status) => console.log(status));
+  //  this.newLead();
   }
 
   submitPayment = async () => {

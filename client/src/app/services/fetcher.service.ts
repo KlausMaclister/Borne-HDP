@@ -11,12 +11,6 @@ export class FetcherService {
   constructor(private http: CustomHttpService) {
   }
 
-  getParfums() {
-    return this.http.get(this.parfums)
-      .map((res) => res.json())
-      .catch((error: any) => Observable.throw(error.json().error || 'Server error, could not fetch parfums'));
-  }
-
   getProductDetails(url) {
     const newUrl = this.productDetails + url;
     return this.http.get(newUrl)

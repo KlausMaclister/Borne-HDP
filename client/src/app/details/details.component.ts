@@ -2,11 +2,11 @@ import {Component, OnInit} from '@angular/core';
 import {ProductModel} from '../Models/product';
 import {DataBusService} from '../services/data-bus.service';
 import {FetcherService} from '../services/fetcher.service';
-import {Router} from '@angular/router';
-import {MdDialog, MdDialogRef, MD_DIALOG_DATA} from '@angular/material';
+import {MdDialog} from '@angular/material';
 import {InscriptionComponent} from '../inscription/inscription.component';
 import {CartInscriptionComponent} from '../cart-inscription/cart-inscription.component';
 import {TranslatorService} from '../services/translator.service';
+import {AddToCartComponent} from '../modals/add-to-cart/add-to-cart.component';
 
 
 @Component({
@@ -31,7 +31,6 @@ export class DetailsComponent implements OnInit {
 
   constructor(private dataBus: DataBusService,
               private api: FetcherService,
-              private router: Router,
               public dialog: MdDialog,
               private translator: TranslatorService) {
     this.contentHasLoaded = false;
@@ -105,6 +104,7 @@ export class DetailsComponent implements OnInit {
   }
 
   addProductToCart = () => {
+    this.dialog.open(AddToCartComponent, {data: {title: this.product.label}});
     const product: ProductModel = {
       label: this.product.label,
       quantity: this.selectedQty,
@@ -115,7 +115,6 @@ export class DetailsComponent implements OnInit {
     for (let i = 0; i < product.quantity; i++) {
       numberOfItemsInCart++;
     }
-
     this.cartProducts.push(product);
     this.dataBus.setNewCartProduct(this.cartProducts);
     this.dataBus.setNumberOfItemsInCart(numberOfItemsInCart);

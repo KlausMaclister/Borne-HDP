@@ -59,7 +59,7 @@ export class CartInscriptionComponent implements OnInit {
     };
     const mail = {title, emailBody};
     console.log(mail);
-    this.mailer.sendEmail(title, emailBody).subscribe((res) => console.log(res));
+    // this.mailer.sendEmail(title, emailBody).subscribe((res) => console.log(res));
   }
 
   generateTicketId = () => {

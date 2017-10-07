@@ -28,10 +28,8 @@ export class ParfumsComponent implements OnInit, AfterViewChecked {
   }
 
   ngOnInit() {
-
     this.fetchParfums();
   }
-
 
   ngAfterViewChecked() {
     this.dataBus.setDataLoadingStatus(false);
@@ -41,11 +39,9 @@ export class ParfumsComponent implements OnInit, AfterViewChecked {
     this.dataBus.setNewProduct(product);
     this.router.navigate(['/details']);
   }
-
-  hasNoUpdatedUrl = (url: string, available: boolean) => {
-    return !url.includes('https');
+  isNotUrl(url: string) {
+    return !url.includes('http');
   }
-
   fetchParfums() {
     this.fireBrands = this.db.list('/brands');
     this.fireBrands.subscribe((brand: any) => {
@@ -57,7 +53,8 @@ export class ParfumsComponent implements OnInit, AfterViewChecked {
       this.parfumsFire = this.db.list('/parfums');
       this.parfumsFire.subscribe((res) => {
         this.bigArr = res;
-        this.allParfums = res.splice(0, 300);
+        this.allParfums = res;
+        console.log(res);
       });
     });
 

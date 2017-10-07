@@ -35,10 +35,11 @@ import { SuccessPaymentComponent } from './success-payment/success-payment.compo
 import { PresentationComponent } from './presentation/presentation.component';
 import { TuktukComponent } from './tuktuk/tuktuk.component';
 import { ItineraryComponent } from './itinerary/itinerary.component';
-import { BookInShopComponent } from './book-in-shop/book-in-shop.component';
 import { EcranVeilleComponent } from './ecran-veille/ecran-veille.component';
 import { CartInscriptionComponent } from './cart-inscription/cart-inscription.component';
 import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
+import { AddToCartComponent } from './modals/add-to-cart/add-to-cart.component';
+import {PrintingComponent} from './printing/printing.component';
 
 
 @NgModule({
@@ -52,11 +53,12 @@ import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
     SuccessPaymentComponent,
     PresentationComponent,
     TuktukComponent,
+    PrintingComponent,
     ItineraryComponent,
-    BookInShopComponent,
     EcranVeilleComponent,
     CartInscriptionComponent,
-    CartConfirmComponent
+    CartConfirmComponent,
+    AddToCartComponent
   ],
   imports: [
     BrowserModule,
@@ -80,6 +82,6 @@ import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
   ],
   bootstrap: [AppComponent],
   providers: [DataBusService, FetcherService, CustomHttpService, PaymentService],
-  entryComponents: [CartComponent, InscriptionComponent, CartInscriptionComponent]
+  entryComponents: [CartComponent, InscriptionComponent, CartInscriptionComponent, AddToCartComponent]
 })
 export class AppModule { }
