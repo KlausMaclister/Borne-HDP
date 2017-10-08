@@ -1,4 +1,4 @@
-export class ProductModel{
+export class ProductModel {
   brand?: string;
   description?: string;
   dynamicPrice?: number;
@@ -10,6 +10,6 @@ export class ProductModel{
   label?: string;
   productBigImage?: string;
   featuredImage?: string;
-  price?: any;
+  price?: number;
   fullDescription?: string;
 }

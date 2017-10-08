@@ -3,11 +3,11 @@
   <md-list-item *ngFor="let prod of cartProducts">
     <img md-list-avatar src="{{prod.image}}">
     <h3 md-line>{{prod.quantity}} x {{prod.label}} </h3>
-    <button md-icon-button class="delete-btn" (click)="decreaseQty(prod)" [disabled] = "productIsDeleted(prod)">-</button>
+    <button md-icon-button class="delete-btn" (click)="decreaseQty(prod)" [disabled]="productIsDeleted(prod)">-</button>
     <button md-icon-button class="add-btn" (click)="increaseQty(prod)">+</button>
   </md-list-item>
   <div layout="row" layout-align="center center">
-    <h3>{{totalPrice | number:'1.0-2'}} €</h3>
+    <h3>{{totalPrice}} €</h3>
   </div>
 </md-list>
 <div layout="row">

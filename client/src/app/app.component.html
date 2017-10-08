@@ -2,12 +2,12 @@
 
 <div *ngIf="isNotStoreView()">
   <div layout="row" class="topBar mb-5" layout-align="space-between center">
-    <div>
-      <p style="color: white; margin-left: 15em; margin-bottom: 0px">For any question please address the loby</p>
+    <div layout="row" flex="60" layout-align="end center">
+      <p style="color: white; margin-bottom: 0px">For any question please address the loby</p>
     </div>
-    <div class="mr-4" layout="row" (click)="showCart()">
+    <div class="mr-4" layout="row" (click)="showCart()" *ngIf="numberOfCartItems > 0">
       <img class="cart-icon" src="assets/images/cart.svg">
-      <p class="cart-items ml-2">{{cartItems}} items</p>
+      <p class="cart-items ml-2">{{numberOfCartItems}} items</p>
     </div>
   </div>
 

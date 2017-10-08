@@ -1,40 +1,39 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
 import {ProductModel} from '../Models/product';
 import {MdDialog} from '@angular/material';
 import {CartInscriptionComponent} from '../cart-inscription/cart-inscription.component';
 import {InscriptionComponent} from '../inscription/inscription.component';
+import {DataBusService} from '../services/data-bus.service';
+import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   cartProducts: ProductModel[];
   numberOfProducts: number;
-  totalPrice: number;
+  totalPrice = 0;
+  cartItems$: Subscription;
 
   constructor(public dialogRef: MdDialogRef<CartComponent>,
-              public dialog: MdDialog) {
+              public dialog: MdDialog, private dataBus: DataBusService) {
   }
 
   ngOnInit() {
-    const cartStr = window.localStorage.getItem('cart');
-    if (cartStr) {
-      this.cartProducts = JSON.parse(cartStr);
-      console.log(this.cartProducts);
-      const AllProducts = this.cartProducts.map((product: ProductModel) => {
-        const price = product.quantity * parseInt(product.price, 0);
-        console.log(price);
-        this.totalPrice += price;
+    this.cartItems$ = this.dataBus.cartProducts.subscribe((products: ProductModel[]) => {
+      console.log(products);
+      this.cartProducts = products;
+      products.forEach((product: ProductModel) => {
+        console.log(product.price);
+        console.log(typeof product.price);
+        console.log(typeof this.totalPrice);
+        this.totalPrice += product.price;
         console.log(this.totalPrice);
-        return product.quantity;
       });
-      AllProducts.forEach((quantity: number) => {
-        this.numberOfProducts += quantity;
-      });
-    }
+    });
   }
 
   decreaseQty = (product: ProductModel) => {
@@ -51,6 +50,7 @@ export class CartComponent implements OnInit {
   productIsDeleted = (product: ProductModel) => {
     return product.quantity < 1;
   }
+
   bookInShop() {
     const dialogRef = this.dialog.open(CartInscriptionComponent, {
       data: {product: this.cartProducts},
@@ -59,6 +59,7 @@ export class CartComponent implements OnInit {
     });
     this.dialogRef.close();
   }
+
   goToSignUp = () => {
     const oldArticles = localStorage.getItem('cart');
     const oldJsonified = JSON.parse(oldArticles) || [];
@@ -73,5 +74,9 @@ export class CartComponent implements OnInit {
     });
     this.dialogRef.close();
 
+  }
+
+  ngOnDestroy() {
+    this.cartItems$.unsubscribe();
   }
 }

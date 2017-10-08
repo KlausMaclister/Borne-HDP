@@ -40,21 +40,13 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-    const localStorageUrl = window.localStorage.getItem('currentProductUrl');
     this.dataBus.currentProduct.subscribe((res) => {
-      const UrlToCall = (localStorageUrl !== 'undefined' ) ? localStorageUrl : res.url;
-      this.api.getProductDetails(UrlToCall).subscribe((product) => {
+      this.api.getProductDetails(res.url).subscribe((product) => {
         this.product = product[0];
-        const description = product[0].fullDescription;
-        const language = localStorage.getItem('language');
-        this.translator.translateContent(description, language).subscribe((translated: string) => {
-          console.log(translated);
-          this.product.fullDescription = translated;
-        });
-        this.product.price = parseInt(this.product.price.replace('€', ''), 0);
         this.product.dynamicPrice = this.product.price * this.selectedQty;
         this.product.regularPrice = this.product.price;
         product.forEach((prod: ProductModel) => {
+          console.log(prod);
           const PriceObj = {'price': prod.price, 'label': prod.label};
           this.prices.push(PriceObj);
           console.log(PriceObj);
@@ -75,11 +67,10 @@ export class DetailsComponent implements OnInit {
     this.product.regularPrice = this.product.dynamicPrice;
   }
 
-  updateVolumePrice(price: string) {
-    const intPrice = parseInt(price, 0);
-    this.product.dynamicPrice = intPrice * this.selectedQty;
+  updateVolumePrice(price: number) {
+    this.product.dynamicPrice = price * this.selectedQty;
     this.product.price = price;
-    this.product.regularPrice = intPrice;
+    this.product.regularPrice = price;
   }
 
   goToSignUp = () => {
@@ -89,12 +80,6 @@ export class DetailsComponent implements OnInit {
       'dynamicPrice': this.product.dynamicPrice,
       'regularPrice': this.product.regularPrice
     };
-    const oldArticles = localStorage.getItem('cart');
-    const oldJsonified = JSON.parse(oldArticles) || [];
-    console.log(oldJsonified);
-    oldJsonified.push(selectedProduct);
-    const jsonified = JSON.stringify(oldJsonified);
-    window.localStorage.setItem('cart', jsonified);
     const dialogRef = this.dialog.open(InscriptionComponent, {
       data: {product: selectedProduct},
       disableClose: true,
@@ -117,10 +102,6 @@ export class DetailsComponent implements OnInit {
     }
     this.cartProducts.push(product);
     this.dataBus.setNewCartProduct(this.cartProducts);
-    this.dataBus.setNumberOfItemsInCart(numberOfItemsInCart);
-    const strCart = JSON.stringify(this.cartProducts);
-    window.localStorage.setItem('cart', strCart);
-    window.localStorage.setItem('numberOfItemsInCart', JSON.stringify(numberOfItemsInCart));
   }
 
   bookInShop() {
