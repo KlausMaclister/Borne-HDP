@@ -7,12 +7,12 @@ export class DataBusService {
 
   private _selectedProduct: BehaviorSubject<ProductModel>;
   private _dataIsLoading: BehaviorSubject<boolean>;
-  private _cartProducts: BehaviorSubject<ProductModel[]>;
+  private _cartQuantity: BehaviorSubject<number>;
 
   constructor() {
     this._selectedProduct = new BehaviorSubject<ProductModel>(new ProductModel());
     this._dataIsLoading = new BehaviorSubject<boolean>(false);
-    this._cartProducts = new BehaviorSubject<ProductModel[]>([]);
+    this._cartQuantity = new BehaviorSubject<number>(0);
   }
 
   setNewProduct(product: ProductModel) {
@@ -32,12 +32,11 @@ export class DataBusService {
     return this._dataIsLoading.asObservable();
   }
 
-  setNewCartProduct(product: ProductModel[]) {
-    this._cartProducts.next(product);
+  updateCartQuantity(value: number) {
+    this._cartQuantity.next(value);
   }
 
-  get cartProducts() {
-    return this._cartProducts.asObservable();
+  get cartQuantity() {
+    return this._cartQuantity.asObservable();
   }
-
 }

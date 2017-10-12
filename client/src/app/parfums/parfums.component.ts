@@ -51,10 +51,9 @@ export class ParfumsComponent implements OnInit, AfterViewChecked {
         }
       });
       this.parfumsFire = this.db.list('/parfums');
-      this.parfumsFire.subscribe((res) => {
-        this.bigArr = res;
-        this.allParfums = res;
-        console.log(res);
+      this.parfumsFire.subscribe((parfums: any) => {
+        this.bigArr = parfums;
+        this.allParfums = this.bigArr;
       });
     });
 

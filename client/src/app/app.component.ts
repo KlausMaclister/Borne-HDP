@@ -19,17 +19,13 @@ export class AppComponent {
     this.dataBus.dataLoadingStatus.subscribe((res) => {
       this.dataIsLoading = res;
     });
-    this.dataBus.cartProducts.subscribe((product: ProductModel[]) => {
-      console.log(product);
-      this.numberOfCartItems = product.length;
-      // this.cartItems = (numberOfItemsFromLS === 0) ? number : numberOfItemsFromLS;
+    this.dataBus.cartQuantity.subscribe((quantity: number) => {
+      this.numberOfCartItems = quantity;
     });
   }
 
   showCart() {
-    const dialogRef = this.dialog.open(CartComponent);
-    dialogRef.afterClosed().subscribe(result => {
-    });
+    this.dialog.open(CartComponent);
   }
 
   isNotStoreView = () => {

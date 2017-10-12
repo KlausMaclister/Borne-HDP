@@ -1,50 +1,48 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MdDialogRef} from '@angular/material';
 import {ProductModel} from '../Models/product';
 import {MdDialog} from '@angular/material';
 import {CartInscriptionComponent} from '../cart-inscription/cart-inscription.component';
 import {InscriptionComponent} from '../inscription/inscription.component';
 import {DataBusService} from '../services/data-bus.service';
-import {Subscription} from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit, OnDestroy {
+export class CartComponent implements OnInit {
   cartProducts: ProductModel[];
   numberOfProducts: number;
-  totalPrice = 0;
-  cartItems$: Subscription;
+  totalPrice: number;
 
   constructor(public dialogRef: MdDialogRef<CartComponent>,
               public dialog: MdDialog, private dataBus: DataBusService) {
   }
 
   ngOnInit() {
-    this.cartItems$ = this.dataBus.cartProducts.subscribe((products: ProductModel[]) => {
-      console.log(products);
-      this.cartProducts = products;
-      products.forEach((product: ProductModel) => {
-        console.log(product.price);
-        console.log(typeof product.price);
-        console.log(typeof this.totalPrice);
-        this.totalPrice += product.price;
-        console.log(this.totalPrice);
-      });
-    });
+    this.cartProducts = JSON.parse(window.localStorage.getItem('cartItems'));
+    this.totalPrice = parseInt(window.localStorage.getItem('cartPrice'), 10);
   }
 
   decreaseQty = (product: ProductModel) => {
     product.quantity--;
     this.numberOfProducts--;
-    this.totalPrice -= product.price;
+    if (this.totalPrice >= product.price) {
+      this.totalPrice -= product.price;
+      this.writeCartValueInLocalStorage();
+    }
+  }
+
+  writeCartValueInLocalStorage() {
+    const strPrice = JSON.stringify(this.totalPrice);
+    window.localStorage.setItem('cartPrice', strPrice);
   }
   increaseQty = (product: ProductModel) => {
     product.quantity++;
     this.numberOfProducts++;
     this.totalPrice += product.price;
+    this.writeCartValueInLocalStorage();
   }
 
   productIsDeleted = (product: ProductModel) => {
@@ -63,7 +61,6 @@ export class CartComponent implements OnInit, OnDestroy {
   goToSignUp = () => {
     const oldArticles = localStorage.getItem('cart');
     const oldJsonified = JSON.parse(oldArticles) || [];
-    console.log(oldJsonified);
     oldJsonified.push(this.cartProducts);
     const jsonified = JSON.stringify(oldJsonified);
     window.localStorage.setItem('cart', jsonified);
@@ -76,7 +73,5 @@ export class CartComponent implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy() {
-    this.cartItems$.unsubscribe();
-  }
+
 }
