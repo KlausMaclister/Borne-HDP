@@ -20,13 +20,11 @@ export class CustomHttpService extends Http {
     return super.get(url, options)
       .catch(this.onGetCatch)
       .do((res: Response) => {
-        console.log('do');
         return res;
       }, (error: any) => {
         Observable.throw(error);
       })
       .finally(() => {
-        console.log('finally');
         this.dataBus.setDataLoadingStatus(false);
       });
   }

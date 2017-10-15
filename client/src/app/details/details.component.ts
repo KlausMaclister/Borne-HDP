@@ -96,7 +96,7 @@ export class DetailsComponent implements OnInit {
   updateLocalStorage() {
     /* updating price */
     const priceFromLocalStorage = parseInt(window.localStorage.getItem('cartPrice'), 10) || 0;
-    const updatedPrice = this.val + priceFromLocalStorage;
+    const updatedPrice = this.product.dynamicPrice + priceFromLocalStorage;
     console.log(updatedPrice);
     window.localStorage.setItem('cartPrice', JSON.stringify(updatedPrice));
     /*update products in cart*/;
@@ -112,8 +112,10 @@ export class DetailsComponent implements OnInit {
     const productStr = JSON.stringify(products);
     window.localStorage.setItem('cartItems', productStr);
     /* updating the quantity in localStorage */
-    const quantity = parseInt(JSON.stringify(window.localStorage.getItem('cartQuantity')), 10) || 0;
+    const quantity = parseInt(window.localStorage.getItem('cartQuantity'), 10) || 0;
+    console.log(quantity);
     const intQty = this.selectedQty + quantity;
+    console.log(intQty);
     const strQty = JSON.stringify(this.selectedQty + quantity);
     window.localStorage.setItem('cartQuantity', strQty);
     this.dataBus.updateCartQuantity(intQty);

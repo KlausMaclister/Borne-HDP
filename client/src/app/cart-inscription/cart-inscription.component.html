@@ -1,9 +1,6 @@
-<h1 md-dialog-title>{{data.product.product}}</h1>
+<h1 md-dialog-title>Confirm your order</h1>
 <div md-dialog-content>
 
-
-  <p class="price-alert" *ngIf="!isNotEuropeanCountry && data.product.dynamicPrice > 174">You save 20%</p>
-  <p>Price: {{data.product.dynamicPrice | number:'1.0-2'}} €</p>
   <form #form="ngForm" id="form">
     <div class="form-group">
       <label for="firstName">First Name</label>

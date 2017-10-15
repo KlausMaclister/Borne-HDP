@@ -13,7 +13,6 @@ import {AreaCodes} from '../Models/phone.areCode';
   providers: [PaymentService]
 })
 export class InscriptionComponent implements AfterContentInit {
-// todo: save leads on firebase;
   stripe: any;
   firstName: string;
   lastName: string;
@@ -35,16 +34,22 @@ export class InscriptionComponent implements AfterContentInit {
               public dialogRef: MdDialogRef<InscriptionComponent>,
               @Inject(MD_DIALOG_DATA) public data: any,
               private router: Router) {
+    this.data.product.dynamicPrice = this.data.product.dynamicPrice ||
+      parseInt(window.localStorage.getItem('cartPrice'), 10);
   }
 
   ngAfterContentInit() {
     this.displayPayment();
   }
 
+  isEligibleForRefund() {
+    return (!this.isNotEuropeanCountry && this.data.product.dynamicPrice > 175);
+  }
+
   postPayment = (token) => {
     const label = `payment from ${this.lastName} ${this.firstName}`;
     const price = Math.floor(this.data.product.dynamicPrice * 100);
-    this.paymentSrv.postPayment(156, token, label)
+    this.paymentSrv.postPayment(price, token, label)
       .subscribe((payment) => {
         this.notPaying = !this.notPaying;
         if (payment.status === 200) {
@@ -62,9 +67,8 @@ export class InscriptionComponent implements AfterContentInit {
   handlePayment() {
     this.submitted = true;
     this.router.navigate(['/valid_payment']);
-
     // this.submitPayment().then((status) => console.log(status));
-  //  this.newLead();
+    //  this.newLead();
   }
 
   submitPayment = async () => {

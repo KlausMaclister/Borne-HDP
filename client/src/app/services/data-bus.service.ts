@@ -33,6 +33,7 @@ export class DataBusService {
   }
 
   updateCartQuantity(value: number) {
+    console.log('new value ', value);
     this._cartQuantity.next(value);
   }
 

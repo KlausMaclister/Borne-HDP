@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
+import {DataBusService} from '../services/data-bus.service';
 // import {ElectronService} from '../../providers/electron.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class PrintingComponent implements OnInit {
   travelers: any;
 
   constructor(private route: ActivatedRoute,
-              private router: Router) {
+              private router: Router,
+              private dataBus: DataBusService) {
     /*if (electronService.isElectron()) {
       console.log(electronService.childProcess);
       console.log(electronService.ipcRenderer);
@@ -35,6 +37,7 @@ export class PrintingComponent implements OnInit {
    // this.sendEvent();
     setTimeout(() => {
       window.localStorage.clear();
+      this.dataBus.updateCartQuantity(0);
       this.router.navigate(['/']);
     }, 15000);
   }

@@ -17,6 +17,7 @@ export class CartInscriptionComponent implements OnInit {
   passportNumber: string;
   email: string;
   country: string;
+  dob: string;
   areaCode: string;
   phone: string;
   isNotEuropeanCountry = false;
@@ -45,14 +46,14 @@ export class CartInscriptionComponent implements OnInit {
   }
 
   sendEmail() {
-    const title = `New order number : ${this.ticketId}`;
-    const cart = JSON.parse(localStorage.getItem('cart'));
+    const title = `New Order | Booking in shop | Ticket ID : ${this.ticketId}`;
+    const cart = JSON.parse(localStorage.getItem('cartItems'));
     const emailBody = {
       'firstName': this.firstName,
       'lastName': this.lastName,
       'email': this.email,
-      'areaCode': this.areaCode,
-      'phone': this.phone,
+      'phone': this.areaCode + this.phone,
+      'date_of_birth': this.dob,
       'passeport': this.passportNumber,
       'nationality': this.country,
       'cart': cart

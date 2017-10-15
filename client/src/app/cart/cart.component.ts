@@ -22,15 +22,24 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cartProducts = JSON.parse(window.localStorage.getItem('cartItems'));
+    this.numberOfProducts = 0;
+    this.cartProducts.forEach((product: ProductModel) => {
+      this.numberOfProducts += product.quantity;
+    });
+    window.localStorage.setItem('cartQuantity', JSON.stringify(this.numberOfProducts));
+    this.dataBus.updateCartQuantity(this.numberOfProducts);
     this.totalPrice = parseInt(window.localStorage.getItem('cartPrice'), 10);
   }
 
   decreaseQty = (product: ProductModel) => {
-    product.quantity--;
+    const productIdx = this.cartProducts.indexOf(product);
+    this.cartProducts[productIdx].quantity --;
     this.numberOfProducts--;
     if (this.totalPrice >= product.price) {
       this.totalPrice -= product.price;
+      window.localStorage.setItem('cartItems', JSON.stringify(this.cartProducts));
       this.writeCartValueInLocalStorage();
+      this.updateCartQuantity();
     }
   }
 
@@ -38,11 +47,20 @@ export class CartComponent implements OnInit {
     const strPrice = JSON.stringify(this.totalPrice);
     window.localStorage.setItem('cartPrice', strPrice);
   }
+
   increaseQty = (product: ProductModel) => {
-    product.quantity++;
+    const productIdx = this.cartProducts.indexOf(product);
+    this.cartProducts[productIdx].quantity ++;
     this.numberOfProducts++;
     this.totalPrice += product.price;
+    this.updateCartQuantity();
+    window.localStorage.setItem('cartItems', JSON.stringify(this.cartProducts));
     this.writeCartValueInLocalStorage();
+  }
+
+  updateCartQuantity() {
+    this.dataBus.updateCartQuantity(this.numberOfProducts);
+    window.localStorage.setItem('cartQuantity', JSON.stringify(this.numberOfProducts));
   }
 
   productIsDeleted = (product: ProductModel) => {
@@ -72,6 +90,4 @@ export class CartComponent implements OnInit {
     this.dialogRef.close();
 
   }
-
-
 }

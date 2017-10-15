@@ -20,8 +20,18 @@ export class AppComponent {
       this.dataIsLoading = res;
     });
     this.dataBus.cartQuantity.subscribe((quantity: number) => {
-      this.numberOfCartItems = quantity;
+      this.numberOfCartItems = quantity || this.getNumberOfItemsFromLS();
+      console.log(this.numberOfCartItems);
     });
+  }
+
+  getNumberOfItemsFromLS() {
+    let qty = 0;
+    const items = JSON.parse(window.localStorage.getItem('cartItems')) || [];
+    items.forEach((item: ProductModel) => {
+      qty += item.quantity;
+    });
+    return qty;
   }
 
   showCart() {
