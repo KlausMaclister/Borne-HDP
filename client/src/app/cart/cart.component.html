@@ -1,6 +1,6 @@
 <md-list>
   <h3 id="cart-summary">{{numberOfProducts}} items</h3>
-  <md-list-item *ngFor="let prod of cartProducts">
+  <md-list-item *ngFor="let prod of existentProds()">
     <img md-list-avatar src="{{prod.image}}">
     <h3 md-line>{{prod.quantity}} x {{prod.label}} </h3>
     <button md-icon-button class="delete-btn" (click)="decreaseQty(prod)" [disabled]="productIsDeleted(prod)">-</button>

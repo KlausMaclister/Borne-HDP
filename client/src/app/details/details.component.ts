@@ -24,6 +24,7 @@ export class DetailsComponent implements OnInit {
   public val: number;
   public prices: Array<any>;
   public contentHasLoaded: boolean;
+  private isCartAnimated = false;
   public brand: string;
   public multipleVolumes: boolean;
   public selectedQty: number;
@@ -89,8 +90,14 @@ export class DetailsComponent implements OnInit {
   }
 
   addProductToCart = () => {
-    this.dialog.open(AddToCartComponent, {data: {title: this.product.label}});
+    const cartDialogRef = this.dialog.open(AddToCartComponent, {data: {title: this.product.label}});
     this.updateLocalStorage();
+    this.isCartAnimated = true;
+    cartDialogRef.afterClosed().subscribe((goback: boolean) => {
+      if (goback) {
+        this.router.navigate(['/parfums']);
+      }
+    });
   }
 
   updateLocalStorage() {
@@ -99,7 +106,8 @@ export class DetailsComponent implements OnInit {
     const updatedPrice = this.product.dynamicPrice + priceFromLocalStorage;
     console.log(updatedPrice);
     window.localStorage.setItem('cartPrice', JSON.stringify(updatedPrice));
-    /*update products in cart*/;
+    /*update products in cart*/
+    ;
     const products = JSON.parse(window.localStorage.getItem('cartItems')) || [];
     const currentProduct: ProductModel = {
       label: this.product.label,

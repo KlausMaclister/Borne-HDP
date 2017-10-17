@@ -23,8 +23,9 @@ export class CartInscriptionComponent implements OnInit {
   isNotEuropeanCountry = false;
   allCountries = Countries.countryList;
   euCountries = Countries.euCountries;
-  areCodes = AreaCodes.CODES;
+  areaCodes = AreaCodes.CODES;
   ticketId: number;
+  helperName: string;
 
   constructor(public dialogRef: MdDialogRef<CartInscriptionComponent>,
               @Inject(MD_DIALOG_DATA) public data: any,
@@ -56,6 +57,7 @@ export class CartInscriptionComponent implements OnInit {
       'date_of_birth': this.dob,
       'passeport': this.passportNumber,
       'nationality': this.country,
+      'helper': this.helperName,
       'cart': cart
     };
     const mail = {title, emailBody};

@@ -11,11 +11,13 @@ import {ItineraryComponent} from './itinerary/itinerary.component';
 import {EcranVeilleComponent} from './ecran-veille/ecran-veille.component';
 import {CartConfirmComponent} from './cart-confirm/cart-confirm.component';
 import {PrintingComponent} from './printing/printing.component';
+import {LPComponent} from './lp/lp.component';
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'parfums', pathMatch: 'full'},
   {path: 'parfums', component: ParfumsComponent},
+  {path: 'lp', component: LPComponent},
   {path: 'presentation', component: PresentationComponent},
   {path: 'tuktuk', component: TuktukComponent},
   {path: 'print', component: PrintingComponent},

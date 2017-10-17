@@ -1,6 +1,5 @@
 <h1 md-dialog-title>Confirm your order</h1>
 <div md-dialog-content>
-
   <form #form="ngForm" id="form">
     <div class="form-group">
       <label for="firstName">First Name</label>
@@ -15,7 +14,7 @@
     <div class="form-inline">
       <select class="form-control mr-3" id="areaCode" name="sel1" [(ngModel)]="areaCode" >
         <option value="Area Code" disabled selected>Area Code</option>
-        <option *ngFor="let area of areCodes">{{area.code}}</option>
+        <option *ngFor="let code of areaCodes">{{code}}</option>
       </select>
       <input type="text" class="form-control" id="phone" aria-describedby="phone"
              placeholder="Phone Number" [(ngModel)]="phone" required name="phone" style="width: 84%">
@@ -40,6 +39,11 @@
       <select class="form-control" id="sel1" name="sel1" [(ngModel)]="country" (change)="checkContinent(country)">
         <option *ngFor="let country of allCountries">{{country}}</option>
       </select>
+    </div>
+    <div class="form-group">
+      <label for="helper">Did anyone help you ?</label>
+      <input type="text" class="form-control" id="helper" aria-describedby="helper"
+             placeholder="Write his initials" [(ngModel)]="helperName" required name="helper">
     </div>
   </form>
 </div>

@@ -12,6 +12,8 @@ import {PaymentService} from './services/payment.service';
 import { CovalentLayoutModule, CovalentStepsModule } from '@covalent/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule} from '@angular/material';
+import { NgxCarouselModule } from 'ngx-carousel';
+
 /*Routing*/
 import {AppRoutingModule} from './routing';
 import {MdSelectModule} from '@angular/material';
@@ -23,7 +25,6 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 /*views*/
 import { ParfumsComponent } from './parfums/parfums.component';
-
 import {MdCardModule} from '@angular/material';
 import { DetailsComponent } from './details/details.component';
 import {DataBusService} from './services/data-bus.service';
@@ -40,6 +41,7 @@ import { CartInscriptionComponent } from './cart-inscription/cart-inscription.co
 import { CartConfirmComponent } from './cart-confirm/cart-confirm.component';
 import { AddToCartComponent } from './modals/add-to-cart/add-to-cart.component';
 import {PrintingComponent} from './printing/printing.component';
+import { LPComponent } from './lp/lp.component';
 
 
 @NgModule({
@@ -58,10 +60,12 @@ import {PrintingComponent} from './printing/printing.component';
     EcranVeilleComponent,
     CartInscriptionComponent,
     CartConfirmComponent,
-    AddToCartComponent
+    AddToCartComponent,
+    LPComponent
   ],
   imports: [
     BrowserModule,
+    NgxCarouselModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,

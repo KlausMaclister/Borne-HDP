@@ -42,6 +42,11 @@
         <option *ngFor="let country of allCountries">{{country}}</option>
       </select>
     </div>
+    <div class="form-group">
+      <label for="helper">Did anyone help you ?</label>
+      <input type="text" class="form-control" id="helper" aria-describedby="helper"
+             placeholder="Write his initials" [(ngModel)]="helperName" required name="helper">
+    </div>
     <div>
       <div id="card-element"></div>
       <div id="card-errors"></div>

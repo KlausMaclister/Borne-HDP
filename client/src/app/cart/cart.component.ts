@@ -33,7 +33,7 @@ export class CartComponent implements OnInit {
 
   decreaseQty = (product: ProductModel) => {
     const productIdx = this.cartProducts.indexOf(product);
-    this.cartProducts[productIdx].quantity --;
+    this.cartProducts[productIdx].quantity--;
     this.numberOfProducts--;
     if (this.totalPrice >= product.price) {
       this.totalPrice -= product.price;
@@ -50,7 +50,7 @@ export class CartComponent implements OnInit {
 
   increaseQty = (product: ProductModel) => {
     const productIdx = this.cartProducts.indexOf(product);
-    this.cartProducts[productIdx].quantity ++;
+    this.cartProducts[productIdx].quantity++;
     this.numberOfProducts++;
     this.totalPrice += product.price;
     this.updateCartQuantity();
@@ -61,6 +61,10 @@ export class CartComponent implements OnInit {
   updateCartQuantity() {
     this.dataBus.updateCartQuantity(this.numberOfProducts);
     window.localStorage.setItem('cartQuantity', JSON.stringify(this.numberOfProducts));
+  }
+
+  existentProds = () => {
+    return this.cartProducts.filter(prod => prod.quantity > 0);
   }
 
   productIsDeleted = (product: ProductModel) => {

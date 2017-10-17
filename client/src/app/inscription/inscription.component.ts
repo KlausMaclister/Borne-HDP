@@ -29,6 +29,7 @@ export class InscriptionComponent implements AfterContentInit {
   areCodes = AreaCodes.CODES;
   allCountries = Countries.countryList;
   euCountries = Countries.euCountries;
+  helperName: string;
 
   constructor(private paymentSrv: PaymentService,
               public dialogRef: MdDialogRef<InscriptionComponent>,
@@ -113,6 +114,7 @@ export class InscriptionComponent implements AfterContentInit {
       'country': this.country,
       'email': this.email,
       'areaCode': this.areaCode,
+      'helperName': this.helperName,
       'phone': this.phone,
       'amount_spent': this.data.product.dynamicPrice
     };

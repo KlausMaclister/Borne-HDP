@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {DataBusService} from './services/data-bus.service';
 import {MdDialog} from '@angular/material';
 import {CartComponent} from './cart/cart.component';
-import {Router} from '@angular/router';
+import {NavigationEnd, Router} from '@angular/router';
 import {ProductModel} from './Models/product';
 
 @Component({
@@ -13,9 +13,21 @@ import {ProductModel} from './Models/product';
 
 export class AppComponent {
   dataIsLoading = false;
+  paymentPage = false;
   numberOfCartItems: number;
+  currentUrl: string;
+  pricesUrls = ['/details'];
 
   constructor(private dataBus: DataBusService, public dialog: MdDialog, private router: Router) {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        this.currentUrl = event.url;
+        if (this.currentUrl === '/') {
+          console.log('clezarrr');
+        }
+        this.paymentPage = (this.pricesUrls.indexOf(this.currentUrl) !== -1) ? true : false;
+      }
+    });
     this.dataBus.dataLoadingStatus.subscribe((res) => {
       this.dataIsLoading = res;
     });
@@ -23,6 +35,10 @@ export class AppComponent {
       this.numberOfCartItems = quantity || this.getNumberOfItemsFromLS();
       console.log(this.numberOfCartItems);
     });
+  }
+
+  goBack() {
+    this.router.navigate(['/']);
   }
 
   getNumberOfItemsFromLS() {

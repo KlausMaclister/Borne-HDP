@@ -1,0 +1,9 @@
+<ngx-carousel
+  [inputs]="carouselOne"
+  (carouselLoad)="myfunc($event)">
+  <ngx-item NgxCarouselItem *ngFor="let data of carousel">
+    <p>{{data | json}}</p>
+  </ngx-item>
+  <button NgxCarouselPrev class='leftRs'>&lt;</button>
+  <button NgxCarouselNext class='rightRs'>&gt;</button>
+</ngx-carousel>

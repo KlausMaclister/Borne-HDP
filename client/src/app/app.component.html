@@ -1,17 +1,22 @@
-<md-progress-bar mode="indeterminate" color="accent" *ngIf="dataIsLoading"></md-progress-bar>
+<md-progress-bar mode="indeterminate" color="primary" *ngIf="dataIsLoading"></md-progress-bar>
 
-<div *ngIf="isNotStoreView()">
+<div *ngIf="isNotStoreView()" style="margin-top: 120px">
   <div layout="row" class="topBar mb-5" layout-align="space-between center">
-    <div layout="row" flex="60" layout-align="end center">
-      <p style="color: white; margin-bottom: 0px">For any question please address the loby</p>
+    <div flex="10">
+      <button *ngIf="paymentPage" md-mini-fab style="background-color: #a167ce" class="ml-3" (click)="goBack()" >
+        <img src="../assets/img/arrow-back.svg" style="height: 14px">
+      </button>
+    </div>
+    <div layout="row" flex="50" layout-align="center center">
+      <p style="color: white; margin-bottom: 0px;">Beauty Success</p>
     </div>
     <div class="mr-4" layout="row" (click)="showCart()" *ngIf="numberOfCartItems > 0">
       <img class="cart-icon" src="assets/images/cart.svg">
-      <p class="cart-items ml-2">{{numberOfCartItems}} items</p>
+      <p class="cart-items ml-2" style="color: white">{{numberOfCartItems}} items</p>
     </div>
   </div>
 
-  <div layout="row" layout-align="center center" class="mb-5">
+  <div layout="row" layout-align="center center" class="mb-5 mt-5">
     <img src="assets/images/logo.png">
   </div>
 </div>

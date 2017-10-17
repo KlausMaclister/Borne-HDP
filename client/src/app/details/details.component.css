@@ -19,26 +19,18 @@
 }
 
 .cart-btn{
-  background-color: #333 !important;
+  text-transform: uppercase;
+  background-color: #ff0085 !important;
+  font-size: 13px;
   color: white !important;
-  border: solid 2px #333;
-  margin-bottom: 10px;
-}
-.cart-btn:hover{
-  background-color: #DC6695 !important;
-  color: white !important;
-  border: solid 2px #DC6695 !important;
-}
-.store-btn{
-  background-color: white;
-  color: #DC6695;
-  border: solid 2px #DC6695;
   margin-bottom: 10px;
 }
 
-.store-btn:hover{
-  background-color: #333;
+.store-btn{
+  background-color: #7E57C2;
+  font-size: 13px;
   color: white;
-  border: solid 2px #333;
+  text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
