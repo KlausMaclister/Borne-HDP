@@ -26,7 +26,8 @@ export class InscriptionComponent implements AfterContentInit {
   areaCode: string;
   isNotEuropeanCountry: boolean;
   notPaying = true;
-  areCodes = AreaCodes.CODES;
+  HN1: string;
+  HN2: string;
   allCountries = Countries.countryList;
   euCountries = Countries.euCountries;
   helperName: string;
@@ -64,10 +65,16 @@ export class InscriptionComponent implements AfterContentInit {
         this.notPaying = !this.notPaying;
       });
   }
+  grabCC = () => {
+    const anchor = document.getElementById('card-element');
+    const inputs = anchor.childNodes;
+    console.log(inputs);
+  }
 
   handlePayment() {
     this.submitted = true;
-    this.router.navigate(['/valid_payment']);
+    this.grabCC();
+    //this.router.navigate(['/valid_payment']);
     // this.submitPayment().then((status) => console.log(status));
     //  this.newLead();
   }
@@ -114,7 +121,7 @@ export class InscriptionComponent implements AfterContentInit {
       'country': this.country,
       'email': this.email,
       'areaCode': this.areaCode,
-      'helperName': this.helperName,
+      'helperName': this.HN1 + this.HN2,
       'phone': this.phone,
       'amount_spent': this.data.product.dynamicPrice
     };

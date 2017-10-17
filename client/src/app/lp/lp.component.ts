@@ -13,8 +13,30 @@ export class LPComponent implements OnInit {
 
   constructor(private fetcher: FetcherService) {
   }
-
   ngOnInit() {
+    this.fetcher.getCarousel().subscribe((data: any) => {
+      this.carousel = data;
+    });
+    this.carouselOne = {
+      grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
+      slide: 1,
+      speed: 400,
+      interval: 1000,
+      point: {
+        visible: true
+      },
+      load: 2,
+      touch: true,
+      loop: true,
+      custom: 'banner'
+    };
   }
-
+  public carouselTileLoad(evt: any) {
+    const len = this.carousel.length;
+    for (let i = len; i < len + 10; i++) {
+      if (!i.image.includes('https')){
+        this.carousel.push(i);
+      }
+    }
+  }
 }

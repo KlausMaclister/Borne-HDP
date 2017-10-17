@@ -14,18 +14,12 @@ import {AreaCodes} from '../Models/phone.areCode';
 export class CartInscriptionComponent implements OnInit {
   firstName: string;
   lastName: string;
-  passportNumber: string;
   email: string;
-  country: string;
-  dob: string;
   areaCode: string;
   phone: string;
-  isNotEuropeanCountry = false;
-  allCountries = Countries.countryList;
-  euCountries = Countries.euCountries;
-  areaCodes = AreaCodes.CODES;
   ticketId: number;
-  helperName: string;
+  HN1: string;
+  HN2: string;
 
   constructor(public dialogRef: MdDialogRef<CartInscriptionComponent>,
               @Inject(MD_DIALOG_DATA) public data: any,
@@ -34,10 +28,6 @@ export class CartInscriptionComponent implements OnInit {
   }
 
   ngOnInit() {
-  }
-
-  checkContinent = (country: string) => {
-    this.isNotEuropeanCountry = this.euCountries.indexOf(country) > 1;
   }
 
   confirm() {
@@ -54,10 +44,7 @@ export class CartInscriptionComponent implements OnInit {
       'lastName': this.lastName,
       'email': this.email,
       'phone': this.areaCode + this.phone,
-      'date_of_birth': this.dob,
-      'passeport': this.passportNumber,
-      'nationality': this.country,
-      'helper': this.helperName,
+      'helper': this.HN1 + this.HN2,
       'cart': cart
     };
     const mail = {title, emailBody};

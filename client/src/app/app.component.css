@@ -12,6 +12,13 @@
   font-weight: 700;
   font-size: 14px;
 }
+.pink-btn{
+  background-color: #ff0085 !important;
+  color: white !important;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
 .bs-link{
   color: white;
   text-underline: none !important;

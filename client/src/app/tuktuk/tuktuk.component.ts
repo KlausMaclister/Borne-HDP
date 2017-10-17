@@ -16,6 +16,8 @@ export class TuktukComponent implements OnInit {
   selectedHour: number;
   firstName: string;
   lastName: string;
+  isMorning = false;
+  isAfternoon = false;
   travelers: number[] = [];
 
   constructor(private router: Router, private mailer: MailerService) {
@@ -23,8 +25,24 @@ export class TuktukComponent implements OnInit {
 
   ngOnInit() {
     this.populateTravelers();
+    this.checkHour();
   }
 
+  checkHour = () => {
+    const currentDate = new Date();
+    const currentHour = currentDate.getHours();
+    if (currentHour < 12) {
+      this.isAfternoon = true;
+      this.isMorning = true;
+    } else if (currentHour > 12 && currentHour < 16) {
+      this.isMorning = false;
+      this.isAfternoon = true;
+    } else {
+      this.isMorning = true;
+      this.isAfternoon = true;
+    }
+    console.log(currentHour);
+  }
   populateTravelers = () => {
     for (let i = 1; i < 7; i++) {
       this.travelers.push(i);

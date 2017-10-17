@@ -10,7 +10,8 @@
         allowed</p>
       <label for="hours">Pick an hour:</label>
       <select class="form-control" id="hours" [(ngModel)]="selectedHour">
-        <option *ngFor="let hour of openingHours">{{hour}}</option>
+        <option *ngIf="isMorning">2PM</option>
+        <option *ngIf="isAfternoon">6PM</option>
       </select>
       <div class="form-group row mt-3" >
         <label for="firstName" class="col-3 col-form-label">First Name</label>

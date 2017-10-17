@@ -1,6 +1,7 @@
 <h1 md-dialog-title>{{data.product.product}}</h1>
 <div md-dialog-content>
   <p class="price-alert" *ngIf="isEligibleForRefund()">16.6% of tax refund applied to all NON EU residents ! </p>
+  <p style="color: red">If the selected product is not available, you will be refunded</p>
   <p>Price: {{data.product.dynamicPrice | number:'1.0-2'}} €</p>
   <form #form="ngForm" id="form">
     <div class="form-group">
@@ -13,13 +14,10 @@
       <input type="text" class="form-control" id="lastName" aria-describedby="lastName"
              placeholder="Last Name" [(ngModel)]="lastName" required name="lastName">
     </div>
-    <div class="form-inline">
-      <select class="form-control mr-3" id="areaCode" name="sel1" [(ngModel)]="areaCode" >
-        <option value="Area Code" disabled selected>Area Code</option>
-        <option *ngFor="let area of areCodes">{{area.code}}</option>
-      </select>
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
       <input type="text" class="form-control" id="phone" aria-describedby="phone"
-             placeholder="Phone Number" [(ngModel)]="phone" required name="phone" style="width: 84%">
+             placeholder="+ ..." [(ngModel)]="phone" required name="phone">
     </div>
     <div class="form-group">
       <label for="email">Email address</label>
@@ -33,8 +31,8 @@
     </div>
     <div class="form-group">
       <label for="passport">Date of Birth</label>
-      <input type="date" class="form-control" id="dob" aria-describedby="dob"
-             placeholder="Date of Birth" [(ngModel)]="dob" required name="dob">
+      <my-date-picker name="dob" [options]="myDatePickerOptions"
+                      [(ngModel)]="model" required></my-date-picker>
     </div>
     <div class="form-group">
       <label for="sel1">Nationality:</label>
@@ -42,22 +40,21 @@
         <option *ngFor="let country of allCountries">{{country}}</option>
       </select>
     </div>
-    <div class="form-group">
-      <label for="helper">Did anyone help you ?</label>
-      <input type="text" class="form-control" id="helper" aria-describedby="helper"
-             placeholder="Write his initials" [(ngModel)]="helperName" required name="helper">
+    <div class="form-inline mt-4">
+      <input type="text" class="form-control mr-3" aria-describedby="helperI1"
+             [(ngModel)]="HN1" name="helperI1" style="width: 40px">
+      <input type="text" class="form-control" aria-describedby="helperI2"
+             [(ngModel)]="HN2" name="helperI2" style="width: 40px">
     </div>
     <div>
       <div id="card-element"></div>
       <div id="card-errors"></div>
     </div>
-
-
   </form>
 </div>
 <div md-dialog-actions layout="row" layout-align="center center">
   <div layout="row" *ngIf="notPaying; else payingLoader">
-    <button md-raised-button type="submit" id="submit-btn" [disabled]="!form.valid" [class.disabled]="!form.valid"
+    <button md-raised-button type="submit" id="submit-btn"  [class.disabled]="!form.valid"
             (click)="handlePayment()">
       PAY
     </button>

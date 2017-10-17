@@ -13,6 +13,8 @@ import { CovalentLayoutModule, CovalentStepsModule } from '@covalent/core';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MdButtonModule} from '@angular/material';
 import { NgxCarouselModule } from 'ngx-carousel';
+import { MyDatePickerModule } from 'mydatepicker';
+import 'hammerjs';
 
 /*Routing*/
 import {AppRoutingModule} from './routing';
@@ -66,6 +68,7 @@ import { LPComponent } from './lp/lp.component';
   imports: [
     BrowserModule,
     NgxCarouselModule,
+    MyDatePickerModule,
     FormsModule,
     ReactiveFormsModule,
     HttpModule,

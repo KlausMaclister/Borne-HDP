@@ -17,6 +17,7 @@ import {AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database
 export class ParfumsComponent implements OnInit, AfterViewChecked {
   allParfums: any[] = [];
   brandsToDisplay: any[] = [];
+  brands = [];
   bigArr: any[];
   parfumsFire: FirebaseListObservable<any[]>;
   fireBrands: FirebaseListObservable<any[]>;
@@ -49,6 +50,7 @@ export class ParfumsComponent implements OnInit, AfterViewChecked {
         if (br.available) {
           this.brandsToDisplay.push(br.name);
         }
+        this.brands = this.brandsToDisplay.sort();
       });
       this.parfumsFire = this.db.list('/parfums');
       this.parfumsFire.subscribe((parfums: any) => {

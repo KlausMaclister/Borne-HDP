@@ -1,8 +1,8 @@
 <ngx-carousel
   [inputs]="carouselOne"
-  (carouselLoad)="myfunc($event)">
+  (carouselLoad)="carouselTileLoad($event)">
   <ngx-item NgxCarouselItem *ngFor="let data of carousel">
-    <p>{{data | json}}</p>
+    <img src="../../assets/{{data.image}}">
   </ngx-item>
   <button NgxCarouselPrev class='leftRs'>&lt;</button>
   <button NgxCarouselNext class='rightRs'>&gt;</button>

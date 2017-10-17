@@ -38,6 +38,7 @@ input{
   border: 8px solid lightcoral;
   border-right-color: transparent;
   border-radius: 50%;
+  text-transform: uppercase;
 }
 
 @keyframes rotate {
