@@ -2201,7 +2201,7 @@ module.exports = "<div layout=\"column\" layout-align=\"center center\" style=\"
 /***/ 519:
 /***/ (function(module, exports) {
 
-module.exports = "<div layout=\"row\" layout-align=\"center center\">\n  <ngx-carousel flex=\"80\"\n    [inputs]=\"carouselOne\"\n    (carouselLoad)=\"carouselTileLoad($event)\">\n    <ngx-tile NgxCarouselItem *ngFor=\"let data of carousel\" (click)=\"goToMenu()\">\n      <img src='src/assets/{{data.image}}'>\n    </ngx-tile>\n    <button NgxCarouselPrev class='leftRs'>&lt;</button>\n    <button NgxCarouselNext class='rightRs'>&gt;</button>\n  </ngx-carousel>\n</div>\n"
+module.exports = "<div layout=\"row\" layout-align=\"center center\">\n  <ngx-carousel flex=\"80\"\n    [inputs]=\"carouselOne\"\n    (carouselLoad)=\"carouselTileLoad($event)\">\n    <ngx-tile NgxCarouselItem *ngFor=\"let data of carousel\" (click)=\"goToMenu()\">\n      <img src='../../assets/{{data.image}}'>\n    </ngx-tile>\n    <button NgxCarouselPrev class='leftRs'>&lt;</button>\n    <button NgxCarouselNext class='rightRs'>&gt;</button>\n  </ngx-carousel>\n</div>\n"
 
 /***/ }),
 

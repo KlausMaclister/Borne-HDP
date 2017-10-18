@@ -3,7 +3,7 @@
     [inputs]="carouselOne"
     (carouselLoad)="carouselTileLoad($event)">
     <ngx-tile NgxCarouselItem *ngFor="let data of carousel" (click)="goToMenu()">
-      <img src='src/assets/{{data.image}}'>
+      <img src='../../assets/{{data.image}}'>
     </ngx-tile>
     <button NgxCarouselPrev class='leftRs'>&lt;</button>
     <button NgxCarouselNext class='rightRs'>&gt;</button>
