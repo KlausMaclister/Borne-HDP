@@ -15,7 +15,7 @@ import {LPComponent} from './lp/lp.component';
 
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: 'parfums', pathMatch: 'full'},
+  {path: '', redirectTo: 'lp', pathMatch: 'full'},
   {path: 'parfums', component: ParfumsComponent},
   {path: 'lp', component: LPComponent},
   {path: 'presentation', component: PresentationComponent},

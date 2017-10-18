@@ -1,9 +1,13 @@
-<ngx-carousel
-  [inputs]="carouselOne"
-  (carouselLoad)="carouselTileLoad($event)">
-  <ngx-item NgxCarouselItem *ngFor="let data of carousel">
-    <img src="../../assets/{{data.image}}">
-  </ngx-item>
-  <button NgxCarouselPrev class='leftRs'>&lt;</button>
-  <button NgxCarouselNext class='rightRs'>&gt;</button>
-</ngx-carousel>
+<div layout="row" layout-align="center center">
+  <ngx-carousel flex="80"
+    [inputs]="carouselOne"
+    (carouselLoad)="carouselTileLoad($event)">
+    <ngx-tile NgxCarouselItem *ngFor="let data of carousel">
+      <img src='../../assets/{{data.image}}'>
+    </ngx-tile>
+
+    <button NgxCarouselPrev class='leftRs'>&lt;</button>
+    <button NgxCarouselNext class='rightRs'>&gt;</button>
+
+  </ngx-carousel>
+</div>

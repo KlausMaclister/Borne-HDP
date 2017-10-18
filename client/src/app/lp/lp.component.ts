@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FetcherService} from '../services/fetcher.service';
 import {NgxCarousel} from 'ngx-carousel';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-lp',
@@ -11,30 +12,37 @@ export class LPComponent implements OnInit {
   carousel: any;
   carouselOne: NgxCarousel;
 
-  constructor(private fetcher: FetcherService) {
+  constructor(private fetcher: FetcherService, private router: Router) {
   }
+
   ngOnInit() {
+    localStorage.clear();
     this.fetcher.getCarousel().subscribe((data: any) => {
       this.carousel = data;
     });
     this.carouselOne = {
-      grid: {xs: 1, sm: 1, md: 1, lg: 1, all: 0},
+      grid: {xs: 2, sm: 3, md: 3, lg: 5, all: 0},
       slide: 1,
       speed: 400,
-      interval: 1000,
+      animation: 'lazy',
       point: {
         visible: true
       },
       load: 2,
       touch: true,
-      loop: true,
-      custom: 'banner'
+      easing: 'ease'
+
     };
   }
+
+  goToMenu() {
+    this.router.navigate(['/parfums']);
+  }
+
   public carouselTileLoad(evt: any) {
     const len = this.carousel.length;
     for (let i = len; i < len + 10; i++) {
-      if (!i.image.includes('https')){
+      if (!i.image.includes('https')) {
         this.carousel.push(i);
       }
     }
