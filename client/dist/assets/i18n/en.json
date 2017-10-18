@@ -1,0 +1,68 @@
+{
+  "PARFUMS": {
+    "SEEDETAILS": "SEE MORE"
+  },
+  "DETAILS": {
+    "ADD2CART": "ADD TO CART"
+  },
+  "ADDED2CART": {
+    "AWESOME": "CONGRATULATION",
+    "CONFMESSAGE": "THIS PRODUCT HAS BEEN ADDED TO YOUR CART"
+  },
+  "CARTICON": {
+    "ITEMS": "ITEMS"
+  },
+  "CART": {
+    "BOOK": "BOOK IN STORE",
+    "DELIVERY": "PICK UP BY THE CONCIERGE HOTEL"
+  },
+  "SIGNUP": {
+    "CONFIRMORDER": "CONFIRM YOUR ORDER",
+    "FN": "FIRST NAME",
+    "LN": "LAST NAME",
+    "PASSEPORT": "PASSEPORT NUMBER",
+    "PHONE": "PHONE NUMBER",
+    "NATIONALITY": "NATIONALITY",
+    "VATMESSAGE": "For any purchase over 175 Euros, 16.6% of tax refund is applied to all non EU residents",
+    "MISSINGPRODUCT": "if the selected product is not available, you will be refunded",
+    "DOB": "DATE OF BIRTH"
+  },
+  "CTA" : {
+    "CANCEL": "CANCEL",
+    "PAY": "PAY",
+    "TUKTUK": "ORDER TUKTUK",
+    "CONFIRM": "CONFIRM"
+
+  },
+  "CARTCONFIRM" : {
+    "MESSAGE": "Your Order has been successfully placed",
+    "FOOT": "COME BY METRO/FOOT",
+    "TUKTUK": "COME BY TUKTUK"
+  },
+  "DIRECTION" : {
+    "TIP": "Tip: Take a picture of the itineraries so you don’t get lost!",
+    "DESC": "BY FOOT: 13 MINUTES",
+    "1": "Head north on Cambronne Street (48m)",
+    "2": "Turn left to stay on Cambronne Street (44m)",
+    "3": "Take a slight left on Henri Queuille Place (27m)",
+    "5": "Continue on Sèvres Street (400m)",
+    "6": "Take to the left on Invalides Boulevard (28m)",
+    "SUBWAY": {
+      "DESC": "EN METRO: 7 MINUTES",
+      "1": "Take line 10 at gare d'Austerlitz",
+      "2": "Get in station La Motte-Picquet Grenelle",
+      "3": "Get out at station Duroc",
+      "4": "Walk up to the store Sèvre Corner located at 67 Boulevard des invalides"
+    },
+    "TUKTUK": "I WANT TO COME BY TUKTUK",
+    "SUCCESS_PAYMENT": {
+      "MESSAGE": "Your payment has been successfully received, a driver will bring your article(s) by the end of the day.."
+    },
+    "TUKTUK_SCREEN": {
+      "WARNING": "Warning: only adults above 16 years old are allowed",
+      "PPL": "How many people will travel :",
+      "HOUR": "PICK AN HOUR",
+      "CONF": "Your tuktuk has been ordered. He will pick you up by the reception at "
+    }
+  }
+}

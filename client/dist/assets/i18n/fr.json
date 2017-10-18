@@ -1,0 +1,68 @@
+{
+  "PARFUMS": {
+    "SEEDETAILS": "VOIR PLUS"
+  },
+  "DETAILS": {
+    "ADD2CART": "AJOUTER AU PANIER"
+  },
+  "ADDED2CART": {
+    "AWESOME": "FELICITATION",
+    "CONFMESSAGE": "CE PRODUIT A ETE AJOUTE A VOTRE PANIER"
+  },
+  "CARTICON": {
+    "ITEMS": "PRODUITS"
+  },
+  "CART": {
+    "BOOK": "RESERVER EN MAGASIN",
+    "DELIVERY": "RECUPERER AU CONCIERGE DE L'HOTEL"
+  },
+  "SIGNUP": {
+    "CONFIRMORDER": "CONFIRMATION DE LA COMMANDE",
+    "FN": "PRENOM",
+    "LN": "NOM",
+    "PASSEPORT": "NUMERO DE PASSEPORT",
+    "PHONE": "NUMERO DE TELEPHONE",
+    "NATIONALITY": "NATIONALITE",
+    "VATMESSAGE": "Pour tout achat de plus de 175 Euros, 16,6% de détaxe sont appliqué pour tous les résidents hors-UE!",
+    "MISSINGPRODUCT": "Si le produit sélectionné n’est plus disponible, vous serez entièrement remboursé",
+    "DOB": "DATE DE NAISSANCE"
+  },
+  "CTA" : {
+    "CANCEL": "ANNULER",
+    "PAY": "PAYER",
+    "TUKTUK": "COMMANDER TUKTUK",
+    "CONFIRM": "VALIDER"
+  },
+  "CARTCONFIRM" : {
+    "MESSAGE": "Vote commande a bien été effectuée",
+    "FOOT": "VENIR PAR METRO/PIED",
+    "TUKTUK": "VENIR EN TUKTUK"
+  },
+  "DIRECTION" : {
+    "TIP": "Conseil : Prenez une photo des itinéraires pour ne pas vous perdre en chemin!",
+    "DESC": "TEMPS A PIED: 13 MINUTES",
+    "1": "Prendre la direction nord sur Rue Cambronne (48m)",
+    "2": "Tourner à gauche pour rester sur Rue Cambronne (44m)",
+    "3": "Au rond-point, prendre la 3e sortie sur Boulevard Garibaldi (800m)",
+    "4": "Prendre légèrement à gauche sur Place Henri Queuille (27m)",
+    "5": "Continuer sur Rue de Sèvres (400m)",
+    "6": "Prendre à gauche sur Boulevard des Invalides (28m)",
+    "SUBWAY": {
+      "DESC": "EN METRO: 7 MINUTES",
+      "1": "Prendre la ligne 10 à la station gare d'Austerlitz",
+      "2": "Montez à la station La Motte-Picquet Grenelle",
+      "3": "Sortez à la station Duroc",
+      "4": "Marchez jusqu'au magasin Sèvre Corner situé au 67 Boulevard des invalides"
+    },
+    "TUKTUK": "JE VEUX VENIR EN TUKTUK"
+  },
+  "SUCCESS_PAYMENT": {
+    "MESSAGE": "Votre paiement a bien été reçu, un coursier vous amènera vos articles d'ici la fin de journée.."
+  },
+  "TUKTUK_SCREEN": {
+    "WARNING": "Pour des raisons de sécurité, seulement les personnes âgées de plus de 16 ans sont autorisées",
+    "PPL": "COMBIEN DE PERSONNES VOYAGERONS :",
+    "HOUR": "CHOISISSEZ UN HORAIRE",
+    "CONF": "Votre tuktuk a bien été commandé. Il passera vous prendre à la réception à "
+  }
+}

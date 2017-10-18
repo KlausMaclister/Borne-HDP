@@ -1,38 +1,37 @@
 <div style="height: 100%" layout="column" layout-align="center center">
-  <h3 class="mb-4 mt-4" style="color: #D81B60">Tip: Take a picture of this screen with your phone so that you don't get lost</h3>
+  <h3 class="mb-4 mt-4" style="color: #D81B60">{{ 'DIRECTION.TIP' | translate}}</h3>
   <div layout="row" layout-align="space-between center">
     <md-card style="width: 626px">
       <md-card-header>
         <div md-card-avatar class="example-header-image"></div>
         <md-card-title>Beauty Success Shop</md-card-title>
-        <md-card-subtitle>Directions By Foot: 13 Minutes</md-card-subtitle>
+        <md-card-subtitle>{{ 'DIRECTION.DESC' | translate}}</md-card-subtitle>
       </md-card-header>
       <img md-card-image src="assets/images/map.png" alt="Photo of map">
       <md-card-content>
         <div layout="row">
           <img src="assets/img/navigation/up.svg" class="icon-direction">
-          <p>Prendre la direction nord sur Rue Cambronne</p>
+          <p>{{ 'DIRECTION.1' | translate}}</p>
         </div>
         <div layout="row">
           <img src="assets/img/navigation/left.svg" class="icon-direction">
-          <p>Tourner à gauche pour rester sur Rue Cambronne</p>
+          <p>{{ 'DIRECTION.2' | translate}}</p>
         </div>
         <div layout="row">
           <img src="assets/img/navigation/round.svg" class="icon-direction">
-          <p>Au rond-point, prendre la 3e sortie sur Boulevard Garibaldi</p>
+          <p>{{ 'DIRECTION.3' | translate}}</p>
         </div>
         <div layout="row">
           <img src="assets/img/navigation/left.svg" class="icon-direction">
-          <p>Prendre légèrement à gauche sur Place Henri Queuille</p>
+          <p>{{ 'DIRECTION.4' | translate}}</p>
         </div>
         <div layout="row">
           <img src="assets/img/navigation/up.svg" class="icon-direction">
-          <p>Continuer sur Rue de Sèvres</p>
+          <p>{{ 'DIRECTION.5' | translate}}</p>
         </div>
         <div layout="row">
           <img src="assets/img/navigation/left.svg" class="icon-direction">
-          <p>Prendre à gauche sur Boulevard des Invalides<br>
-            Votre destination se trouvera sur la droite.</p>
+          <p>{{ 'DIRECTION.5' | translate}}</p>
         </div>
       </md-card-content>
     </md-card>
@@ -40,22 +39,22 @@
       <md-card-header>
         <div md-card-avatar class="example-header-image"></div>
         <md-card-title>Beauty Success Shop</md-card-title>
-        <md-card-subtitle>Directions By Subway: 7 minutes</md-card-subtitle>
+        <md-card-subtitle>{{ 'DIRECTION.SUBWAY.DESC' | translate}}</md-card-subtitle>
       </md-card-header>
       <img md-card-image src="assets/images/map2.png" alt="Photo of map">
       <md-card-content>
-        <p>Prendre la ligne 10 à la station gare d'Austerlitz</p>
+        <p>{{ 'DIRECTION.SUBWAY.1' | translate}}</p>
 
-        <p>Montez à la station La Motte-Picquet Grenelle</p>
+        <p>{{ 'DIRECTION.SUBWAY.2' | translate}}</p>
 
-        <p>Sortez à la station Duroc</p>
+        <p>{{ 'DIRECTION.SUBWAY.3' | translate}}</p>
 
-        <p>Marchez jusqu'au magasin Sèvre Corner situé au 67 Boulevard des invalides</p>
+        <p>{{ 'DIRECTION.SUBWAY.4' | translate}}</p>
       </md-card-content>
 
     </md-card>
   </div>
   <div class="mt-3 mb-3" layout="row" layout-align="center center">
-    <button md-raised-button (click)="goToMenu()" class="pink-btn">NO, I WANT TO COME BY TUKTUK</button>
+    <button md-raised-button (click)="goToMenu()" class="pink-btn">{{ 'DIRECTION.TUKTUK' | translate}}</button>
   </div>
 </div>

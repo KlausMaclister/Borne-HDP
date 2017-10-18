@@ -1,41 +1,41 @@
 <h1 md-dialog-title>{{data.product.product}}</h1>
 <div md-dialog-content>
-  <p class="price-alert" *ngIf="isEligibleForRefund()">16.6% of tax refund applied to all NON EU residents ! </p>
-  <p style="color: red">If the selected product is not available, you will be refunded</p>
+  <p class="price-alert" *ngIf="isEligibleForRefund()">{{ 'SIGNUP.VATMESSAGE' | translate}}</p>
+  <p style="color: red">{{ 'SIGNUP.MISSINGPRODUCT' | translate}}</p>
   <p>Price: {{data.product.dynamicPrice | number:'1.0-2'}} €</p>
   <form #form="ngForm" id="form">
     <div class="form-group">
-      <label for="firstName">First Name</label>
+      <label for="firstName">{{ 'SIGNUP.FN' | translate}}</label>
       <input type="text" class="form-control" id="firstName" aria-describedby="firstName"
-             placeholder="First Name" [(ngModel)]="firstName" required name="firstName">
+             [(ngModel)]="firstName" required name="firstName">
     </div>
     <div class="form-group">
-      <label for="lastName">Last Name</label>
+      <label for="lastName">{{ 'SIGNUP.LN' | translate}}</label>
       <input type="text" class="form-control" id="lastName" aria-describedby="lastName"
-             placeholder="Last Name" [(ngModel)]="lastName" required name="lastName">
+             [(ngModel)]="lastName" required name="lastName">
     </div>
     <div class="form-group">
-      <label for="phone">Phone Number</label>
+      <label for="phone">{{ 'SIGNUP.PHONE' | translate}}</label>
       <input type="text" class="form-control" id="phone" aria-describedby="phone"
              placeholder="+ ..." [(ngModel)]="phone" required name="phone">
     </div>
     <div class="form-group">
-      <label for="email">Email address</label>
+      <label for="email">Email</label>
       <input type="email" class="form-control" id="email" aria-describedby="email"
-             placeholder="Email" [(ngModel)]="email" required name="email">
+             [(ngModel)]="email" required name="email">
     </div>
     <div class="form-group">
-      <label for="passport">Passport Number</label>
+      <label for="passport">{{ 'SIGNUP.PASSEPORT' | translate}}</label>
       <input type="text" class="form-control" id="passport" aria-describedby="passport"
-             placeholder="Passport Number" [(ngModel)]="passportNumber" required name="passport">
+             [(ngModel)]="passportNumber" required name="passport">
     </div>
     <div class="form-group">
-      <label for="passport">Date of Birth</label>
+      <label for="passport">{{ 'SIGNUP.DOB' | translate}}</label>
       <my-date-picker name="dob" [options]="myDatePickerOptions"
                       [(ngModel)]="model" required></my-date-picker>
     </div>
     <div class="form-group">
-      <label for="sel1">Nationality:</label>
+      <label for="sel1">{{ 'SIGNUP.NATIONALITY' | translate}}</label>
       <select class="form-control" id="sel1" name="sel1" [(ngModel)]="country" (change)="checkContinent(country)">
         <option *ngFor="let country of allCountries">{{country}}</option>
       </select>
@@ -54,14 +54,14 @@
 </div>
 <div md-dialog-actions layout="row" layout-align="center center">
   <div layout="row" *ngIf="notPaying; else payingLoader">
-    <button md-raised-button type="submit" id="submit-btn"  [class.disabled]="!form.valid"
+    <button md-raised-button type="submit" id="submit-btn" [class.disabled]="!form.valid"
             (click)="handlePayment()">
-      PAY
+      {{ 'CTA.PAY' | translate}}
     </button>
-    <button md-button [md-dialog-close] class="ml-3">Cancel</button>
+    <button md-button [md-dialog-close] class="ml-3">{{ 'CTA.CANCEL' | translate}}
+    </button>
   </div>
   <ng-template #payingLoader layout="row" layout-align="center center">
     <div class="spinner"></div>
   </ng-template>
-
 </div>

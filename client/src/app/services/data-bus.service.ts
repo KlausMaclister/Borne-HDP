@@ -4,12 +4,13 @@ import {ProductModel} from '../Models/product';
 
 @Injectable()
 export class DataBusService {
-
+  private _language: BehaviorSubject<string>;
   private _selectedProduct: BehaviorSubject<ProductModel>;
   private _dataIsLoading: BehaviorSubject<boolean>;
   private _cartQuantity: BehaviorSubject<number>;
 
   constructor() {
+    this._language = new BehaviorSubject<string>('en');
     this._selectedProduct = new BehaviorSubject<ProductModel>(new ProductModel());
     this._dataIsLoading = new BehaviorSubject<boolean>(false);
     this._cartQuantity = new BehaviorSubject<number>(0);
@@ -39,5 +40,13 @@ export class DataBusService {
 
   get cartQuantity() {
     return this._cartQuantity.asObservable();
+  }
+
+  setLanguage(lang: string) {
+    this._language.next(lang);
+  }
+
+  get language() {
+    return this._language.asObservable();
   }
 }

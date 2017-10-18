@@ -4,7 +4,7 @@
   </ul>
   <div layout="row" layout-wrap layout-align="start start" style="width: 80%">
     <div *ngFor="let parfum of allParfums">
-      <md-card class="product-card" *ngIf="isNotUrl(parfum.image) && parfum.available">
+      <md-card class="product-card" *ngIf="isNotUrl(parfum.image) && parfum.available && parfum.price > 50">
         <md-card-header>
           <md-card-title class="title">{{parfum.brand}}</md-card-title>
           <md-card-subtitle class="desc">{{parfum.name}}</md-card-subtitle>
@@ -18,7 +18,7 @@
           </p>
         </md-card-content>
         <md-card-footer layout="row" layout-align="center center">
-          <button md-button class="cart-btn" (click)="getDetails(parfum)">See More</button>
+          <button md-button class="cart-btn" (click)="getDetails(parfum)">{{ 'PARFUMS.SEEDETAILS' | translate }}</button>
         </md-card-footer>
       </md-card>
     </div>

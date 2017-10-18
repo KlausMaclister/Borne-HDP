@@ -1,18 +1,18 @@
-<h1 md-dialog-title>CONFIRM YOUR ORDER</h1>
+<h1 md-dialog-title>{{ 'SIGNUP.CONFIRMORDER' | translate}}</h1>
 <div md-dialog-content>
   <form #form="ngForm" id="form">
     <div class="form-group">
-      <label for="firstName">First Name</label>
+      <label for="firstName">{{ 'SIGNUP.FN' | translate}}</label>
       <input type="text" class="form-control" id="firstName" aria-describedby="firstName"
-             placeholder="First Name" [(ngModel)]="firstName" required name="firstName">
+             [(ngModel)]="firstName" required name="firstName">
     </div>
     <div class="form-group">
-      <label for="lastName">Last Name</label>
+      <label for="lastName">{{ 'SIGNUP.LN' | translate}}</label>
       <input type="text" class="form-control" id="lastName" aria-describedby="lastName"
-             placeholder="Last Name" [(ngModel)]="lastName" required name="lastName">
+             [(ngModel)]="lastName" required name="lastName">
     </div>
     <div class="form-group">
-      <label for="phone">Phone Number</label>
+      <label for="phone">{{ 'SIGNUP.PHONE' | translate}}</label>
       <input type="text" class="form-control" id="phone" aria-describedby="phone"
              placeholder="+ ..." [(ngModel)]="phone" required name="phone">
     </div>
@@ -20,7 +20,7 @@
     <div class="form-group">
       <label for="email">Email address</label>
       <input type="email" class="form-control" id="email" aria-describedby="email"
-             placeholder="Email" [(ngModel)]="email" required name="email">
+             [(ngModel)]="email" required name="email">
     </div>
     <div class="form-inline mt-4">
       <input type="text" class="form-control mr-3" aria-describedby="helperI1"
@@ -31,9 +31,9 @@
   </form>
 </div>
 <div md-dialog-actions layout="row" layout-align="center center">
-  <button md-raised-button [md-dialog-close] class="mr-3">CANCEL</button>
+  <button md-raised-button [md-dialog-close] class="mr-3">{{'CTA.CANCEL' | translate}}</button>
   <button md-raised-button [md-dialog-close] color="primary"
-          (click)="confirm()" [disabled]="!form.valid">CONFIRM
+          (click)="confirm()" [disabled]="!form.valid">{{'CTA.CONFIRM' | translate}}
   </button>
 </div>
 

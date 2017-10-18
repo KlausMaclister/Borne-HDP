@@ -16,7 +16,7 @@
       <p id="description">{{product.fullDescription}}</p>
       <div layout="column" class="mt-5">
         <div layout="row" layout-align="center center">
-          <p class="mb-0 mr-5 price" flex="15">{{product.dynamicPrice |  number:'2.1-5'}} €</p>
+          <p class="mb-0 mr-5 price" flex="15">{{product.dynamicPrice | number:'2.1-5'}} €</p>
           <md-select placeholder="Quantité" [(ngModel)]="selectedVolume" color="accent" class="ml-2"
                      *ngIf="multipleVolumes" (change)="updateVolumePrice(selectedVolume)" flex>
             <md-option *ngFor="let volume of prices" [value]="volume.price">
@@ -31,9 +31,9 @@
           </md-select>
         </div>
         <div layout="row" layout-align="center center" class="mt-5">
-          <!--<button md-raised-button class="cart-btn mr-2" (click)="bookInShop()">Book in Shop</button>
-          <button md-raised-button class="store-btn mr-2" (click)="goToSignUp()">Delivery to Concierge Hotel</button>-->
-          <button md-raised-button class="cart-btn ml-2" (click)="addProductToCart()">Add To Cart</button>
+          <button md-raised-button class="cart-btn ml-2"
+                  (click)="addProductToCart()">{{ 'DETAILS.ADD2CART' | translate}}
+          </button>
         </div>
       </div>
     </div>

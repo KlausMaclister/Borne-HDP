@@ -1,40 +1,40 @@
 <div layout="column" layout-align="center center" style="height: 100%; margin-bottom: 150px">
   <div class="wrapper-with-shadow" style="width: 650px">
     <div class="form-group mt-5">
-      <label for="hours">How many people will travel :</label>
+      <label for="hours">{{'TUKTUK_SCREEN.PPL' | translate}}</label>
       <select class="form-control" id="travelers" [(ngModel)]="numberOfTravelers">
         <option *ngFor="let traveler of travelers">{{traveler}}</option>
       </select>
       <p style="color: red" *ngIf="numberOfTravelers" class="mt-3">
-        Warning: only adults above 16 years old are
-        allowed</p>
-      <label for="hours">Pick an hour:</label>
+        {{'TUKTUK_SCREEN.WARNING' | translate}}</p>
+      <label for="hours">{{'TUKTUK_SCREEN.HOUR' | translate}}</label>
       <select class="form-control" id="hours" [(ngModel)]="selectedHour">
         <option *ngIf="isMorning">2PM</option>
         <option *ngIf="isAfternoon">6PM</option>
       </select>
-      <div class="form-group row mt-3" >
-        <label for="firstName" class="col-3 col-form-label">First Name</label>
+      <div class="form-group row mt-3">
+        <label for="firstName" class="col-3 col-form-label">{{'SIGNUP.FN' | translate}}</label>
         <div class="col-9">
           <input class="form-control" [(ngModel)]="firstName" type="text" value="First Name" id="firstName">
         </div>
       </div>
       <div class="form-group row mt-3">
-        <label for="lastName" class="col-3 col-form-label">Last Name</label>
+        <label for="lastName" class="col-3 col-form-label">{{'SIGNUP.LN' | translate}}</label>
         <div class="col-9">
           <input class="form-control" [(ngModel)]="lastName" type="text" value="Last Name" id="lastName">
         </div>
       </div>
       <div layout="row" layout-align="center" class="mt-3">
-        <button md-raised-button color="accent" (click)="goBack()" class="mr-1">Cancel</button>
-        <button md-raised-button color="primary" class="ml-1" (click)="bookTuk()" [disabled]="!formIsComplete()">Order TUKTUK
+        <button md-raised-button color="accent" (click)="goBack()" class="mr-1">{{'CTA.CANCEL' | translate}}</button>
+        <button md-raised-button color="primary" class="ml-1"
+                (click)="bookTuk()"
+                [disabled]="!formIsComplete()">{{'CTA.TUKTUK' | translate}}
         </button>
       </div>
       <div class="mt-5" *ngIf="ticketId" layout="row" layout-align="center start">
         <img src="../../../assets/img/valid.svg" class="mr-4" style="height: 40px; margin-top: 3%">
         <div>
-          <p>Hi {{firstName}}, your TukTuk has been ordered </p>
-          <p class="mb-4">He will pick you up at {{selectedHour}} by the reception</p>
+          <p>Hi {{firstName}}, {{'TUKTUK_SCREEN.CONF' | translate}} {{selectedHour}} </p>
         </div>
       </div>
       <div layout="row" layout-align="center center" *ngIf="ticketId">

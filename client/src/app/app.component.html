@@ -13,7 +13,7 @@
     <div class="mr-4" (click)="showCart()" flex="10">
       <div *ngIf="numberOfCartItems > 0" layout="row">
         <img class="cart-icon" src="assets/images/cart.svg">
-        <p class="cart-items ml-2" style="color: white">{{numberOfCartItems}} items</p>
+        <p class="cart-items ml-2" style="color: white">{{numberOfCartItems}} {{ 'CARTICON.ITEMS' | translate}}</p>
       </div>
     </div>
   </div>

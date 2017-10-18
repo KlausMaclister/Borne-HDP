@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {Router} from '@angular/router';
+import {DataBusService} from '../services/data-bus.service';
 
 
 @Component({
@@ -9,21 +10,19 @@ import {Router} from '@angular/router';
 })
 export class LanguageComponent {
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private dataBus: DataBusService) {
   }
-
   setLanguage = (language: string) => {
     switch (language) {
-      case 'US':
+      case 'en':
         localStorage.setItem('language', 'en');
+        this.dataBus.setLanguage('en');
         break;
-      case 'FR':
+      case 'fr':
         localStorage.setItem('language', 'fr');
-        break;
-      case 'ES':
-        localStorage.setItem('language', 'es');
+        this.dataBus.setLanguage('fr');
         break;
     }
-    this.router.navigate(['presentation']);
+    this.router.navigate(['/parfums']);
   }
 }

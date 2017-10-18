@@ -16,7 +16,7 @@ export class LPComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.clear();
+    window.localStorage.clear();
     this.fetcher.getCarousel().subscribe((data: any) => {
       this.carousel = data;
     });
@@ -36,7 +36,7 @@ export class LPComponent implements OnInit {
   }
 
   goToMenu() {
-    this.router.navigate(['/parfums']);
+    this.router.navigate(['/language']);
   }
 
   public carouselTileLoad(evt: any) {
