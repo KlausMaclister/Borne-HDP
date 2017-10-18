@@ -19,7 +19,7 @@ export class FetcherService {
   }
 
   getCarousel() {
-    const carouselUrl = '../assets/jsons/carousel/carousel.json';
+    const carouselUrl = 'assets/jsons/carousel/carousel.json';
     return this.http.get(carouselUrl)
       .map((res) => res.json())
       .catch((error: any) => Observable.throw(error.json().error || 'could not retrieve local image for carousel'));
