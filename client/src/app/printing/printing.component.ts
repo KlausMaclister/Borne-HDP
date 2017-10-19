@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from '@angular/router';
 import {DataBusService} from '../services/data-bus.service';
-// import {ElectronService} from '../../providers/electron.service';
 
 @Component({
   selector: 'app-printing',
@@ -17,12 +16,6 @@ export class PrintingComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private router: Router,
               private dataBus: DataBusService) {
-    /*if (electronService.isElectron()) {
-      console.log(electronService.childProcess);
-      console.log(electronService.ipcRenderer);
-    } else {
-      console.log('Mode web');
-    }*/
   }
 
   ngOnInit() {
@@ -34,21 +27,10 @@ export class PrintingComponent implements OnInit {
         this.lastName = params['name'] || '';
         this.travelers = params['persons'] || '';
       });
-   // this.sendEvent();
     setTimeout(() => {
       window.localStorage.clear();
       this.dataBus.updateCartQuantity(0);
       this.router.navigate(['/']);
     }, 15000);
   }
-
-
-
-  /*sendEvent() {
-    this.electronService.ipcRenderer.on('asynchronous-reply', (event, arg) => {
-      console.log(arg);
-      console.log('received some event in icpRender');
-    })
-    this.electronService.ipcRenderer.send('print', 'ping')
-  }*/
 }

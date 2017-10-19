@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FetcherService} from '../services/fetcher.service';
 import {NgxCarousel} from 'ngx-carousel';
 import {Router} from '@angular/router';
+import {DataBusService} from '../services/data-bus.service';
 
 @Component({
   selector: 'app-lp',
@@ -12,11 +13,11 @@ export class LPComponent implements OnInit {
   carousel: any;
   carouselOne: NgxCarousel;
 
-  constructor(private fetcher: FetcherService, private router: Router) {
+  constructor(private fetcher: FetcherService, private router: Router, private dataBus: DataBusService) {
   }
-
   ngOnInit() {
     window.localStorage.clear();
+    this.dataBus.updateCartQuantity(0);
     this.fetcher.getCarousel().subscribe((data: any) => {
       this.carousel = data;
     });

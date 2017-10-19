@@ -82,7 +82,7 @@ var _a, _b, _c;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__(50);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_bus_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_bus_service__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(70);
@@ -246,7 +246,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__cart_inscription_cart_inscription_component__ = __webpack_require__(116);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inscription_inscription_component__ = __webpack_require__(83);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_data_bus_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_data_bus_service__ = __webpack_require__(34);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CartComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -357,7 +357,7 @@ var _a, _b, _c;
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_data_bus_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_data_bus_service__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_fetcher_service__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__inscription_inscription_component__ = __webpack_require__(83);
@@ -542,7 +542,7 @@ var ItineraryComponent = (function () {
         var _this = this;
         setTimeout(function () {
             _this.router.navigate(['/']);
-        }, 40000);
+        }, 60000);
     };
     ItineraryComponent.prototype.goToMenu = function () {
         window.history.back();
@@ -569,7 +569,7 @@ var _a;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_data_bus_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_data_bus_service__ = __webpack_require__(34);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LanguageComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -625,6 +625,7 @@ var _a, _b;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_fetcher_service__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__services_data_bus_service__ = __webpack_require__(34);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LPComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -638,14 +639,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var LPComponent = (function () {
-    function LPComponent(fetcher, router) {
+    function LPComponent(fetcher, router, dataBus) {
         this.fetcher = fetcher;
         this.router = router;
+        this.dataBus = dataBus;
     }
     LPComponent.prototype.ngOnInit = function () {
         var _this = this;
         window.localStorage.clear();
+        this.dataBus.updateCartQuantity(0);
         this.fetcher.getCarousel().subscribe(function (data) {
             _this.carousel = data;
         });
@@ -681,10 +685,10 @@ LPComponent = __decorate([
         template: __webpack_require__(519),
         styles: [__webpack_require__(432)]
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_fetcher_service__["a" /* FetcherService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_fetcher_service__["a" /* FetcherService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__services_fetcher_service__["a" /* FetcherService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__services_fetcher_service__["a" /* FetcherService */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__services_data_bus_service__["a" /* DataBusService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__services_data_bus_service__["a" /* DataBusService */]) === "function" && _c || Object])
 ], LPComponent);
 
-var _a, _b;
+var _a, _b, _c;
 //# sourceMappingURL=lp.component.js.map
 
 /***/ }),
@@ -739,7 +743,7 @@ var _a;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_fetcher_service__ = __webpack_require__(84);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_data_bus_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_data_bus_service__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_startWith__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_startWith___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_startWith__);
@@ -833,7 +837,7 @@ var _a, _b, _c, _d;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_data_bus_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_data_bus_service__ = __webpack_require__(34);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PrintingComponent; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -847,18 +851,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-// import {ElectronService} from '../../providers/electron.service';
 var PrintingComponent = (function () {
     function PrintingComponent(route, router, dataBus) {
         this.route = route;
         this.router = router;
         this.dataBus = dataBus;
-        /*if (electronService.isElectron()) {
-          console.log(electronService.childProcess);
-          console.log(electronService.ipcRenderer);
-        } else {
-          console.log('Mode web');
-        }*/
     }
     PrintingComponent.prototype.ngOnInit = function () {
         var _this = this;
@@ -869,7 +866,6 @@ var PrintingComponent = (function () {
             _this.lastName = params['name'] || '';
             _this.travelers = params['persons'] || '';
         });
-        // this.sendEvent();
         setTimeout(function () {
             window.localStorage.clear();
             _this.dataBus.updateCartQuantity(0);
@@ -1153,6 +1149,87 @@ __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dyna
 
 /***/ }),
 
+/***/ 34:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__(68);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Models_product__ = __webpack_require__(356);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataBusService; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var DataBusService = (function () {
+    function DataBusService() {
+        this._language = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"]('en');
+        this._selectedProduct = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](new __WEBPACK_IMPORTED_MODULE_2__Models_product__["a" /* ProductModel */]());
+        this._dataIsLoading = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](false);
+        this._cartQuantity = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](0);
+    }
+    DataBusService.prototype.setNewProduct = function (product) {
+        this._selectedProduct.next(product);
+        window.localStorage.setItem('currentProductUrl', product.url);
+    };
+    Object.defineProperty(DataBusService.prototype, "currentProduct", {
+        get: function () {
+            return this._selectedProduct.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataBusService.prototype.setDataLoadingStatus = function (status) {
+        this._dataIsLoading.next(status);
+    };
+    Object.defineProperty(DataBusService.prototype, "dataLoadingStatus", {
+        get: function () {
+            return this._dataIsLoading.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataBusService.prototype.updateCartQuantity = function (value) {
+        console.log('new value ', value);
+        this._cartQuantity.next(value);
+    };
+    Object.defineProperty(DataBusService.prototype, "cartQuantity", {
+        get: function () {
+            return this._cartQuantity.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    DataBusService.prototype.setLanguage = function (lang) {
+        this._language.next(lang);
+    };
+    Object.defineProperty(DataBusService.prototype, "language", {
+        get: function () {
+            return this._language.asObservable();
+        },
+        enumerable: true,
+        configurable: true
+    });
+    return DataBusService;
+}());
+DataBusService = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
+    __metadata("design:paramtypes", [])
+], DataBusService);
+
+//# sourceMappingURL=data-bus.service.js.map
+
+/***/ }),
+
 /***/ 356:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1173,7 +1250,7 @@ var ProductModel = (function () {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_data_bus_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_data_bus_service__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__cart_cart_component__ = __webpack_require__(191);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__(15);
@@ -1290,7 +1367,7 @@ var _a, _b, _c, _d;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2_database__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__parfums_parfums_component__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__details_details_component__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_data_bus_service__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__services_data_bus_service__ = __webpack_require__(34);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__services_fetcher_service__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__inscription_inscription_component__ = __webpack_require__(83);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__cart_cart_component__ = __webpack_require__(191);
@@ -1802,87 +1879,6 @@ var _a;
 
 /***/ }),
 
-/***/ 41:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__ = __webpack_require__(68);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__Models_product__ = __webpack_require__(356);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DataBusService; });
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-var DataBusService = (function () {
-    function DataBusService() {
-        this._language = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"]('en');
-        this._selectedProduct = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](new __WEBPACK_IMPORTED_MODULE_2__Models_product__["a" /* ProductModel */]());
-        this._dataIsLoading = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](false);
-        this._cartQuantity = new __WEBPACK_IMPORTED_MODULE_1_rxjs_BehaviorSubject__["BehaviorSubject"](0);
-    }
-    DataBusService.prototype.setNewProduct = function (product) {
-        this._selectedProduct.next(product);
-        window.localStorage.setItem('currentProductUrl', product.url);
-    };
-    Object.defineProperty(DataBusService.prototype, "currentProduct", {
-        get: function () {
-            return this._selectedProduct.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    DataBusService.prototype.setDataLoadingStatus = function (status) {
-        this._dataIsLoading.next(status);
-    };
-    Object.defineProperty(DataBusService.prototype, "dataLoadingStatus", {
-        get: function () {
-            return this._dataIsLoading.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    DataBusService.prototype.updateCartQuantity = function (value) {
-        console.log('new value ', value);
-        this._cartQuantity.next(value);
-    };
-    Object.defineProperty(DataBusService.prototype, "cartQuantity", {
-        get: function () {
-            return this._cartQuantity.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    DataBusService.prototype.setLanguage = function (lang) {
-        this._language.next(lang);
-    };
-    Object.defineProperty(DataBusService.prototype, "language", {
-        get: function () {
-            return this._language.asObservable();
-        },
-        enumerable: true,
-        configurable: true
-    });
-    return DataBusService;
-}());
-DataBusService = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["c" /* Injectable */])(),
-    __metadata("design:paramtypes", [])
-], DataBusService);
-
-//# sourceMappingURL=data-bus.service.js.map
-
-/***/ }),
-
 /***/ 424:
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2145,7 +2141,7 @@ module.exports = __webpack_require__.p + "US.87de9e126782b9c98185.svg";
 /***/ 511:
 /***/ (function(module, exports) {
 
-module.exports = "<md-progress-bar mode=\"indeterminate\" color=\"warn\" *ngIf=\"dataIsLoading\"></md-progress-bar>\n\n<div *ngIf=\"isNotStoreView()\" style=\"margin-top: 120px\">\n  <div layout=\"row\" class=\"topBar mb-5\" layout-align=\"space-between center\">\n    <div flex=\"10\">\n      <button *ngIf=\"paymentPage\" md-mini-fab style=\"background-color: #1E88E5\" class=\"ml-3\" (click)=\"goBack()\">\n        <img src=\"../assets/img/arrow-back.svg\" style=\"height: 14px\">\n      </button>\n    </div>\n    <div layout=\"row\" flex=\"50\" layout-align=\"center center\">\n      <p style=\"color: white; margin-bottom: 0px;\">Beauty Success</p>\n    </div>\n    <div class=\"mr-4\" (click)=\"showCart()\" flex=\"10\">\n      <div *ngIf=\"numberOfCartItems > 0\" layout=\"row\">\n        <img class=\"cart-icon\" src=\"assets/images/cart.svg\">\n        <p class=\"cart-items ml-2\" style=\"color: white\">{{numberOfCartItems}} {{ 'CARTICON.ITEMS' | translate}}</p>\n      </div>\n    </div>\n  </div>\n\n  <div layout=\"row\" layout-align=\"center center\" class=\"mb-5 mt-5\">\n    <div layout=\"column\" layout-align=\"center center\">\n      <img src=\"assets/images/logo.png\">\n      <h2 id=\"slogan\">Click here and reserve your premium perfumes</h2>\n    </div>\n  </div>\n</div>\n<router-outlet></router-outlet>\n\n\n\n"
+module.exports = "<md-progress-bar mode=\"indeterminate\" color=\"warn\" *ngIf=\"dataIsLoading\"></md-progress-bar>\n\n<div *ngIf=\"isNotStoreView()\" style=\"margin-top: 120px\">\n  <div layout=\"row\" class=\"topBar mb-5\" layout-align=\"space-between center\">\n    <div flex=\"10\">\n      <button *ngIf=\"paymentPage\" md-mini-fab style=\"background-color: #1E88E5\" class=\"ml-3\" (click)=\"goBack()\">\n        <img src=\"../assets/img/arrow-back.svg\" style=\"height: 14px\">\n      </button>\n    </div>\n    <div layout=\"row\" flex=\"50\" layout-align=\"center center\">\n      <p style=\"color: white; margin-bottom: 0px;\">Beauty Success</p>\n    </div>\n    <div class=\"mr-4\" (click)=\"showCart()\" flex=\"10\">\n      <div *ngIf=\"numberOfCartItems > 0\" layout=\"row\">\n        <img class=\"cart-icon\" src=\"assets/images/cart.svg\">\n        <p class=\"cart-items ml-2\" style=\"color: white\">{{numberOfCartItems}} {{ 'CARTICON.ITEMS' | translate}}</p>\n      </div>\n    </div>\n  </div>\n  <div layout=\"row\" layout-align=\"center center\" class=\"mb-5 mt-5\">\n    <div layout=\"column\" layout-align=\"center center\">\n      <img src=\"assets/images/logo.png\">\n      <h2 id=\"slogan\">Click here and reserve your premium perfumes</h2>\n    </div>\n  </div>\n</div>\n<router-outlet></router-outlet>\n\n\n\n"
 
 /***/ }),
 
@@ -2180,7 +2176,7 @@ module.exports = "<div layout=\"row\" layout-align=\"center center\">\n  <div *n
 /***/ 516:
 /***/ (function(module, exports) {
 
-module.exports = "<h1 md-dialog-title>{{data.product.product}}</h1>\n<div md-dialog-content>\n  <p class=\"price-alert\" *ngIf=\"isEligibleForRefund()\">{{ 'SIGNUP.VATMESSAGE' | translate}}</p>\n  <p style=\"color: red\">{{ 'SIGNUP.MISSINGPRODUCT' | translate}}</p>\n  <p>Price: {{data.product.dynamicPrice | number:'1.0-2'}} €</p>\n  <form #form=\"ngForm\" id=\"form\">\n    <div class=\"form-group\">\n      <label for=\"firstName\">{{ 'SIGNUP.FN' | translate}}</label>\n      <input type=\"text\" class=\"form-control\" id=\"firstName\" aria-describedby=\"firstName\"\n             [(ngModel)]=\"firstName\" required name=\"firstName\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"lastName\">{{ 'SIGNUP.LN' | translate}}</label>\n      <input type=\"text\" class=\"form-control\" id=\"lastName\" aria-describedby=\"lastName\"\n             [(ngModel)]=\"lastName\" required name=\"lastName\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"phone\">{{ 'SIGNUP.PHONE' | translate}}</label>\n      <input type=\"text\" class=\"form-control\" id=\"phone\" aria-describedby=\"phone\"\n             placeholder=\"+ ...\" [(ngModel)]=\"phone\" required name=\"phone\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"email\">Email</label>\n      <input type=\"email\" class=\"form-control\" id=\"email\" aria-describedby=\"email\"\n             [(ngModel)]=\"email\" required name=\"email\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"passport\">{{ 'SIGNUP.PASSEPORT' | translate}}</label>\n      <input type=\"text\" class=\"form-control\" id=\"passport\" aria-describedby=\"passport\"\n             [(ngModel)]=\"passportNumber\" required name=\"passport\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"passport\">{{ 'SIGNUP.DOB' | translate}}</label>\n      <my-date-picker name=\"dob\" [options]=\"myDatePickerOptions\"\n                      [(ngModel)]=\"model\" required></my-date-picker>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"sel1\">{{ 'SIGNUP.NATIONALITY' | translate}}</label>\n      <select class=\"form-control\" id=\"sel1\" name=\"sel1\" [(ngModel)]=\"country\" (change)=\"checkContinent(country)\">\n        <option *ngFor=\"let country of allCountries\">{{country}}</option>\n      </select>\n    </div>\n    <div class=\"form-inline mt-4\">\n      <input type=\"text\" class=\"form-control mr-3\" aria-describedby=\"helperI1\"\n             [(ngModel)]=\"HN1\" name=\"helperI1\" style=\"width: 40px\">\n      <input type=\"text\" class=\"form-control\" aria-describedby=\"helperI2\"\n             [(ngModel)]=\"HN2\" name=\"helperI2\" style=\"width: 40px\">\n    </div>\n    <div>\n      <div id=\"card-element\"></div>\n      <div id=\"card-errors\"></div>\n    </div>\n  </form>\n</div>\n<div md-dialog-actions layout=\"row\" layout-align=\"center center\">\n  <div layout=\"row\" *ngIf=\"notPaying; else payingLoader\">\n    <button md-raised-button type=\"submit\" id=\"submit-btn\" [class.disabled]=\"!form.valid\"\n            (click)=\"handlePayment()\">\n      {{ 'CTA.PAY' | translate}}\n    </button>\n    <button md-button [md-dialog-close] class=\"ml-3\">{{ 'CTA.CANCEL' | translate}}\n    </button>\n  </div>\n  <ng-template #payingLoader layout=\"row\" layout-align=\"center center\">\n    <div class=\"spinner\"></div>\n  </ng-template>\n</div>\n"
+module.exports = "<h1 md-dialog-title>{{data.product.product}}</h1>\n<div md-dialog-content>\n  <p class=\"price-alert\">{{ 'SIGNUP.VATMESSAGE' | translate}}</p>\n  <p style=\"color: red\">{{ 'SIGNUP.MISSINGPRODUCT' | translate}}</p>\n  <p>Price: {{data.product.dynamicPrice | number:'1.0-2'}} €</p>\n  <form #form=\"ngForm\" id=\"form\">\n    <div class=\"form-group\">\n      <label for=\"firstName\">{{ 'SIGNUP.FN' | translate}}</label>\n      <input type=\"text\" class=\"form-control\" id=\"firstName\" aria-describedby=\"firstName\"\n             [(ngModel)]=\"firstName\" required name=\"firstName\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"lastName\">{{ 'SIGNUP.LN' | translate}}</label>\n      <input type=\"text\" class=\"form-control\" id=\"lastName\" aria-describedby=\"lastName\"\n             [(ngModel)]=\"lastName\" required name=\"lastName\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"phone\">{{ 'SIGNUP.PHONE' | translate}}</label>\n      <input type=\"text\" class=\"form-control\" id=\"phone\" aria-describedby=\"phone\"\n             placeholder=\"+ ...\" [(ngModel)]=\"phone\" required name=\"phone\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"email\">Email</label>\n      <input type=\"email\" class=\"form-control\" id=\"email\" aria-describedby=\"email\"\n             [(ngModel)]=\"email\" required name=\"email\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"passport\">{{ 'SIGNUP.PASSEPORT' | translate}}</label>\n      <input type=\"text\" class=\"form-control\" id=\"passport\" aria-describedby=\"passport\"\n             [(ngModel)]=\"passportNumber\" required name=\"passport\">\n    </div>\n    <div class=\"form-group\">\n      <label for=\"passport\">{{ 'SIGNUP.DOB' | translate}}</label>\n      <my-date-picker name=\"dob\" [options]=\"myDatePickerOptions\"\n                      [(ngModel)]=\"model\" required></my-date-picker>\n    </div>\n    <div class=\"form-group\">\n      <label for=\"sel1\">{{ 'SIGNUP.NATIONALITY' | translate}}</label>\n      <select class=\"form-control\" id=\"sel1\" name=\"sel1\" [(ngModel)]=\"country\" (change)=\"checkContinent(country)\">\n        <option *ngFor=\"let country of allCountries\">{{country}}</option>\n      </select>\n    </div>\n    <div class=\"form-inline mt-4\">\n      <input type=\"text\" class=\"form-control mr-3\" aria-describedby=\"helperI1\"\n             [(ngModel)]=\"HN1\" name=\"helperI1\" style=\"width: 40px\">\n      <input type=\"text\" class=\"form-control\" aria-describedby=\"helperI2\"\n             [(ngModel)]=\"HN2\" name=\"helperI2\" style=\"width: 40px\">\n    </div>\n    <div>\n      <div id=\"card-element\"></div>\n      <div id=\"card-errors\"></div>\n    </div>\n  </form>\n</div>\n<div md-dialog-actions layout=\"row\" layout-align=\"center center\">\n  <div layout=\"row\" *ngIf=\"notPaying; else payingLoader\">\n    <button md-raised-button type=\"submit\" id=\"submit-btn\" [class.disabled]=\"!form.valid\"\n            (click)=\"handlePayment()\">\n      {{ 'CTA.PAY' | translate}}\n    </button>\n    <button md-button [md-dialog-close] class=\"ml-3\">{{ 'CTA.CANCEL' | translate}}\n    </button>\n  </div>\n  <ng-template #payingLoader layout=\"row\" layout-align=\"center center\">\n    <div class=\"spinner\"></div>\n  </ng-template>\n</div>\n"
 
 /***/ }),
 

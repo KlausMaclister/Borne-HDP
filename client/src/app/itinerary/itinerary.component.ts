@@ -11,14 +11,12 @@ export class ItineraryComponent implements OnInit {
   public myDatePickerOptions: IMyDpOptions = {
     dateFormat: 'dd.mm.yyyy',
   };
-  constructor(private router: Router) {
-
-  }
+  constructor(private router: Router) {}
 
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/']);
-    }, 40000);
+    }, 60000);
   }
 
   goToMenu() {
