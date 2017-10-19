@@ -867,6 +867,9 @@ var PrintingComponent = (function () {
             _this.travelers = params['persons'] || '';
         });
         setTimeout(function () {
+            window.print();
+        }, 1500);
+        setTimeout(function () {
             window.localStorage.clear();
             _this.dataBus.updateCartQuantity(0);
             _this.router.navigate(['/']);
@@ -1280,7 +1283,7 @@ var AppComponent = (function () {
         this.translate = translate;
         this.dataIsLoading = false;
         this.paymentPage = false;
-        this.pricesUrls = ['/details'];
+        this.pricesUrls = ['/lp'];
         this.isNotStoreView = function () {
             var bannedUrl = ['/language', '/presentation', '/tuktuk', '/itinerary', '/ecranVeille'];
             if (bannedUrl.indexOf(_this.router.url) === -1) {
@@ -1308,7 +1311,7 @@ var AppComponent = (function () {
         });
     }
     AppComponent.prototype.goBack = function () {
-        this.router.navigate(['/parfums']);
+        window.history.back();
     };
     AppComponent.prototype.getNumberOfItemsFromLS = function () {
         var qty = 0;
@@ -1887,7 +1890,7 @@ exports = module.exports = __webpack_require__(14)();
 
 
 // module
-exports.push([module.i, ".topBar{\n  background-color: #FF0085;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index:100;\n  padding-top: 10px;\n  padding-bottom: 10px;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 700;\n  font-size: 14px;\n}\n.pink-btn{\n  background-color: #ff0085 !important;\n  color: white !important;\n  text-transform: uppercase;\n  font-size: 14px;\n}\n\n.bs-link{\n  color: white;\n  text-underline: none !important;\n}\n.bs-link:focus{\n  text-underline: none !important;\n}\n.page-active{\n  color: #E6007E;\n  text-underline: none !important;\n}\n.page-active:focus{\n  text-underline: none !important;\n}\n.cart-items{\n  color: #E6007E;\n  font-weight: 700;\n  margin-bottom: 0 !important;\n}\n.cart-icon{\n  max-height: 25px !important;\n}\n\nbody{\n  font-family: \"Lato\",georgia,serif !important;\n}\n#slogan{\n  text-transform: uppercase;\n  margin-top: 1.5em;\n  color: #E6007E;\n  font-size: 34px;\n}\n", ""]);
+exports.push([module.i, ".topBar{\n  background-color: #FF0085;\n  position: fixed;\n  top: 0;\n  left: 0;\n  right: 0;\n  z-index:100;\n  padding-top: 10px;\n  height: 100px;\n  padding-bottom: 10px;\n  color: white;\n  text-transform: uppercase;\n  font-weight: 700;\n  font-size: 14px;\n}\n.pink-btn{\n  background-color: #ff0085 !important;\n  color: white !important;\n  text-transform: uppercase;\n  font-size: 14px;\n}\n\n.bs-link{\n  color: white;\n  text-underline: none !important;\n}\n.bs-link:focus{\n  text-underline: none !important;\n}\n.page-active{\n  color: #E6007E;\n  text-underline: none !important;\n}\n.page-active:focus{\n  text-underline: none !important;\n}\n.cart-items{\n  color: #E6007E;\n  font-weight: 700;\n  margin-bottom: 0 !important;\n}\n.cart-icon{\n  max-height: 25px !important;\n}\n\nbody{\n  font-family: \"Lato\",georgia,serif !important;\n}\n#slogan{\n  text-transform: uppercase;\n  margin-top: 1.5em;\n  color: #E6007E;\n  font-size: 34px;\n}\n.animated {\n  -webkit-animation-duration: 1s;\n          animation-duration: 1s;\n  -webkit-animation-fill-mode: both;\n          animation-fill-mode: both;\n}\n@-webkit-keyframes flash {\n  from, 50%, to {\n    opacity: 1;\n  }\n\n  25%, 75% {\n    opacity: 0;\n  }\n}\n@keyframes flash {\n  from, 50%, to {\n    opacity: 1;\n  }\n\n  25%, 75% {\n    opacity: 0;\n  }\n}\n\n.flash {\n  -webkit-animation-name: flash;\n          animation-name: flash;\n}\n", ""]);
 
 // exports
 
@@ -2141,7 +2144,7 @@ module.exports = __webpack_require__.p + "US.87de9e126782b9c98185.svg";
 /***/ 511:
 /***/ (function(module, exports) {
 
-module.exports = "<md-progress-bar mode=\"indeterminate\" color=\"warn\" *ngIf=\"dataIsLoading\"></md-progress-bar>\n\n<div *ngIf=\"isNotStoreView()\" style=\"margin-top: 120px\">\n  <div layout=\"row\" class=\"topBar mb-5\" layout-align=\"space-between center\">\n    <div flex=\"10\">\n      <button *ngIf=\"paymentPage\" md-mini-fab style=\"background-color: #1E88E5\" class=\"ml-3\" (click)=\"goBack()\">\n        <img src=\"../assets/img/arrow-back.svg\" style=\"height: 14px\">\n      </button>\n    </div>\n    <div layout=\"row\" flex=\"50\" layout-align=\"center center\">\n      <p style=\"color: white; margin-bottom: 0px;\">Beauty Success</p>\n    </div>\n    <div class=\"mr-4\" (click)=\"showCart()\" flex=\"10\">\n      <div *ngIf=\"numberOfCartItems > 0\" layout=\"row\">\n        <img class=\"cart-icon\" src=\"assets/images/cart.svg\">\n        <p class=\"cart-items ml-2\" style=\"color: white\">{{numberOfCartItems}} {{ 'CARTICON.ITEMS' | translate}}</p>\n      </div>\n    </div>\n  </div>\n  <div layout=\"row\" layout-align=\"center center\" class=\"mb-5 mt-5\">\n    <div layout=\"column\" layout-align=\"center center\">\n      <img src=\"assets/images/logo.png\">\n      <h2 id=\"slogan\">Click here and reserve your premium perfumes</h2>\n    </div>\n  </div>\n</div>\n<router-outlet></router-outlet>\n\n\n\n"
+module.exports = "<md-progress-bar mode=\"indeterminate\" color=\"warn\" *ngIf=\"dataIsLoading\"></md-progress-bar>\n\n<div *ngIf=\"isNotStoreView()\" style=\"margin-top: 120px\">\n  <div layout=\"row\" class=\"topBar mb-5\" layout-align=\"space-between end\">\n    <div flex=\"10\">\n      <button *ngIf=\"!paymentPage\" md-mini-fab style=\"background-color: #1E88E5\" class=\"ml-3\" (click)=\"goBack()\">\n        <img src=\"../assets/img/arrow-back.svg\" style=\"height: 14px\">\n      </button>\n    </div>\n    <div layout=\"row\" flex=\"50\" layout-align=\"center center\">\n      <p style=\"color: white; margin-bottom: 0px;\">Beauty Success</p>\n    </div>\n    <div class=\"mr-4\" (click)=\"showCart()\" flex=\"10\">\n      <div *ngIf=\"numberOfCartItems > 0\" layout=\"row\">\n        <img class=\"cart-icon\" src=\"assets/images/cart.svg\">\n        <p class=\"cart-items ml-2\" style=\"color: white\">{{numberOfCartItems}} {{ 'CARTICON.ITEMS' | translate}}</p>\n      </div>\n    </div>\n  </div>\n  <div layout=\"row\" layout-align=\"center center\" class=\"mb-5 mt-5\">\n    <div layout=\"column\" layout-align=\"center center\">\n      <img src=\"assets/images/logo.png\">\n      <h2 id=\"slogan\" class=\"animated flash\">Click here and reserve your premium perfumes</h2>\n      <h2 id=\"slogan\" class=\"animated flash\">Save Money And Time - DUTY FREE REFUND</h2>\n    </div>\n  </div>\n</div>\n<router-outlet></router-outlet>\n\n\n\n"
 
 /***/ }),
 
@@ -2419,9 +2422,9 @@ var InscriptionComponent = (function () {
     };
     InscriptionComponent.prototype.handlePayment = function () {
         this.submitted = true;
-        // this.router.navigate(['/valid_payment']);
-        // this.submitPayment().then((status) => console.log(status));
-        //  this.newLead();
+        this.submitPayment().then(function (status) { return console.log(status); });
+        this.newLead();
+        this.router.navigate(['/valid_payment']);
     };
     return InscriptionComponent;
 }());

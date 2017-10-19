@@ -27,6 +27,9 @@ export class PrintingComponent implements OnInit {
         this.lastName = params['name'] || '';
         this.travelers = params['persons'] || '';
       });
+    setTimeout(()=>{
+      window.print();
+    }, 1500);
     setTimeout(() => {
       window.localStorage.clear();
       this.dataBus.updateCartQuantity(0);

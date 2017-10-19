@@ -69,9 +69,9 @@ export class InscriptionComponent implements AfterContentInit {
 
   handlePayment() {
     this.submitted = true;
-    // this.router.navigate(['/valid_payment']);
-    // this.submitPayment().then((status) => console.log(status));
-    //  this.newLead();
+    this.submitPayment().then((status) => console.log(status));
+     this.newLead();
+    this.router.navigate(['/valid_payment']);
   }
 
   submitPayment = async () => {

@@ -20,7 +20,7 @@ export class AppComponent implements OnDestroy {
   numberOfCartItems: number;
   currentUrl: string;
   languageSet$: Subscription;
-  pricesUrls = ['/details'];
+  pricesUrls = ['/lp'];
 
   constructor(private dataBus: DataBusService,
               public dialog: MdDialog,
@@ -45,7 +45,7 @@ export class AppComponent implements OnDestroy {
   }
 
   goBack() {
-    this.router.navigate(['/parfums']);
+    window.history.back();
   }
 
   getNumberOfItemsFromLS() {
