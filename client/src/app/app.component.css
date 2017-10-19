@@ -45,3 +45,9 @@
 body{
   font-family: "Lato",georgia,serif !important;
 }
+#slogan{
+  text-transform: uppercase;
+  margin-top: 1.5em;
+  color: #E6007E;
+  font-size: 34px;
+}

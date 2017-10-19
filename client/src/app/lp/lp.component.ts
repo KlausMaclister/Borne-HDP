@@ -31,7 +31,6 @@ export class LPComponent implements OnInit {
       load: 2,
       touch: true,
       easing: 'ease'
-
     };
   }
 

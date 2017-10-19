@@ -65,16 +65,11 @@ export class InscriptionComponent implements AfterContentInit {
         this.notPaying = !this.notPaying;
       });
   }
-  grabCC = () => {
-    const anchor = document.getElementById('card-element');
-    const inputs = anchor.childNodes;
-    console.log(inputs);
-  }
+
 
   handlePayment() {
     this.submitted = true;
-    this.grabCC();
-    //this.router.navigate(['/valid_payment']);
+    // this.router.navigate(['/valid_payment']);
     // this.submitPayment().then((status) => console.log(status));
     //  this.newLead();
   }
